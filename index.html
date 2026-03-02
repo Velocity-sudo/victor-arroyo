@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Víctor Arroyo — Brand Manual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0A0E1A;
+            color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ── HERO ── */
+        .brand-hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #050A14 0%, #101B31 40%, #0D1A2E 70%, #050A14 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden
+        }
+
+        .brand-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(242, 122, 48, 0.08) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .brand-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 174, 239, 0.06) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .brand-hero>* {
+            position: relative;
+            z-index: 2
+        }
+
+        .brand-hero .badge {
+            font-size: .6rem;
+            letter-spacing: .35em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            padding: 8px 20px;
+            border-radius: 100px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .brand-hero h1 {
+            font-size: 5.5rem;
+            font-weight: 800;
+            line-height: .88;
+            text-transform: uppercase;
+            letter-spacing: -.03em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFFFFF 30%, rgba(255, 255, 255, .7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .brand-hero .tagline {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .5);
+            max-width: 500px;
+            line-height: 1.7
+        }
+
+        .brand-hero .accent-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #F27A30, #00AEEF);
+            margin: 32px auto 0;
+            border-radius: 2px
+        }
+
+        .version-badge {
+            margin-top: 48px;
+            font-size: .55rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .25);
+            border: 1px solid rgba(255, 255, 255, .08);
+            padding: 6px 16px;
+            border-radius: 100px
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 100px 5%;
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .section-dark {
+            background: #0A0E1A
+        }
+
+        .section-navy {
+            background: linear-gradient(180deg, #0D1526 0%, #101B31 50%, #0D1526 100%)
+        }
+
+        .section-title {
+            font-size: .6rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: #F27A30;
+            margin-bottom: 12px;
+            font-weight: 500
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            margin-bottom: 48px;
+            line-height: 1.05;
+            color: #fff
+        }
+
+        .section h3 {
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-top: 56px;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .section p {
+            font-weight: 300;
+            color: rgba(255, 255, 255, .55);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 24px
+        }
+
+        /* ── IDENTITY ── */
+        .identity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 48px
+        }
+
+        .identity-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 28px 24px;
+            backdrop-filter: blur(10px);
+            transition: all .4s ease
+        }
+
+        .identity-card:hover {
+            border-color: rgba(242, 122, 48, .2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(242, 122, 48, .05)
+        }
+
+        .identity-card .label {
+            font-size: .55rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 8px
+        }
+
+        .identity-card .value {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #fff
+        }
+
+        /* ── PILLAR CARDS ── */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px
+        }
+
+        .pillar-card {
+            background: linear-gradient(145deg, rgba(16, 27, 49, .8), rgba(13, 26, 46, .6));
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 40px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all .4s ease
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F27A30, #00AEEF);
+            opacity: 0;
+            transition: opacity .4s ease
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
+            border-color: rgba(242, 122, 48, .15)
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1
+        }
+
+        .pillar-card .pillar-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px
+        }
+
+        .pillar-card .pillar-num {
+            font-size: .55rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: #F27A30;
+            margin-bottom: 12px;
+            font-weight: 500
+        }
+
+        .pillar-card .pillar-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff
+        }
+
+        .pillar-card .pillar-desc {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .45);
+            font-weight: 300;
+            line-height: 1.6
+        }
+
+        /* ── COLORS ── */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px
+        }
+
+        .color-swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .06);
+            background: rgba(255, 255, 255, .02);
+            transition: all .3s ease
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, .3)
+        }
+
+        .color-swatch .swatch-block {
+            height: 110px;
+            display: flex;
+            align-items: flex-end;
+            padding: 14px
+        }
+
+        .color-swatch .swatch-info {
+            padding: 14px 16px
+        }
+
+        .color-swatch .swatch-name {
+            font-size: .82rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #fff
+        }
+
+        .color-swatch .swatch-hex {
+            font-size: .72rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .4);
+            font-family: 'Courier New', monospace
+        }
+
+        .color-swatch .swatch-use {
+            font-size: .65rem;
+            color: rgba(255, 255, 255, .3);
+            margin-top: 4px
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            gap: 32px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .type-meta {
+            min-width: 140px
+        }
+
+        .type-meta .weight-name {
+            font-size: .7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .type-meta .weight-value {
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .25);
+            font-family: 'Courier New', monospace
+        }
+
+        .type-sample {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            color: #fff
+        }
+
+        /* ── COMPONENTS ── */
+        .component-preview {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 20px 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap
+        }
+
+        .preview-button {
+            display: inline-block;
+            padding: 16px 36px;
+            font-size: .85rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            text-decoration: none;
+            transition: all .3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            border-radius: 8px
+        }
+
+        .preview-button.primary {
+            background: linear-gradient(135deg, #F27A30, #E06520);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(242, 122, 48, .25)
+        }
+
+        .preview-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(242, 122, 48, .4)
+        }
+
+        .preview-button.outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .2)
+        }
+
+        .preview-button.outline:hover {
+            border-color: #00AEEF;
+            color: #00AEEF;
+            box-shadow: 0 8px 32px rgba(0, 174, 239, .15)
+        }
+
+        .preview-button.cyan {
+            background: linear-gradient(135deg, #00AEEF, #0090C8);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0, 174, 239, .2)
+        }
+
+        /* ── CARDS ── */
+        .preview-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all .4s ease;
+            max-width: 280px;
+            cursor: pointer
+        }
+
+        .preview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: transparent;
+            transition: background .4s ease
+        }
+
+        .preview-card:hover {
+            border-color: rgba(242, 122, 48, .2);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .3)
+        }
+
+        .preview-card:hover::before {
+            background: linear-gradient(90deg, #F27A30, #00AEEF)
+        }
+
+        .preview-card .card-label {
+            font-size: .55rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 10px
+        }
+
+        .preview-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff
+        }
+
+        .preview-card p {
+            font-size: .82rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.6
+        }
+
+        /* ── METRICS ── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 24px 0 40px
+        }
+
+        .metric-card {
+            background: linear-gradient(145deg, rgba(242, 122, 48, .08), rgba(242, 122, 48, .02));
+            border: 1px solid rgba(242, 122, 48, .1);
+            border-radius: 16px;
+            padding: 32px 20px;
+            text-align: center;
+            transition: all .3s ease
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(242, 122, 48, .25)
+        }
+
+        .metric-card .metric-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #F27A30;
+            margin-bottom: 4px
+        }
+
+        .metric-card .metric-label {
+            font-size: .6rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4)
+        }
+
+        /* ── VOICE ── */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0
+        }
+
+        .voice-card {
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(10px)
+        }
+
+        .voice-card.do-card {
+            background: rgba(0, 174, 239, .06);
+            border: 1px solid rgba(0, 174, 239, .12)
+        }
+
+        .voice-card.dont-card {
+            background: rgba(242, 60, 60, .05);
+            border: 1px solid rgba(242, 60, 60, .1)
+        }
+
+        .voice-card h4 {
+            font-size: .65rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            margin-bottom: 16px
+        }
+
+        .voice-card ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .voice-card ul li {
+            font-size: .88rem;
+            font-weight: 300;
+            padding: 6px 0;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        /* ── DON'TS ── */
+        .donts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px
+        }
+
+        .dont-item {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            transition: all .3s ease
+        }
+
+        .dont-item:hover {
+            border-color: rgba(242, 60, 60, .15)
+        }
+
+        .dont-item .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .dont-item .dont-text {
+            font-size: .82rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .dont-item .dont-reason {
+            font-size: .7rem;
+            color: rgba(255, 255, 255, .3);
+            margin-top: 4px
+        }
+
+        /* ── OVERLAY ── */
+        .overlay-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0 40px
+        }
+
+        .overlay-sample {
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://assets.cdn.filesafe.space/nu8T6I0OQzV2imOKMvEG/media/6754525653bb954255a60597.jpeg');
+            background-size: cover;
+            background-position: center
+        }
+
+        .overlay-sample .overlay-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0
+        }
+
+        .overlay-sample .overlay-text {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center
+        }
+
+        .overlay-sample .overlay-text .name {
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 4px
+        }
+
+        .overlay-sample .overlay-text .ov-value {
+            font-size: .6rem;
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        /* ── TOKENS ── */
+        .code-block {
+            background: rgba(0, 0, 0, .4);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 16px;
+            padding: 32px;
+            font-family: 'Courier New', monospace;
+            font-size: .75rem;
+            line-height: 1.9;
+            overflow-x: auto;
+            margin: 24px 0 40px;
+            backdrop-filter: blur(10px)
+        }
+
+        .code-block .comment {
+            color: rgba(255, 255, 255, .25)
+        }
+
+        .code-block .prop {
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .code-block .val {
+            color: #F27A30
+        }
+
+        /* ── QUOTE ── */
+        .brand-quote {
+            padding: 80px 5%;
+            text-align: center;
+            background: linear-gradient(160deg, #101B31, #0D1A2E);
+            position: relative;
+            overflow: hidden
+        }
+
+        .brand-quote::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 122, 48, .06) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .brand-quote blockquote {
+            font-size: 1.6rem;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(255, 255, 255, .6);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2
+        }
+
+        .brand-quote .quote-author {
+            margin-top: 24px;
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #F27A30;
+            font-weight: 500;
+            position: relative;
+            z-index: 2
+        }
+
+        /* ── RULE BOX ── */
+        .rule-box {
+            background: rgba(242, 122, 48, .05);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin-bottom: 40px;
+            border-left: 3px solid #F27A30
+        }
+
+        .rule-box p {
+            font-size: .85rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, .6);
+            margin: 0
+        }
+
+        /* ── FOOTER ── */
+        .brand-footer {
+            background: #050A14;
+            text-align: center;
+            padding: 60px 5%;
+            border-top: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .brand-footer .footer-text {
+            font-size: .6rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .2)
+        }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #F27A30, #00AEEF);
+            margin: 0 auto 48px;
+            border-radius: 2px
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px) {
+            .brand-hero h1 {
+                font-size: 3rem
+            }
+
+            .section {
+                padding: 60px 5%
+            }
+
+            .section h2 {
+                font-size: 1.8rem
+            }
+
+            .identity-grid,
+            .pillar-grid {
+                grid-template-columns: 1fr
+            }
+
+            .color-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .overlay-grid,
+            .donts-grid,
+            .voice-grid {
+                grid-template-columns: 1fr
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .type-row {
+                flex-direction: column;
+                gap: 8px
+            }
+
+            .type-sample {
+                font-size: 1.3rem
+            }
+
+            .brand-quote blockquote {
+                font-size: 1.2rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="brand-hero">
+        <p class="badge">Brand Identity Manual · v1.0</p>
+        <h1>Víctor<br>Arroyo</h1>
+        <p class="tagline">Construyendo patrimonio inmobiliario para inversionistas latinos en Estados Unidos.</p>
+        <div class="accent-line"></div>
+        <span class="version-badge">Marzo 2026</span>
+    </section>
+
+    <!-- ═══════ IDENTITY ═══════ -->
+    <section class="section-navy" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">01 — Identidad</p>
+            <h2>¿Quién es Víctor Arroyo?</h2>
+
+            <div class="identity-grid">
+                <div class="identity-card">
+                    <p class="label">Nombre</p>
+                    <p class="value">Víctor Arroyo</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Tagline</p>
+                    <p class="value" style="font-weight:300;font-style:italic;">"Multiplica tu capital, construye tu
+                        libertad."</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Handle</p>
+                    <p class="value">@victormultiplica</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Industria</p>
+                    <p class="value">Inversión Inmobiliaria · Construcción · Mentoría</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Personalidad</p>
+                    <p class="value">Directo · Confiable · Aspiracional · Práctico · Latino</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Web</p>
+                    <p class="value">victormultiplica.com</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Empresas</p>
+                    <p class="value">Ae Point Inc · Vjmas Realty · Nexus Inmobiliario</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Ubicación</p>
+                    <p class="value">Florida Central, EE.UU.</p>
+                </div>
+                <div class="identity-card">
+                    <p class="label">Audiencia</p>
+                    <p class="value">Inversionistas latinos con $50k+ en capital</p>
+                </div>
+            </div>
+
+            <h3>Pilares de Marca</h3>
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <p class="pillar-icon">🏗️</p>
+                    <p class="pillar-num">Pilar 01</p>
+                    <p class="pillar-name">Construcción</p>
+                    <p class="pillar-desc">Terrenos · Desarrollo · Patrimonio tangible en Florida</p>
+                </div>
+                <div class="pillar-card">
+                    <p class="pillar-icon">📈</p>
+                    <p class="pillar-num">Pilar 02</p>
+                    <p class="pillar-name">Inversión</p>
+                    <p class="pillar-desc">ROI de 6 cifras · Ingresos pasivos · Eficiencia fiscal</p>
+                </div>
+                <div class="pillar-card">
+                    <p class="pillar-icon">🤝</p>
+                    <p class="pillar-num">Pilar 03</p>
+                    <p class="pillar-name">Servicio</p>
+                    <p class="pillar-desc">Servicio llave en mano · $3k entrada · +100 inversionistas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ QUOTE BREAK ═══════ -->
+    <section class="brand-quote">
+        <blockquote>"No heredas problemas. Construyes soluciones. Invertir construyendo es tener el control del terreno
+            al retorno."</blockquote>
+        <p class="quote-author">— Víctor Arroyo</p>
+    </section>
+
+    <!-- ═══════ COLORS ═══════ -->
+    <section class="section-dark" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">02 — Paleta de Colores</p>
+            <h2>Autoridad con energía</h2>
+            <p>La base es un navy profundo que transmite autoridad y sofisticación corporativa. El naranja inyecta la
+                energía de un líder de acción — es el color de los CTAs, la urgencia y la ambición. El cian aporta el
+                matiz técnico y moderno que conecta con el mundo inmobiliario y la innovación.</p>
+
+            <h3>Colores Primarios</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:#101B31;">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Primary</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Navy Profundo</p>
+                        <p class="swatch-hex">#101B31</p>
+                        <p class="swatch-use">Fondos hero, secciones, base</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:#050A14;">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Primary</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Deep Dark</p>
+                        <p class="swatch-hex">#050A14</p>
+                        <p class="swatch-use">Footer, gradientes profundos</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:#FFFFFF;border-bottom:1px solid rgba(255,255,255,.1);">
+                        <span style="color:#101B31;font-size:.65rem;font-weight:300">Primary</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Blanco Puro</p>
+                        <p class="swatch-hex">#FFFFFF</p>
+                        <p class="swatch-use">Texto, títulos, sobre oscuro</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Color de Acento — Naranja Energía</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:linear-gradient(135deg,#F27A30,#E06520);">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Accent</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Naranja Víctor</p>
+                        <p class="swatch-hex">#F27A30</p>
+                        <p class="swatch-use">CTA, botones, highlights</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:#E06520;">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Accent Deep</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Naranja Profundo</p>
+                        <p class="swatch-hex">#E06520</p>
+                        <p class="swatch-use">Hover de botones, énfasis</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block"
+                        style="background:rgba(242,122,48,.1);border:1px solid rgba(242,122,48,.2);">
+                        <span style="color:#F27A30;font-size:.65rem;font-weight:300">Accent Glow</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Naranja Glow</p>
+                        <p class="swatch-hex">rgba(242,122,48,.1)</p>
+                        <p class="swatch-use">Fondos cards, badges, glow</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Secundario — Cian Blueprint</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:linear-gradient(135deg,#00AEEF,#0090C8);">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Secondary</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Cian Nexus</p>
+                        <p class="swatch-hex">#00AEEF</p>
+                        <p class="swatch-use">Líneas técnicas, blueprint, segundos CTA</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block" style="background:#4299E1;">
+                        <span style="color:#fff;font-size:.65rem;font-weight:300">Secondary</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Azul Intermedio</p>
+                        <p class="swatch-hex">#4299E1</p>
+                        <p class="swatch-use">Links, checkmarks, detalles</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-block"
+                        style="background:rgba(0,174,239,.08);border:1px solid rgba(0,174,239,.15);">
+                        <span style="color:#00AEEF;font-size:.65rem;font-weight:300">Secondary Glow</span>
+                    </div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Cian Glow</p>
+                        <p class="swatch-hex">rgba(0,174,239,.08)</p>
+                        <p class="swatch-use">Fondos técnicos, hover</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <p><strong>Regla de uso:</strong> El naranja es el color de <em>acción y energía</em> — solo para CTAs,
+                    botones y elementos de urgencia (máx 15-20% de presencia visual). El cian es el color <em>técnico y
+                        de confianza</em> — para detalles, líneas, blueprints y secundarios. El navy es el lienzo que
+                    domina. Nunca invertir la jerarquía.</p>
+            </div>
+
+            <h3>Overlays Fotográficos</h3>
+            <div class="overlay-grid">
+                <div class="overlay-sample">
+                    <div class="overlay-layer"
+                        style="background:linear-gradient(180deg,rgba(16,27,49,.7),rgba(5,10,20,.85));"></div>
+                    <div class="overlay-text">
+                        <p class="name">Hero Standard</p>
+                        <p class="ov-value">Navy gradient 70-85%</p>
+                    </div>
+                </div>
+                <div class="overlay-sample">
+                    <div class="overlay-layer" style="background:rgba(5,10,20,.75);"></div>
+                    <div class="overlay-text">
+                        <p class="name">Section Background</p>
+                        <p class="ov-value">rgba(5,10,20,.75)</p>
+                    </div>
+                </div>
+                <div class="overlay-sample">
+                    <div class="overlay-layer"
+                        style="background:linear-gradient(135deg,rgba(242,122,48,.15),rgba(16,27,49,.85));"></div>
+                    <div class="overlay-text">
+                        <p class="name">CTA Hero (Warm)</p>
+                        <p class="ov-value">Orange glow + navy</p>
+                    </div>
+                </div>
+                <div class="overlay-sample">
+                    <div class="overlay-layer"
+                        style="background:linear-gradient(135deg,rgba(0,174,239,.1),rgba(16,27,49,.85));"></div>
+                    <div class="overlay-text">
+                        <p class="name">Technical Section</p>
+                        <p class="ov-value">Cyan glow + navy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ TYPOGRAPHY ═══════ -->
+    <section class="section-navy" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">03 — Tipografía</p>
+            <h2>Outfit — La única fuente</h2>
+            <p>Toda la comunicación de Víctor Arroyo usa exclusivamente <strong style="color:#fff">Outfit</strong> de
+                Google Fonts. Es geométrica, moderna y con personalidad — perfecta para un líder en inversiones
+                inmobiliarias.</p>
+
+            <div style="margin-top:40px">
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">Extra Light</p>
+                        <p class="weight-value">200</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:200">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">Light</p>
+                        <p class="weight-value">300</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:300">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">Regular</p>
+                        <p class="weight-value">400</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:400">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">Medium</p>
+                        <p class="weight-value">500</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:500">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">SemiBold</p>
+                        <p class="weight-value">600</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:600">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row">
+                    <div class="type-meta">
+                        <p class="weight-name">Bold</p>
+                        <p class="weight-value">700</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:700">Construye tu patrimonio — Nexus</p>
+                </div>
+                <div class="type-row" style="border-bottom:none">
+                    <div class="type-meta">
+                        <p class="weight-name">Extra Bold</p>
+                        <p class="weight-value">800</p>
+                    </div>
+                    <p class="type-sample" style="font-weight:800">Construye tu patrimonio — Nexus</p>
+                </div>
+            </div>
+
+            <h3>Escala Tipográfica</h3>
+            <div style="margin-top:24px">
+                <p style="font-size:3.5rem;font-weight:700;line-height:1;margin-bottom:6px;color:#fff">3.5rem — Headline
+                    Hero</p>
+                <p
+                    style="font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px">
+                    font-weight: 700 · letter-spacing: -0.03em</p>
+                <p
+                    style="font-size:2.5rem;font-weight:600;line-height:.95;text-transform:uppercase;margin-bottom:6px;color:#fff">
+                    2.5rem — Section Title</p>
+                <p
+                    style="font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px">
+                    font-weight: 600 · uppercase</p>
+                <p style="font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.55);margin-bottom:6px">1.1rem — Body
+                    text. El dinero trabaja, tú supervisas. Florida no espera.</p>
+                <p
+                    style="font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px">
+                    font-weight: 300 · line-height: 1.8</p>
+                <p
+                    style="font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-bottom:6px">
+                    .7REM — SUBTITLE LABEL</p>
+                <p style="font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.2em;text-transform:uppercase">
+                    font-weight: 500 · uppercase · letter-spacing: 0.15em</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ COMPONENTS ═══════ -->
+    <section class="section-dark" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">04 — Componentes</p>
+            <h2>Sistema de diseño</h2>
+
+            <h3>Botones</h3>
+            <div class="component-preview">
+                <button class="preview-button primary">Registrarme Ahora</button>
+                <button class="preview-button cyan">Agendar Llamada</button>
+                <button class="preview-button outline">Ver Más</button>
+            </div>
+
+            <h3>Pillar Card</h3>
+            <div class="component-preview" style="justify-content:flex-start">
+                <div class="preview-card">
+                    <p class="card-label">Servicio</p>
+                    <h4>Inicio del Proceso</h4>
+                    <p>$3,000 para que el equipo inicie la búsqueda y compra de tu terreno en Florida.</p>
+                </div>
+                <div class="preview-card">
+                    <p class="card-label">Core</p>
+                    <h4>Construcción Delegada</h4>
+                    <p>$20,000 — El equipo de Víctor gestiona el proyecto completo. Tú decides, ellos construyen.</p>
+                </div>
+            </div>
+
+            <h3>Metrics Card</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <p class="metric-number">+100</p>
+                    <p class="metric-label">Inversionistas</p>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-number">20%</p>
+                    <p class="metric-label">ROI Mínimo</p>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-number">130K</p>
+                    <p class="metric-label">Seguidores IG</p>
+                </div>
+                <div class="metric-card">
+                    <p class="metric-number">30%</p>
+                    <p class="metric-label">Ahorro Fiscal</p>
+                </div>
+            </div>
+
+            <h3>Divider Line</h3>
+            <div class="component-preview">
+                <div style="width:100%;text-align:center">
+                    <div
+                        style="width:60px;height:2px;background:linear-gradient(90deg,#F27A30,#00AEEF);margin:0 auto;border-radius:2px">
+                    </div>
+                    <p style="font-size:.65rem;color:rgba(255,255,255,.25);margin-top:16px">60px × 2px ·
+                        gradient(#F27A30 → #00AEEF) · margin: 48px auto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ VOICE ═══════ -->
+    <section class="section-navy" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">05 — Tono de Voz</p>
+            <h2>Cómo habla Víctor</h2>
+            <p>Idioma principal: <strong style="color:#fff">Español</strong>. Dirigido a latinos en EE.UU. Perspectiva
+                en primera persona. Tono directo, práctico y cercano — como un hermano que ya caminó el camino y te está
+                abriendo la puerta.</p>
+
+            <h3>Frases de la Marca</h3>
+            <div
+                style="margin:24px 0 40px;padding:32px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px">
+                <p
+                    style="font-size:1.4rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,.6);margin-bottom:16px">
+                    "Con solo $50,000 en cash puedes empezar tu primera construcción en Florida."</p>
+                <p
+                    style="font-size:1.15rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,.5);margin-bottom:16px">
+                    "No heredas problemas. Construyes soluciones."</p>
+                <p
+                    style="font-size:1.15rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,.5);margin-bottom:16px">
+                    "Tu dinero trabaja, tú supervisas."</p>
+                <p
+                    style="font-size:1.15rem;font-weight:300;font-style:italic;line-height:1.6;color:rgba(255,255,255,.5)">
+                    "Multiplica tu capital, construye tu libertad."</p>
+            </div>
+
+            <h3>Vocabulario</h3>
+            <div class="voice-grid">
+                <div class="voice-card do-card">
+                    <h4 style="color:#00AEEF">✅ Sí usar</h4>
+                    <ul>
+                        <li>Patrimonio, Libertad financiera, Ingresos pasivos</li>
+                        <li>Construir, Multiplicar, Invertir</li>
+                        <li>Sistema probado, Paso a paso, Sin experiencia previa</li>
+                        <li>Florida, Terreno, ROI, Retorno real</li>
+                        <li>Mentoría, Acompañamiento, Equipo</li>
+                    </ul>
+                </div>
+                <div class="voice-card dont-card">
+                    <h4 style="color:#E04040">❌ No usar</h4>
+                    <ul>
+                        <li>Hazte rico rápido, Dinero fácil</li>
+                        <li>Garantizado, Sin riesgo, 100% seguro</li>
+                        <li>Guru, Coach genérico, Influencer</li>
+                        <li>Descuento, Barato, Ganga</li>
+                        <li>Lenguaje americanizado genérico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Fórmula de Copy</h3>
+            <div class="rule-box">
+                <p><strong>Estructura obligatoria:</strong> Hook de curiosidad/FOMO → Historia de transformación →
+                    Prueba social con números reales → CTA directo. Siempre con urgencia basada en mercado real (no
+                    miedo artificial). Keywords: <em>"libertad financiera", "construir en Florida", "ingresos pasivos",
+                        "sin experiencia previa", "primer terreno", "patrimonio familiar", "reducir impuestos"</em>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ DON'TS ═══════ -->
+    <section class="section-dark" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">06 — Usos Incorrectos</p>
+            <h2>Lo que no hacer</h2>
+
+            <div class="donts-grid">
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Usar el naranja como color dominante de fondo</p>
+                        <p class="dont-reason">Es un color de acción, no de base. Solo para CTAs y highlights.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Fondos claros o blancos como base</p>
+                        <p class="dont-reason">La marca es dark-first. El navy profundo es el lienzo siempre.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Tipografías serif u otras fuentes</p>
+                        <p class="dont-reason">Outfit es la única fuente autorizada.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Prometer "dinero fácil" o "sin riesgo"</p>
+                        <p class="dont-reason">La marca se basa en transparencia y números reales.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Fotos sin overlay navy oscuro</p>
+                        <p class="dont-reason">El texto necesita contraste sobre fotos de propiedades.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Urgencia genérica tipo "pocos cupos"</p>
+                        <p class="dont-reason">Solo urgencia específica: lotes reales, fechas concretas, ROI real.</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Border-radius menor a 12px</p>
+                        <p class="dont-reason">El look es moderno y suave (16px mínimo).</p>
+                    </div>
+                </div>
+                <div class="dont-item">
+                    <span class="icon">🚫</span>
+                    <div>
+                        <p class="dont-text">Mezclar cian y naranja en el mismo elemento</p>
+                        <p class="dont-reason">Solo juntos en gradientes de divider/línea, nunca en texto o botón.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ TOKENS ═══════ -->
+    <section class="section-navy" style="max-width:100%;padding:0">
+        <div class="section" style="padding-top:100px;padding-bottom:100px">
+            <p class="section-title">07 — Design Tokens</p>
+            <h2>CSS Variables</h2>
+            <p>Copiar y pegar en cualquier hoja de estilo para mantener consistencia visual en GHL, landing pages y
+                comunicaciones:</p>
+
+            <div class="code-block">
+                <span class="comment">/* ── Víctor Arroyo — Design Tokens ── */</span><br>
+                <span class="prop">:root</span> {<br>
+                &nbsp;&nbsp;<span class="comment">/* Colores Primarios */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-navy:</span> <span class="val">#101B31</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-deep-dark:</span> <span class="val">#050A14</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-dark-bg:</span> <span class="val">#0A0E1A</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-white:</span> <span class="val">#FFFFFF</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Acento — Naranja */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-orange:</span> <span class="val">#F27A30</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-orange-deep:</span> <span class="val">#E06520</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-orange-glow:</span> <span
+                    class="val">rgba(242,122,48,.1)</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Secundario — Cian */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-cyan:</span> <span class="val">#00AEEF</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-blue-mid:</span> <span class="val">#4299E1</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-cyan-glow:</span> <span class="val">rgba(0,174,239,.08)</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Texto */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-text-main:</span> <span class="val">#FFFFFF</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-text-body:</span> <span
+                    class="val">rgba(255,255,255,.55)</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-text-muted:</span> <span
+                    class="val">rgba(255,255,255,.3)</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Overlays */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-overlay-hero:</span> <span
+                    class="val">linear-gradient(180deg,rgba(16,27,49,.7),rgba(5,10,20,.85))</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-overlay-strong:</span> <span
+                    class="val">rgba(5,10,20,.75)</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Tipografía */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-font:</span> <span class="val">'Outfit', sans-serif</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-light:</span> <span class="val">300</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-regular:</span> <span class="val">400</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-medium:</span> <span class="val">500</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-semi:</span> <span class="val">600</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-bold:</span> <span class="val">700</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-weight-extra:</span> <span class="val">800</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Espaciado */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-radius:</span> <span class="val">16px</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-radius-sm:</span> <span class="val">8px</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-section-padding:</span> <span class="val">100px 5%</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-max-content:</span> <span class="val">1100px</span>;<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment">/* Transiciones */</span><br>
+                &nbsp;&nbsp;<span class="prop">--va-transition:</span> <span class="val">all 0.3s ease</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-shadow-card:</span> <span class="val">0 20px 60px
+                    rgba(0,0,0,.3)</span>;<br>
+                &nbsp;&nbsp;<span class="prop">--va-shadow-orange:</span> <span class="val">0 8px 32px
+                    rgba(242,122,48,.25)</span>;<br>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="brand-footer">
+        <p class="footer-text">Manual de Marca v1.0 · Víctor Arroyo · Marzo 2026 · Sales Velocity System</p>
+    </footer>
+
+</body>
+
+</html>
