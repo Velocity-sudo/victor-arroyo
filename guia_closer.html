@@ -556,40 +556,55 @@
 
         .hero .overview-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 10px;
             margin-top: 40px;
-            max-width: 800px
+            max-width: 900px
         }
 
         .hero .overview-item {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            padding: 24px 18px;
             text-align: center;
-            padding: 16px 8px;
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid rgba(255, 255, 255, .06);
-            border-radius: 10px
+            transition: all .3s ease;
+            cursor: pointer
+        }
+
+        .hero .overview-item:hover {
+            background: rgba(242, 122, 48, .12);
+            border-color: rgba(242, 122, 48, .5);
+            transform: translateY(-3px)
         }
 
         .hero .overview-item .num {
-            font-size: 1.4rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #F27A30
         }
 
         .hero .overview-item .txt {
-            font-size: .55rem;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .12em;
             text-transform: uppercase;
-            letter-spacing: .1em;
-            opacity: .4;
-            margin-top: 4px
+            color: rgba(255, 255, 255, .5);
+            margin-top: 6px
         }
 
         .hero .overview-item.highlight {
-            border-color: rgba(242, 122, 48, .3);
-            background: rgba(242, 122, 48, .06)
+            border-color: rgba(242, 122, 48, .4);
+            background: rgba(242, 122, 48, .08)
         }
 
         /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .hero .overview-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
         @media(max-width:768px) {
             section {
                 padding: 80px 6% 60px
@@ -646,8 +661,8 @@
         <a href="#fase2">2 · Problema</a>
         <a href="#fase3">3 · Pre-cierre</a>
         <a href="#fase4">4 · Vehículo (Deck)</a>
-        <a href="#preclose2">🔒 Pre-cierre del Cierre</a>
-        <a href="#cierre">💰 Cierre</a>
+        <a href="#preclose2">5 · Pre-cierre del Cierre</a>
+        <a href="#cierre">6 · Cierre</a>
         <a href="#objeciones">⚡ Objeciones</a>
         <a href="#resultados">✅ Resultados</a>
     </nav>
@@ -656,27 +671,31 @@
     <section class="hero section-dark" id="overview">
         <div class="phase-label">Guía de Ventas · Víctor Arroyo</div>
         <h1>Proceso de <span class="accent">Venta</span></h1>
-        <p class="subtitle">4 fases + pre-cierre del cierre + cierre. Sigue el orden exacto.</p>
+        <p class="subtitle">6 etapas. Sigue el orden exacto.</p>
 
         <div class="overview-grid">
-            <div class="overview-item">
+            <div class="overview-item" data-target="fase1">
                 <div class="num">1</div>
                 <div class="txt">Romper<br>el Hielo</div>
             </div>
-            <div class="overview-item">
+            <div class="overview-item" data-target="fase2">
                 <div class="num">2</div>
                 <div class="txt">Encontrar<br>Problema</div>
             </div>
-            <div class="overview-item">
+            <div class="overview-item" data-target="fase3">
                 <div class="num">3</div>
                 <div class="txt">Pre-cierre</div>
             </div>
-            <div class="overview-item highlight">
+            <div class="overview-item highlight" data-target="fase4">
                 <div class="num">4</div>
                 <div class="txt">Vehículo<br>📊 Deck</div>
             </div>
-            <div class="overview-item">
-                <div class="num">💰</div>
+            <div class="overview-item" data-target="preclose2">
+                <div class="num">5</div>
+                <div class="txt">Pre-cierre<br>del Cierre</div>
+            </div>
+            <div class="overview-item" data-target="cierre">
+                <div class="num">6</div>
                 <div class="txt">Cierre</div>
             </div>
         </div>
@@ -714,29 +733,29 @@
                 <td>22–36 min</td>
             </tr>
             <tr>
-                <td><strong>🔒 Pre-cierre del Cierre</strong></td>
+                <td><strong>5 — Pre-cierre del Cierre</strong></td>
                 <td>"¿Te hace sentido?" → Confirmar antes de ir al precio</td>
                 <td>36–38 min</td>
             </tr>
             <tr>
-                <td><strong>💰 Cierre</strong></td>
+                <td><strong>6 — Cierre</strong></td>
                 <td>Precio, compromiso, garantía. 3 resultados posibles.</td>
                 <td>38–50 min</td>
             </tr>
         </table>
 
         <div class="flow">
-            <div class="flow-step done-step">Romper Hielo</div>
+            <div class="flow-step done-step">1. Romper Hielo</div>
             <div class="flow-arrow">→</div>
-            <div class="flow-step done-step">Problema</div>
+            <div class="flow-step done-step">2. Problema</div>
             <div class="flow-arrow">→</div>
-            <div class="flow-step done-step">Pre-cierre</div>
+            <div class="flow-step done-step">3. Pre-cierre</div>
             <div class="flow-arrow">→</div>
-            <div class="flow-step active-step">📊 Deck</div>
+            <div class="flow-step active-step">4. 📊 Deck</div>
             <div class="flow-arrow">→</div>
-            <div class="flow-step done-step">🔒 Pre-cierre</div>
+            <div class="flow-step done-step">5. Pre-cierre²</div>
             <div class="flow-arrow">→</div>
-            <div class="flow-step done-step">💰 Cierre</div>
+            <div class="flow-step done-step">6. 💰 Cierre</div>
         </div>
     </section>
 
@@ -1057,7 +1076,7 @@
 
     <!-- ■■■ PRE-CIERRE DEL CIERRE ■■■ -->
     <section class="section-dark" id="preclose2">
-        <div class="phase-label">🔒 Entre el Vehículo y el Cierre</div>
+        <div class="phase-label">FASE 5</div>
         <h2>Pre-cierre del Cierre <span class="thin">· 36–38 min</span></h2>
         <p class="subtitle">Después de mostrar todo el vehículo. ANTES de hablar de precio. Confirma que le hace
             sentido.</p>
@@ -1100,8 +1119,8 @@
 
     <!-- ■■■ CIERRE ■■■ -->
     <section class="section-light" id="cierre">
-        <div class="phase-label">Cierre</div>
-        <h2>Así es como trabajamos <span class="thin">· 38–50 min</span></h2>
+        <div class="phase-label">FASE 6</div>
+        <h2>Cierre · Así es como trabajamos <span class="thin">· 38–50 min</span></h2>
         <p class="subtitle">Ya confirmó que le hace sentido. Ahora presenta la inversión. Asume siempre la venta.</p>
 
         <div class="tip-box">
@@ -1163,7 +1182,7 @@
     <section class="section-dark" id="objeciones">
         <div class="phase-label">Objeciones</div>
         <h2>Derribar Objeciones</h2>
-        <p class="subtitle">Si hiciste bien las fases 1-3, la mayoría ya están resueltas. Si aparecen, usa esto:</p>
+        <p class="subtitle">Si hiciste bien las etapas 1-4, la mayoría ya están resueltas. Si aparecen, usa esto:</p>
 
         <div class="result-card">
             <h4>😶 "Necesito pensarlo"</h4>
@@ -1270,37 +1289,80 @@
     </footer>
 
     <script>
-        const tabs = document.querySelectorAll('.tabs-nav a');
-        const sections = [];
-        tabs.forEach(t => {
-            const id = t.getAttribute('href').replace('#', '');
-            const el = document.getElementById(id);
-            if (el) sections.push({ el, tab: t });
-        });
+        (function () {
+            const tabs = document.querySelectorAll('.tabs-nav a');
+            const allSections = document.querySelectorAll('body > section');
 
-        function updateTabs() {
-            const scrollY = window.scrollY + 120;
-            let active = sections[0];
-            sections.forEach(s => {
-                if (s.el.offsetTop <= scrollY) active = s;
-            });
-            tabs.forEach(t => t.classList.remove('active'));
-            if (active) {
-                active.tab.classList.add('active');
-                active.tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-        }
-
-        window.addEventListener('scroll', updateTabs, { passive: true });
-
-        tabs.forEach(t => {
-            t.addEventListener('click', e => {
-                e.preventDefault();
+            // Map tab hrefs to section IDs
+            const tabMap = {};
+            tabs.forEach(t => {
                 const id = t.getAttribute('href').replace('#', '');
-                const el = document.getElementById(id);
-                if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+                tabMap[id] = t;
             });
-        });
+
+            // Group sections: each tab-target section + any following sections until the next tab-target
+            const sectionGroups = {};
+            let currentGroup = null;
+
+            allSections.forEach(sec => {
+                const id = sec.getAttribute('id');
+                if (id && tabMap[id]) {
+                    currentGroup = id;
+                    sectionGroups[id] = [sec];
+                } else if (currentGroup) {
+                    // This section has no tab, group it with the previous tab section
+                    sectionGroups[currentGroup].push(sec);
+                }
+            });
+
+            function showTab(targetId) {
+                // Hide ALL sections
+                allSections.forEach(s => s.style.display = 'none');
+
+                // Show sections for the target group
+                if (sectionGroups[targetId]) {
+                    sectionGroups[targetId].forEach(s => s.style.display = '');
+                }
+
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                if (tabMap[targetId]) {
+                    tabMap[targetId].classList.add('active');
+                    // Scroll tab into view in the horizontal nav
+                    tabMap[targetId].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+
+            // Attach click handlers to top tabs
+            tabs.forEach(t => {
+                t.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('href').replace('#', '');
+                    showTab(id);
+                    history.replaceState(null, '', '#' + id);
+                });
+            });
+
+            // Attach click handlers to overview cards
+            document.querySelectorAll('.overview-item[data-target]').forEach(card => {
+                card.addEventListener('click', function () {
+                    const id = this.getAttribute('data-target');
+                    showTab(id);
+                    history.replaceState(null, '', '#' + id);
+                });
+            });
+
+            // Handle initial hash on page load
+            const hash = window.location.hash.replace('#', '');
+            if (hash && sectionGroups[hash]) {
+                showTab(hash);
+            } else {
+                showTab('overview');
+            }
+        })();
     </script>
 
 </body>
