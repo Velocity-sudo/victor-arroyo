@@ -88,6 +88,52 @@
             transform: scale(1.4)
         }
 
+        /* ── PHASE TABS ── */
+        .phase-tabs {
+            position: fixed;
+            top: 52px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: rgba(10, 14, 26, .95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            padding: 0 2%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none
+        }
+
+        .phase-tabs::-webkit-scrollbar {
+            display: none
+        }
+
+        .phase-tabs a {
+            font-size: .62rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            text-decoration: none;
+            padding: 14px 16px;
+            font-weight: 500;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: all .3s;
+            font-family: 'Outfit', sans-serif
+        }
+
+        .phase-tabs a:hover {
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .phase-tabs a.active {
+            color: #F27A30;
+            border-bottom-color: #F27A30
+        }
+
         /* ── HERO ── */
         .hero {
             min-height: 100vh;
@@ -96,7 +142,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 5% 80px;
+            padding: 140px 5% 80px;
             background: linear-gradient(160deg, #050A14 0%, #101B31 40%, #0D1A2E 70%, #050A14 100%);
             position: relative;
             overflow: hidden
@@ -722,6 +768,17 @@
                 padding-left: 28px
             }
 
+            .phase-tabs {
+                top: 44px;
+                gap: 0;
+                padding: 0
+            }
+
+            .phase-tabs a {
+                font-size: .52rem;
+                padding: 10px 10px
+            }
+
             .hero-stats {
                 flex-direction: column;
                 gap: 16px
@@ -743,6 +800,19 @@
         <div class="logo"><span>Víctor Arroyo</span> · Guía del Closer</div>
         <div class="badge">Confidencial</div>
     </div>
+
+    <!-- ═══ PHASE TABS ═══ -->
+    <nav class="phase-tabs" id="phaseTabs">
+        <a href="#checklist" class="active">📋 Checklist</a>
+        <a href="#fase-c">C · Clarify</a>
+        <a href="#fase-l">L · Label</a>
+        <a href="#fase-o">O · Pain</a>
+        <a href="#fase-s">S · Sell</a>
+        <a href="#fase-e">E · Explain</a>
+        <a href="#fase-r">R · Reinforce</a>
+        <a href="#objeciones">⚡ Objeciones</a>
+        <a href="#post-pago">✅ Post-Pago</a>
+    </nav>
 
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="top">
@@ -889,7 +959,8 @@
                 <div class="door-label">🔒 Cerrar Puerta #2 — Tiempo para Decidir</div>
                 <p>"Y una cosa más — si al final de esta llamada lo que te muestro tiene sentido para tu situación,
                     <strong>¿estás en posición de tomar una decisión hoy?</strong> No te estoy pidiendo que digas que sí
-                    — te estoy preguntando si puedes decidir."</p>
+                    — te estoy preguntando si puedes decidir."
+                </p>
                 <p><em>→ Si dice "necesito pensarlo":</em></p>
                 <p>"Entiendo. ¿Qué necesitarías saber para poder decidir hoy? Porque todo lo que necesitas lo vamos a
                     cubrir en esta llamada."</p>
@@ -935,7 +1006,8 @@
                     <strong>[capital]</strong> ahorrado, y estás cansado de que ese dinero no trabaje por ti. Me dices
                     que si en <strong>[timeframe]</strong> no ves un cambio real, vas a seguir en el mismo ciclo. Y lo
                     que te trajo aquí hoy fue <strong>[detonante]</strong>. <strong>¿Lo estoy entendiendo
-                        bien?</strong>"</p>
+                        bien?</strong>"
+                </p>
             </div>
 
             <div class="tip-box">
@@ -1076,14 +1148,16 @@
                 <div class="script-label">Objeción Preventiva — Tiempo</div>
                 <p>"Una cosa que la gente me pregunta siempre es cuánto tiempo les va a tomar. La respuesta honesta:
                     <strong>una llamada de 20 minutos a la semana conmigo</strong>. Tú no vas a la obra. Yo soy tu
-                    gerente de proyecto."</p>
+                    gerente de proyecto."
+                </p>
             </div>
 
             <div class="script-box">
                 <div class="script-label">Objeción Preventiva — Capital</div>
                 <p>"Otra pregunta que surge siempre es el capital. Aquí hay algo contraintuitivo: el problema no es que
                     no tengas suficiente — es que no sabes cuánto necesitas realmente. Déjame mostrarte los números
-                    <strong>con tu capital específico</strong>."</p>
+                    <strong>con tu capital específico</strong>."
+                </p>
             </div>
 
             <div class="script-box">
@@ -1091,7 +1165,8 @@
                 <p>"Y la última — que todo el mundo tiene aunque no siempre la dice: '¿Cómo sé que esto es real?'
                     <strong>[Nombre del proyecto], [zona], [mes/año]</strong>, costo $[X], vendido en $[X], ganancia
                     neta $[X] en [N] meses. Está en registros públicos del condado. <strong>Lo puedes verificar hoy
-                        mismo.</strong>"</p>
+                        mismo.</strong>"
+                </p>
             </div>
 
             <div class="rule">
@@ -1170,7 +1245,8 @@
                 <p>"Porque no estamos hablando de un gasto — estamos hablando del costo de <strong>aprender a hacer una
                         operación</strong> que va a generar retornos cada 6-8 meses."</p>
                 <p>"Y te digo algo: si no tienes $3,000 para empezar, ¿cómo vas a tener $50,000 para invertir?
-                    <strong>Los $3,000 son tu filtro de compromiso.</strong>"</p>
+                    <strong>Los $3,000 son tu filtro de compromiso.</strong>"
+                </p>
             </div>
         </div>
 
@@ -1275,6 +1351,53 @@
     <footer class="footer">
         <p>Víctor Arroyo · Guía del Closer v1.0 · Marzo 2026 · Confidencial</p>
     </footer>
+
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll('.phase-tabs a');
+            const sections = [];
+            tabs.forEach(t => {
+                const id = t.getAttribute('href').slice(1);
+                const el = document.getElementById(id);
+                if (el) sections.push({ id, el, tab: t });
+            });
+
+            // Smooth scroll on click
+            tabs.forEach(t => {
+                t.addEventListener('click', e => {
+                    e.preventDefault();
+                    const id = t.getAttribute('href').slice(1);
+                    const target = document.getElementById(id);
+                    if (target) {
+                        const offset = 110;
+                        const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Scroll spy
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const scrollY = window.scrollY + 130;
+                        let current = sections[0];
+                        for (const s of sections) {
+                            if (scrollY >= s.el.offsetTop) current = s;
+                        }
+                        tabs.forEach(t => t.classList.remove('active'));
+                        if (current) {
+                            current.tab.classList.add('active');
+                            current.tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        })();
+    </script>
 
 </body>
 
