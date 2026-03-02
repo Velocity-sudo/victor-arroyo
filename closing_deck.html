@@ -83,6 +83,179 @@
             background: linear-gradient(160deg, rgba(0, 174, 239, .05), #0A0E1A 60%)
         }
 
+        /* ── WHITE BACKGROUND SLIDES ── */
+        .bg-white {
+            background: #FFFFFF !important;
+            color: #0A0E1A !important
+        }
+
+        .bg-white .pre {
+            color: rgba(10, 14, 26, .35) !important;
+            border-color: rgba(10, 14, 26, .1) !important;
+            background: rgba(10, 14, 26, .03) !important
+        }
+
+        .bg-white h1 {
+            background: linear-gradient(135deg, #0A0E1A 30%, rgba(10, 14, 26, .7)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important
+        }
+
+        .bg-white h2 {
+            color: #0A0E1A !important
+        }
+
+        .bg-white h2 .thin {
+            color: rgba(10, 14, 26, .35) !important
+        }
+
+        .bg-white h2 .accent {
+            color: #F27A30 !important
+        }
+
+        .bg-white .subtitle {
+            color: rgba(10, 14, 26, .5) !important
+        }
+
+        .bg-white .big-stat {
+            color: #F27A30 !important
+        }
+
+        .bg-white .stat-label {
+            color: rgba(10, 14, 26, .4) !important
+        }
+
+        .bg-white .stat-card {
+            background: rgba(242, 122, 48, .04) !important;
+            border-color: rgba(242, 122, 48, .12) !important
+        }
+
+        .bg-white .stat-card .s-num {
+            color: #F27A30 !important
+        }
+
+        .bg-white .stat-card .s-lbl {
+            color: rgba(10, 14, 26, .35) !important
+        }
+
+        .bg-white .pillar {
+            background: rgba(10, 14, 26, .02) !important;
+            border-color: rgba(10, 14, 26, .08) !important
+        }
+
+        .bg-white .pillar:hover {
+            border-color: rgba(242, 122, 48, .2) !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .06) !important
+        }
+
+        .bg-white .pillar .p-num {
+            color: #F27A30 !important
+        }
+
+        .bg-white .pillar .p-title {
+            color: #0A0E1A !important
+        }
+
+        .bg-white .pillar .p-desc {
+            color: rgba(10, 14, 26, .45) !important
+        }
+
+        .bg-white .step .step-title {
+            color: #0A0E1A !important
+        }
+
+        .bg-white .step .step-desc {
+            color: rgba(10, 14, 26, .45) !important
+        }
+
+        .bg-white .step-arrow {
+            color: rgba(10, 14, 26, .15) !important
+        }
+
+        .bg-white .roi-table th {
+            color: rgba(10, 14, 26, .35) !important;
+            border-bottom-color: rgba(10, 14, 26, .1) !important
+        }
+
+        .bg-white .roi-table td {
+            color: rgba(10, 14, 26, .6) !important;
+            border-bottom-color: rgba(10, 14, 26, .06) !important
+        }
+
+        .bg-white .roi-table td:first-child {
+            color: #0A0E1A !important
+        }
+
+        .bg-white .roi-table .highlight {
+            color: #F27A30 !important
+        }
+
+        .bg-white .roi-table tr:hover td {
+            background: rgba(10, 14, 26, .02) !important
+        }
+
+        .bg-white .big-quote {
+            color: rgba(10, 14, 26, .5) !important
+        }
+
+        .bg-white .quote-author {
+            color: #F27A30 !important
+        }
+
+        .bg-white .orb-orange {
+            background: radial-gradient(circle, rgba(242, 122, 48, .04) 0%, transparent 70%) !important
+        }
+
+        .bg-white .orb-cyan {
+            background: radial-gradient(circle, rgba(0, 174, 239, .03) 0%, transparent 70%) !important
+        }
+
+        /* Override ALL inline styles in white slides */
+        .bg-white [style*="color:rgba(255,255,255"] {
+            color: rgba(10, 14, 26, .4) !important
+        }
+
+        .bg-white [style*="color:#fff"],
+        .bg-white [style*="color: #fff"] {
+            color: #0A0E1A !important
+        }
+
+        .bg-white [style*="color:#f44"],
+        .bg-white [style*="color: #f44"] {
+            color: #dc2626 !important
+        }
+
+        .bg-white [style*="color:#F27A30"],
+        .bg-white [style*="color: #F27A30"] {
+            color: #F27A30 !important
+        }
+
+        .bg-white [style*="color:#00AEEF"],
+        .bg-white [style*="color: #00AEEF"] {
+            color: #00AEEF !important
+        }
+
+        .bg-white [style*="background:rgba(242,60,60"] {
+            background: rgba(220, 38, 38, .06) !important;
+            border-color: rgba(220, 38, 38, .15) !important
+        }
+
+        .bg-white [style*="background:rgba(255,255,255,.03)"] {
+            background: rgba(10, 14, 26, .03) !important;
+            border-color: rgba(10, 14, 26, .08) !important
+        }
+
+        .bg-white [style*="background:rgba(0,174,239"] {
+            background: rgba(0, 174, 239, .05) !important;
+            border-color: rgba(0, 174, 239, .12) !important
+        }
+
+        .bg-white [style*="background:rgba(242,122,48"] {
+            background: rgba(242, 122, 48, .05) !important;
+            border-color: rgba(242, 122, 48, .15) !important
+        }
+
         /* Decorative orbs */
         .orb {
             position: absolute;
@@ -571,7 +744,7 @@
         </div>
 
         <!-- ═══ SLIDE 2: PROBLEMA ═══ -->
-        <div class="slide bg-dark" data-slide="2">
+        <div class="slide bg-white" data-slide="2">
             <div class="orb orb-orange"></div>
             <div class="pre">El Problema Real</div>
             <h2>Tu dinero está <span class="accent">perdiendo valor</span> <span class="thin">cada día que pasa</span>
@@ -637,7 +810,7 @@
         </div>
 
         <!-- ═══ SLIDE 4: ANALOGÍA DEL BANCO ═══ -->
-        <div class="slide bg-dark" data-slide="4">
+        <div class="slide bg-white" data-slide="4">
             <div class="orb orb-orange"></div>
             <div class="pre">El Secreto</div>
             <h2>Usa el Dinero <span class="accent">del Banco</span> <span class="thin">para Construir Tu
@@ -704,7 +877,7 @@
         </div>
 
         <!-- ═══ SLIDE 6: CASO DE ESTUDIO ═══ -->
-        <div class="slide bg-dark" data-slide="6">
+        <div class="slide bg-white" data-slide="6">
             <div class="orb orb-orange"></div>
             <div class="pre">Números Reales</div>
             <h2>Caso de <span class="accent">Estudio</span></h2>
@@ -771,7 +944,7 @@
         </div>
 
         <!-- ═══ SLIDE 8: INVERSIÓN ═══ -->
-        <div class="slide bg-dark" data-slide="8">
+        <div class="slide bg-white" data-slide="8">
             <div class="orb orb-orange"></div>
             <div class="pre">Tu Inversión</div>
             <h2>Empieza con <span class="accent">$3,000</span> <span class="thin">Hoy</span></h2>
