@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Ventas — Víctor Arroyo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0A0E1A;
+            color: #fff;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ── TOP BAR ── */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 14, 26, .95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .top-bar .logo {
+            font-size: .7rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4);
+            font-weight: 500
+        }
+
+        .top-bar .logo span {
+            color: #F27A30
+        }
+
+        .top-bar .badge {
+            font-size: .55rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .25);
+            border: 1px solid rgba(255, 255, 255, .08);
+            padding: 5px 14px;
+            border-radius: 100px
+        }
+
+        /* ── TABS NAV ── */
+        .tabs-nav {
+            position: fixed;
+            top: 52px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: rgba(10, 14, 26, .92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0 3%
+        }
+
+        .tabs-nav::-webkit-scrollbar {
+            display: none
+        }
+
+        .tabs-nav a {
+            flex-shrink: 0;
+            padding: 12px 16px;
+            font-size: .6rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all .25s ease;
+            white-space: nowrap
+        }
+
+        .tabs-nav a:hover {
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .tabs-nav a.active {
+            color: #F27A30;
+            border-bottom-color: #F27A30
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 100px 8% 80px
+        }
+
+        section:first-of-type {
+            padding-top: 130px
+        }
+
+        .section-dark {
+            background: #0A0E1A
+        }
+
+        .section-light {
+            background: #fff;
+            color: #0A0E1A !important
+        }
+
+        .section-light h2,
+        .section-light h3,
+        .section-light h4,
+        .section-light p,
+        .section-light li,
+        .section-light span,
+        .section-light td,
+        .section-light th,
+        .section-light div,
+        .section-light strong,
+        .section-light em,
+        .section-light label,
+        .section-light small {
+            color: #0A0E1A !important
+        }
+
+        .section-light .phase-label,
+        .section-light .accent {
+            color: #F27A30 !important
+        }
+
+        .section-light .cyan {
+            color: #00AEEF !important
+        }
+
+        .section-light .muted {
+            color: #666 !important
+        }
+
+        .section-light .script-box {
+            background: rgba(242, 122, 48, .06) !important;
+            border-left: 3px solid #F27A30 !important;
+            color: #0A0E1A !important
+        }
+
+        .section-light .tip-box {
+            background: rgba(0, 174, 239, .06) !important;
+            border-left: 3px solid #00AEEF !important
+        }
+
+        .section-light .warn-box {
+            background: rgba(242, 60, 60, .06) !important;
+            border-left: 3px solid #e74c3c !important
+        }
+
+        .section-light .result-card {
+            background: rgba(10, 14, 26, .03) !important;
+            border: 1px solid rgba(10, 14, 26, .08) !important
+        }
+
+        .section-light table {
+            border-color: rgba(10, 14, 26, .08) !important
+        }
+
+        .section-light table th {
+            background: rgba(10, 14, 26, .04) !important;
+            border-bottom: 2px solid rgba(10, 14, 26, .1) !important
+        }
+
+        .section-light table td {
+            border-bottom: 1px solid rgba(10, 14, 26, .06) !important
+        }
+
+        .section-light .outcome-win {
+            background: rgba(46, 204, 113, .08) !important;
+            border-color: rgba(46, 204, 113, .2) !important
+        }
+
+        .section-light .outcome-follow {
+            background: rgba(242, 122, 48, .08) !important;
+            border-color: rgba(242, 122, 48, .2) !important
+        }
+
+        .section-light .outcome-no {
+            background: rgba(231, 76, 60, .06) !important;
+            border-color: rgba(231, 76, 60, .15) !important
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .phase-label {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #F27A30;
+            margin-bottom: 8px
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px
+        }
+
+        h2 .thin {
+            font-weight: 200;
+            opacity: .5
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            margin-top: 36px
+        }
+
+        h3:first-child {
+            margin-top: 0
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: .55;
+            max-width: 700px;
+            margin-bottom: 40px
+        }
+
+        /* ── CARDS ── */
+        .script-box {
+            background: rgba(242, 122, 48, .08);
+            border-left: 3px solid #F27A30;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: .95rem;
+            line-height: 1.7
+        }
+
+        .script-box .label {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #F27A30 !important;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .tip-box {
+            background: rgba(0, 174, 239, .07);
+            border-left: 3px solid #00AEEF;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: .9rem
+        }
+
+        .warn-box {
+            background: rgba(242, 60, 60, .07);
+            border-left: 3px solid #e74c3c;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: .9rem
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .06);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 12px 0
+        }
+
+        /* ── TABLE ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0
+        }
+
+        th {
+            text-align: left;
+            font-size: .65rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, .08);
+            opacity: .5;
+            font-weight: 600
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: .92rem
+        }
+
+        /* ── LISTS ── */
+        ul,
+        ol {
+            padding-left: 20px;
+            margin: 12px 0
+        }
+
+        li {
+            margin: 8px 0;
+            font-size: .93rem
+        }
+
+        /* ── GRID ── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 20px 0
+        }
+
+        /* ── OUTCOME CARDS ── */
+        .outcome {
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center
+        }
+
+        .outcome-win {
+            background: rgba(46, 204, 113, .1);
+            border: 1px solid rgba(46, 204, 113, .2)
+        }
+
+        .outcome-follow {
+            background: rgba(242, 122, 48, .1);
+            border: 1px solid rgba(242, 122, 48, .2)
+        }
+
+        .outcome-no {
+            background: rgba(231, 76, 60, .08);
+            border: 1px solid rgba(231, 76, 60, .15)
+        }
+
+        .outcome .icon {
+            font-size: 2rem;
+            margin-bottom: 8px
+        }
+
+        .outcome h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        .outcome p {
+            font-size: .82rem;
+            opacity: .7;
+            line-height: 1.5
+        }
+
+        /* ── STEP NUMBER ── */
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #F27A30;
+            color: #fff !important;
+            font-weight: 800;
+            font-size: .85rem;
+            margin-right: 10px;
+            flex-shrink: 0
+        }
+
+        .step-row {
+            display: flex;
+            align-items: flex-start;
+            margin: 16px 0
+        }
+
+        .step-row>div {
+            flex: 1
+        }
+
+        /* ── DECK MOMENT ── */
+        .deck-moment {
+            background: linear-gradient(135deg, rgba(242, 122, 48, .12), rgba(0, 174, 239, .08));
+            border: 2px dashed #F27A30;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 28px 0;
+            text-align: center
+        }
+
+        .deck-moment .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px
+        }
+
+        .deck-moment h4 {
+            font-size: 1.1rem;
+            font-weight: 800
+        }
+
+        .deck-moment p {
+            font-size: .9rem;
+            opacity: .7;
+            margin-top: 6px
+        }
+
+        .section-light .deck-moment {
+            background: linear-gradient(135deg, rgba(242, 122, 48, .08), rgba(0, 174, 239, .05)) !important;
+            border-color: #F27A30 !important
+        }
+
+        /* ── FORM FIELDS ── */
+        .form-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0
+        }
+
+        .form-field {
+            padding: 16px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .section-light .form-field {
+            border-color: rgba(10, 14, 26, .08) !important;
+            background: rgba(10, 14, 26, .02) !important
+        }
+
+        .form-field .field-label {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            opacity: .4;
+            margin-bottom: 6px;
+            font-weight: 600
+        }
+
+        .form-field .field-value {
+            font-weight: 700;
+            font-size: .95rem
+        }
+
+        /* ── PRECLOSE CHECK ── */
+        .preclose-card {
+            background: linear-gradient(135deg, rgba(46, 204, 113, .08), rgba(0, 174, 239, .06));
+            border: 2px solid rgba(46, 204, 113, .25);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 20px 0
+        }
+
+        .section-light .preclose-card {
+            background: linear-gradient(135deg, rgba(46, 204, 113, .06), rgba(0, 174, 239, .04)) !important;
+            border-color: rgba(46, 204, 113, .2) !important
+        }
+
+        /* ── FLOW DIAGRAM ── */
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            flex-shrink: 0
+        }
+
+        .flow-step.active-step {
+            background: #F27A30;
+            color: #fff !important
+        }
+
+        .flow-step.done-step {
+            background: rgba(255, 255, 255, .05);
+            color: rgba(255, 255, 255, .35) !important
+        }
+
+        .section-light .flow-step.done-step {
+            background: rgba(10, 14, 26, .04) !important;
+            color: rgba(10, 14, 26, .3) !important
+        }
+
+        .flow-arrow {
+            font-size: 1rem;
+            opacity: .25;
+            padding: 0 6px
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 130px !important
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px
+        }
+
+        .hero h1 .accent {
+            color: #F27A30
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: .45;
+            max-width: 550px
+        }
+
+        .hero .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 40px;
+            max-width: 900px
+        }
+
+        .hero .overview-item {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            padding: 24px 18px;
+            text-align: center;
+            transition: all .3s ease;
+            cursor: pointer
+        }
+
+        .hero .overview-item:hover {
+            background: rgba(242, 122, 48, .12);
+            border-color: rgba(242, 122, 48, .5);
+            transform: translateY(-3px)
+        }
+
+        .hero .overview-item .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #F27A30
+        }
+
+        .hero .overview-item .txt {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
+            margin-top: 6px
+        }
+
+        .hero .overview-item.highlight {
+            border-color: rgba(242, 122, 48, .4);
+            background: rgba(242, 122, 48, .08)
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .hero .overview-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media(max-width:768px) {
+            section {
+                padding: 80px 6% 60px
+            }
+
+            .hero .overview-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .grid-2,
+            .grid-3,
+            .form-fields {
+                grid-template-columns: 1fr
+            }
+
+            .tabs-nav a {
+                padding: 10px 12px;
+                font-size: .55rem
+            }
+
+            .flow {
+                flex-direction: column;
+                gap: 4px
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg)
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: .7rem;
+            opacity: .25;
+            letter-spacing: .15em;
+            text-transform: uppercase
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="logo"><span>Víctor Arroyo</span> · Guía de Ventas</div>
+        <div class="badge">Confidencial</div>
+    </div>
+
+    <!-- TABS -->
+    <nav class="tabs-nav">
+        <a href="#overview" class="active">📋 Resumen</a>
+        <a href="#fase1">1 · Romper Hielo</a>
+        <a href="#fase2">2 · Problema</a>
+        <a href="#fase3">3 · Pre-cierre</a>
+        <a href="#fase4">4 · Vehículo (Deck)</a>
+        <a href="#preclose2">5 · Pre-cierre del Cierre</a>
+        <a href="#cierre">6 · Cierre</a>
+        <a href="#objeciones">⚡ Objeciones</a>
+        <a href="#resultados">✅ Resultados</a>
+    </nav>
+
+    <!-- ■■■ HERO ■■■ -->
+    <section class="hero section-dark" id="overview">
+        <div class="phase-label">Guía de Ventas · Víctor Arroyo</div>
+        <h1>Proceso de <span class="accent">Venta</span></h1>
+        <p class="subtitle">6 etapas. Sigue el orden exacto.</p>
+
+        <div class="overview-grid">
+            <div class="overview-item" data-target="fase1">
+                <div class="num">1</div>
+                <div class="txt">Romper<br>el Hielo</div>
+            </div>
+            <div class="overview-item" data-target="fase2">
+                <div class="num">2</div>
+                <div class="txt">Encontrar<br>Problema</div>
+            </div>
+            <div class="overview-item" data-target="fase3">
+                <div class="num">3</div>
+                <div class="txt">Pre-cierre</div>
+            </div>
+            <div class="overview-item highlight" data-target="fase4">
+                <div class="num">4</div>
+                <div class="txt">Vehículo<br>📊 Deck</div>
+            </div>
+            <div class="overview-item" data-target="preclose2">
+                <div class="num">5</div>
+                <div class="txt">Pre-cierre<br>del Cierre</div>
+            </div>
+            <div class="overview-item" data-target="cierre">
+                <div class="num">6</div>
+                <div class="txt">Cierre</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ■■■ VISTA RÁPIDA ■■■ -->
+    <section class="section-light">
+        <h2>El Flujo Completo</h2>
+        <p class="subtitle">Tiempo total: 40-50 minutos. No te saltes ninguna fase.</p>
+
+        <table>
+            <tr>
+                <th>Fase</th>
+                <th>Objetivo</th>
+                <th>Tiempo</th>
+            </tr>
+            <tr>
+                <td><strong>1 — Romper el Hielo</strong></td>
+                <td>Usar respuestas del formulario + confirmar tomador de decisión</td>
+                <td>0–8 min</td>
+            </tr>
+            <tr>
+                <td><strong>2 — Encontrar el Problema</strong></td>
+                <td>Guiar al prospecto a que ÉL encuentre su problema real</td>
+                <td>8–18 min</td>
+            </tr>
+            <tr>
+                <td><strong>3 — Pre-cierre</strong></td>
+                <td>"¿Tiene sentido escuchar cómo lo solucionamos?" → SÍ → Abrir Deck</td>
+                <td>18–22 min</td>
+            </tr>
+            <tr>
+                <td><strong>4 — El Vehículo (DECK)</strong></td>
+                <td>📊 Abrir el deck. Autoridad, casos de éxito, sistema, números</td>
+                <td>22–36 min</td>
+            </tr>
+            <tr>
+                <td><strong>5 — Pre-cierre del Cierre</strong></td>
+                <td>"¿Te hace sentido?" → Confirmar antes de ir al precio</td>
+                <td>36–38 min</td>
+            </tr>
+            <tr>
+                <td><strong>6 — Cierre</strong></td>
+                <td>Precio, compromiso, garantía. 3 resultados posibles.</td>
+                <td>38–50 min</td>
+            </tr>
+        </table>
+
+        <div class="flow">
+            <div class="flow-step done-step">1. Romper Hielo</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step done-step">2. Problema</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step done-step">3. Pre-cierre</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step active-step">4. 📊 Deck</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step done-step">5. Pre-cierre²</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step done-step">6. 💰 Cierre</div>
+        </div>
+    </section>
+
+    <!-- ■■■ FASE 1 — ROMPER EL HIELO ■■■ -->
+    <section class="section-dark" id="fase1">
+        <div class="phase-label">Fase 1</div>
+        <h2>Romper el Hielo <span class="thin">· 0–8 min</span></h2>
+        <p class="subtitle">Usa las respuestas del formulario para abrir. NO hables de ti ni del programa.</p>
+
+        <h3>📋 Lo que ya sabes del formulario</h3>
+        <p>Antes de la llamada, revisa las 3 respuestas clave:</p>
+
+        <div class="form-fields">
+            <div class="form-field">
+                <div class="field-label">Tipo de inversión</div>
+                <div class="field-value">Comprar/renovar, Rentar, Subastas, Construir, No sé</div>
+            </div>
+            <div class="form-field">
+                <div class="field-label">¿Cuándo quiere empezar?</div>
+                <div class="field-value">Ahora mismo, 3 meses, 6 meses, 12+ meses</div>
+            </div>
+            <div class="form-field">
+                <div class="field-label">Capital disponible</div>
+                <div class="field-value">Nada, $15-50k, $50-100k, $100-200k, $200k+</div>
+            </div>
+        </div>
+
+        <h3>🎯 Script de apertura</h3>
+        <div class="script-box">
+            <div class="label">💬 Cómo abrir la llamada</div>
+            <p><em>"Hola [Nombre], ¿cómo estás? Mira, antes de que te cuente cualquier cosa, quiero ser directo contigo.
+                    Vi que llenaste el formulario y me llamaron la atención unas cosas. Me dijiste que te interesa
+                    <strong>[tipo de inversión]</strong>, que quieres empezar <strong>[cuándo]</strong>, y que tienes
+                    alrededor de <strong>[rango de capital]</strong>. ¿Eso sigue siendo correcto?"</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>🎯 ¿Por qué?</strong> — Le demuestras que lo preparaste. Y al confirmar SUS respuestas, ya tienes
+            los datos de calificación sin preguntarle de nuevo.
+        </div>
+
+        <h3>🔑 Profundizar</h3>
+        <div class="script-box">
+            <div class="label">💬 Ir más allá de las respuestas</div>
+            <p><em>"Perfecto. Cuéntame un poco más — cuando dices [tipo de inversión], ¿es algo que ya has hecho antes o
+                    sería tu primera vez?"</em></p>
+            <br>
+            <p><em>"Y cuando dices que quieres empezar [cuándo], ¿hay algo específico que te motivó a buscar esto justo
+                    ahora?"</em></p>
+        </div>
+
+        <h3>🚪 Tomador de decisión (OBLIGATORIO)</h3>
+        <div class="warn-box">
+            <strong>⚠️ OBLIGATORIO antes de avanzar.</strong> Si no lo preguntas aquí, al final te dirán "tengo que
+            hablarlo con mi pareja" y pierdes la venta.
+        </div>
+
+        <div class="script-box">
+            <div class="label">💬 La pregunta clave</div>
+            <p><em>"Una cosa importante, [Nombre]: si al final de esta conversación lo que te muestro tiene sentido,
+                    ¿eres tú la persona que toma esta decisión? ¿O hay alguien más que debería estar aquí — pareja,
+                    socio?"</em></p>
+            <br>
+            <p><strong>Si dice "tengo que consultarlo":</strong></p>
+            <p><em>"Entiendo. ¿Puede conectarse en los próximos 5 minutos? Si no, reagendamos para cuando estén los dos.
+                    Esta es una decisión importante y quiero que ambos la escuchen."</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>✅ Al terminar esta fase tienes:</strong> Qué quiere, cuánto tiene, cuándo quiere empezar, y
+            confirmación de que puede tomar la decisión. AHORA avanzas.
+        </div>
+    </section>
+
+    <!-- ■■■ FASE 2 — ENCONTRAR EL PROBLEMA ■■■ -->
+    <section class="section-light" id="fase2">
+        <div class="phase-label">Fase 2</div>
+        <h2>Encontrar el Problema <span class="thin">· 8–18 min</span></h2>
+        <p class="subtitle">NO le digas cuál es su problema. Guíalo con preguntas hasta que ÉL lo diga.</p>
+
+        <h3>🔍 Las 4 preguntas en orden</h3>
+
+        <div class="step-row">
+            <span class="step-num">1</span>
+            <div>
+                <div class="script-box">
+                    <div class="label">💬 ¿Qué has hecho con ese dinero?</div>
+                    <p><em>"Cuéntame, [Nombre] — ¿qué has hecho hasta hoy con ese capital? ¿Lo tienes ahorrado,
+                            invertido en algo, en el banco?"</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-row">
+            <span class="step-num">2</span>
+            <div>
+                <div class="script-box">
+                    <div class="label">💬 ¿Qué has intentado antes?</div>
+                    <p><em>"¿Has intentado antes invertir en bienes raíces o en algo más? Cuéntame cómo te fue."</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-row">
+            <span class="step-num">3</span>
+            <div>
+                <div class="script-box">
+                    <div class="label">💬 ¿Qué te detuvo?</div>
+                    <p><em>"Y si ya tenías esa intención… ¿qué te detuvo? ¿Qué pasó que no lo hiciste antes?"</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-row">
+            <span class="step-num">4</span>
+            <div>
+                <div class="script-box">
+                    <div class="label">💬 El costo de seguir igual</div>
+                    <p><em>"Imagínate que pasan 12 meses y sigues exactamente igual — el dinero en el banco, la
+                            inflación comiéndote, sin generar nada. ¿Cómo te sentirías?"</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ NO avances sin el dolor.</strong> Si el prospecto no verbaliza su frustración, el pre-cierre no
+            funciona. Sigue preguntando hasta que diga algo como <em>"es que tengo el dinero ahí sin hacer nada"</em>.
+        </div>
+
+        <h3>✅ Espejo — Confirma</h3>
+        <div class="script-box">
+            <div class="label">💬 Parafrasea</div>
+            <p><em>"A ver si te entiendo. Llevas [tiempo] con [capital] ahorrado, has intentado [lo que intentó], no
+                    funcionó porque [razón], y lo que quieres es [su meta]. ¿Estoy en lo correcto?"</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>🎯 Buscas que diga:</strong> <em>"Sí, exactamente."</em> — Con eso, pasas al pre-cierre.
+        </div>
+    </section>
+
+    <!-- ■■■ FASE 3 — PRE-CIERRE ■■■ -->
+    <section class="section-dark" id="fase3">
+        <div class="phase-label">Fase 3</div>
+        <h2>Pre-cierre <span class="thin">· 18–22 min</span></h2>
+        <p class="subtitle">Consigue el SÍ lógico ANTES de mostrar el deck. "¿Tiene sentido escuchar cómo?"</p>
+
+        <div class="script-box">
+            <div class="label">💬 La pregunta de pre-cierre</div>
+            <p><em>"Ok [Nombre], me dijiste que tienes [capital] sin mover, que ya intentaste [lo que intentó] y no
+                    funcionó, y que si no haces nada va a seguir igual.</em></p>
+            <br>
+            <p><em>Si yo te pudiera mostrar un sistema donde tu dinero trabaja por ti, donde no necesitas experiencia
+                    previa, y donde puedes generar entre un 20 y 30% de rentabilidad en 8-12 meses con números
+                    reales…</em></p>
+            <br>
+            <p><em>¿Tendría sentido al menos escuchar cómo funciona?"</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>🎯 Si dice SÍ →</strong> <em>"Perfecto, déjame mostrarte exactamente cómo lo hacemos."</em> → ABRES
+            EL DECK.
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ Si dice "depende" o duda →</strong> NO abras el deck. Vuelve a Fase 2 y profundiza más. Sin dolor
+            suficiente no va a cerrar.
+        </div>
+
+        <div class="deck-moment">
+            <div class="icon">📊</div>
+            <h4>AQUÍ ABRES EL DECK DE VENTAS</h4>
+            <p>Comparte tu pantalla. El prospecto ya dijo SÍ a escuchar.</p>
+        </div>
+    </section>
+
+    <!-- ■■■ FASE 4 — EL VEHÍCULO ■■■ -->
+    <section class="section-light" id="fase4">
+        <div class="phase-label">Fase 4</div>
+        <h2>El Vehículo <span class="thin">· 22–36 min</span></h2>
+        <p class="subtitle">Comparte pantalla con el deck. Muestra autoridad, casos de éxito, sistema y números. El deck
+            habla por ti.</p>
+
+        <h3>📊 Recorrido por el Deck</h3>
+
+        <table>
+            <tr>
+                <th>Slide</th>
+                <th>Contenido</th>
+                <th>Qué dices</th>
+            </tr>
+            <tr>
+                <td><strong>1 · Portada</strong></td>
+                <td>Tu nombre y marca</td>
+                <td><em>"Te voy a mostrar exactamente cómo trabajamos."</em></td>
+            </tr>
+            <tr>
+                <td><strong>2 · Autoridad</strong></td>
+                <td>+100 inversionistas, proyectos reales</td>
+                <td><em>"No soy un coach. Hago esto todos los días."</em></td>
+            </tr>
+            <tr>
+                <td><strong>3 · El Problema</strong></td>
+                <td>Inflación, $0 pasivos</td>
+                <td><em>"Esto es exactamente lo que me acabas de decir, ¿cierto?"</em></td>
+            </tr>
+            <tr>
+                <td><strong>4-5 · Casos de Éxito</strong></td>
+                <td>Antes/Después con ROI</td>
+                <td><em>"Este es [Cliente]. Invirtió $X, hoy vale $Y."</em></td>
+            </tr>
+            <tr>
+                <td><strong>6 · El Sistema</strong></td>
+                <td>3 pasos de Nexus</td>
+                <td><em>"Tú pones capital. Banco financia. Nosotros construimos."</em></td>
+            </tr>
+            <tr>
+                <td><strong>7 · La Fórmula</strong></td>
+                <td>Cómo el banco apalanca</td>
+                <td><em>"Pones $50k, el banco pone $150k, la ganancia es tuya."</em></td>
+            </tr>
+            <tr>
+                <td><strong>8 · Números Reales</strong></td>
+                <td>Tabla de proyecto real</td>
+                <td><em>"No son proyecciones. Registros públicos del condado."</em></td>
+            </tr>
+            <tr>
+                <td><strong style="color:#F27A30 !important">9 · 🔥 Oportunidades</strong></td>
+                <td>3 propiedades disponibles HOY con números</td>
+                <td><em>"Estas son oportunidades reales que tenemos ahora mismo."</em></td>
+            </tr>
+            <tr>
+                <td><strong>10 · Tu Inversión</strong></td>
+                <td>$3,000 + $20,000</td>
+                <td><em>"Así es como trabajamos juntos."</em></td>
+            </tr>
+            <tr>
+                <td><strong>11 · CTA</strong></td>
+                <td>¿Empezamos hoy?</td>
+                <td><em>"¿Te funciona el lunes o el martes para arrancar?"</em></td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <strong>🎯 Regla de oro:</strong> No leas slides. Cuéntalas como historias. Conecta cada slide con lo que el
+            prospecto te dijo en Fase 1 y 2.
+        </div>
+
+        <h3>🔗 Conectar con su historia</h3>
+        <div class="script-box">
+            <div class="label">💬 Al mostrar casos de éxito</div>
+            <p><em>"¿Ves a [nombre]? Llegó exactamente igual que tú — tenía [capital similar], no sabía por dónde
+                    empezar, y tenía miedo de invertir mal. Hoy tiene una propiedad que genera [ingreso] al mes. La
+                    diferencia entre él y el que sigue pensándolo es que decidió dar el paso."</em></p>
+        </div>
+
+        <!-- ── OPORTUNIDADES EN VIVO ── -->
+        <h3 style="margin-top:48px">🔥 Slide 9 — Oportunidades Ahora Mismo</h3>
+
+        <div class="deck-moment" style="border-color: #2ecc71">
+            <div class="icon">🏠</div>
+            <h4>MOMENTO CLAVE · Esto aterriza la venta</h4>
+            <p>Después de mostrar el sistema y los números, muéstrale propiedades REALES que están disponibles AHORA.
+                Esto convierte la teoría en acción concreta.</p>
+        </div>
+
+        <div class="script-box">
+            <div class="label">💬 Cómo transicionar a Oportunidades</div>
+            <p><em>"Ya te mostré cómo funciona el sistema y los resultados reales de nuestros clientes. Ahora te voy a
+                    mostrar algo que la mayoría no ve — las oportunidades que tenemos disponibles AHORA MISMO."</em></p>
+        </div>
+
+        <h3>📋 Cómo presentar cada oportunidad</h3>
+        <p>Hay 3 propiedades en el deck. Presenta cada una desglosando los números paso a paso:</p>
+
+        <div class="script-box">
+            <div class="label">💬 Script para cada propiedad</div>
+            <p><em>"Mira esta propiedad — está en [ubicación], es un terreno que cuesta [precio terreno].</em></p>
+            <br>
+            <p><em>Si la separamos, iríamos al banco a pedir [monto financiamiento] para la construcción. Ya tenemos la
+                    constructora, los permisos, todo el equipo listo.</em></p>
+            <br>
+            <p><em>La construcción cuesta aproximado [costo construcción] — pero el banco financia [monto banco],
+                    entonces tú de tu bolsillo pones en total [monto total tuyo].</em></p>
+            <br>
+            <p><em>Cuando la casa está terminada, el valor estimado de venta es [valor venta]. Es decir, tu ganancia
+                    sería de [ganancia] en 8-10 meses.</em></p>
+            <br>
+            <p><em>¿Te imaginas tener 3 de estas? Eso es lo que hacemos con nuestros inversionistas que ya llevan más
+                    tiempo."</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>🎯 Adapta al capital del prospecto:</strong> Si el prospecto tiene $40k, enfócate en la propiedad de
+            Poinciana ($20k terreno, $36k total). Si tiene $50k+, ve directo a Ocala o Clermont. Conecta SU dinero con
+            UNA propiedad específica.
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ Haz la propiedad de ÉL:</strong> No muestres las 3 como catálogo. Elige 1-2 que se ajusten a su
+            capital y dile: <em>"Con tus [capital], esta es la que yo te recomendaría para arrancar."</em>
+        </div>
+
+        <h3>📅 Conexión con el seguimiento</h3>
+        <div class="script-box">
+            <div class="label">💬 Si no cierra hoy — Las oportunidades son tu herramienta de seguimiento</div>
+            <p><em>"[Nombre], esta propiedad en [ubicación] está disponible hoy. No te puedo garantizar que va a seguir
+                    así la próxima semana. Cada vez que alguien se demora, otra persona la aparta."</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>📱 Para el seguimiento por WhatsApp/SMS:</strong> Si queda en seguimiento, envía en 24-48h: <em>"Oye
+                [Nombre], ¿recuerdas la propiedad de [ubicación] que te mostré? Acaba de entrar otro inversionista
+                interesado. ¿Pudiste hablarlo con [pareja]? No quiero que pierdas esta oportunidad."</em>
+        </div>
+    </section>
+
+    <!-- ■■■ PRE-CIERRE DEL CIERRE ■■■ -->
+    <section class="section-dark" id="preclose2">
+        <div class="phase-label">FASE 5</div>
+        <h2>Pre-cierre del Cierre <span class="thin">· 36–38 min</span></h2>
+        <p class="subtitle">Después de mostrar todo el vehículo. ANTES de hablar de precio. Confirma que le hace
+            sentido.</p>
+
+        <div class="preclose-card">
+            <h3 style="margin-top:0;color:#2ecc71 !important">🎯 ¿Por qué un segundo pre-cierre?</h3>
+            <p>Ya le mostraste la autoridad, los casos de éxito, el sistema, y los números. Antes de irte al precio,
+                necesitas que CONFIRME que entiende el valor. Si no lo confirma aquí, cuando le digas el precio va a
+                decir "lo pienso".</p>
+        </div>
+
+        <div class="script-box">
+            <div class="label">💬 Check de temperatura</div>
+            <p><em>"[Nombre], ya te mostré cómo trabajamos — los proyectos reales, los números verificables, cómo usamos
+                    el dinero del banco para construir tu patrimonio.</em></p>
+            <br>
+            <p><em>Antes de explicarte cómo sería trabajar juntos, tengo que preguntarte: ¿te hace sentido lo que te
+                    mostré? ¿Ves cómo esto podría funcionar para tu situación?"</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>🎯 Si dice SÍ →</strong> <em>"Perfecto. Entonces déjame explicarte exactamente cómo sería tu
+                proceso."</em> → Pasa al cierre (slide 9 del deck: "Tu inversión").
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ Si dice "sí, pero..." o tiene dudas:</strong> NO vayas al precio todavía. Resuelve la duda AQUÍ.
+            Pregunta: <em>"¿Qué parte te dejó dudas? Dime y lo resolvemos ahora."</em>
+        </div>
+
+        <h3>💡 Amplía si dice sí</h3>
+        <div class="script-box">
+            <div class="label">💬 Solidificar el compromiso mental</div>
+            <p><em>"Imagínate, [Nombre]: dentro de 8 meses, tú con una propiedad lista en Florida que vale 3 o 4 veces
+                    lo que pusiste de capital inicial. Generando ingresos pasivos cada mes. Eso que me dijiste hace [X
+                    minutos] — que querías [su meta] — esto es exactamente cómo lo logras. ¿Listo para que te muestre
+                    cómo arrancamos?"</em></p>
+        </div>
+    </section>
+
+    <!-- ■■■ CIERRE ■■■ -->
+    <section class="section-light" id="cierre">
+        <div class="phase-label">FASE 6</div>
+        <h2>Cierre · Así es como trabajamos <span class="thin">· 38–50 min</span></h2>
+        <p class="subtitle">Ya confirmó que le hace sentido. Ahora presenta la inversión. Asume siempre la venta.</p>
+
+        <div class="tip-box">
+            <strong>📊 En el deck:</strong> Pasa a la slide 9 ("Tu inversión") y la slide 10 ("¿Empezamos hoy?")
+            mientras le explicas esto.
+        </div>
+
+        <h3>💰 La inversión</h3>
+        <div class="script-box">
+            <div class="label">💬 Script de cierre</div>
+            <p><em>"[Nombre], basado en lo que me contaste y en lo que acabas de ver:</em></p>
+            <br>
+            <p><em>Mi equipo y yo nos encargamos de todo — buscar el terreno, gestionar permisos, construir la casa, y
+                    entregártela lista.</em></p>
+            <br>
+            <p><em>Para arrancar, la inversión inicial son <strong>$3,000</strong>. Con eso empezamos la búsqueda de tu
+                    terreno, te armo el plan personalizado, y tenemos llamadas semanales de 20 minutos.</em></p>
+            <br>
+            <p><em>Después, cuando ya tengamos el terreno, el fee de gestión de construcción son
+                    <strong>$20,000</strong>. Eso cubre todo el proyecto completo.</em></p>
+            <br>
+            <p><em>¿Tiene sentido?"</em></p>
+        </div>
+
+        <h3>🛡️ Qué te comprometes</h3>
+        <div class="script-box">
+            <div class="label">💬 Compromiso concreto</div>
+            <ul>
+                <li><em>Llamadas semanales de 20 minutos conmigo directamente.</em></li>
+                <li><em>Acceso a mi red de proveedores validados — constructoras, abogados, bancos.</em></li>
+                <li><em>Estrategia fiscal para reducir tus impuestos hasta un 30%.</em></li>
+                <li><em>Mi equipo gestiona la obra completa. Tú NO vas a la obra.</em></li>
+            </ul>
+        </div>
+
+        <h3>⚡ El costo de NO hacer nada</h3>
+        <div class="script-box">
+            <div class="label">💬 Urgencia real</div>
+            <p><em>"Y mira, [Nombre] — el costo de no hacer nada también es real. Tu dinero pierde un 4% al año por
+                    inflación. En 12 meses esos [capital] valen menos. En 3 años ya perdiste más de lo que cuesta
+                    empezar. La pregunta no es si te lo puedes permitir — es si te puedes permitir NO hacerlo."</em></p>
+        </div>
+
+        <h3>🤝 Cierre asumido</h3>
+        <div class="script-box">
+            <div class="label">💬 Siempre asume</div>
+            <p><em>"Perfecto. Lo que vamos a hacer es lo siguiente: te envío el link para separar tu cupo hoy, y la
+                    próxima semana arrancamos con la primera sesión de trabajo donde definimos la zona y el terreno. ¿Te
+                    funciona mejor el lunes o el martes?"</em></p>
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ NUNCA preguntes:</strong> <em>"¿Qué opinas?"</em> o <em>"¿Te interesa?"</em> — Invitan al "lo
+            pienso". Siempre asume y pregunta sobre el SIGUIENTE PASO.
+        </div>
+    </section>
+
+    <!-- ■■■ OBJECIONES ■■■ -->
+    <section class="section-dark" id="objeciones">
+        <div class="phase-label">Objeciones</div>
+        <h2>Derribar Objeciones</h2>
+        <p class="subtitle">Si hiciste bien las etapas 1-4, la mayoría ya están resueltas. Si aparecen, usa esto:</p>
+
+        <div class="result-card">
+            <h4>😶 "Necesito pensarlo"</h4>
+            <div class="script-box">
+                <p><em>"Entiendo. Cuando dices que necesitas pensarlo, ¿qué es exactamente lo que necesitas resolver?
+                        Porque si hay algo que no quedó claro, prefiero resolverlo ahora."</em></p>
+            </div>
+        </div>
+
+        <div class="result-card">
+            <h4>💸 "Es mucho dinero"</h4>
+            <div class="script-box">
+                <p><em>"Si invirtieras $3,000 hoy y en 8 meses tuvieras una propiedad que vale $300,000 generando
+                        ingresos, ¿seguirían siendo mucho dinero esos $3,000?"</em></p>
+            </div>
+        </div>
+
+        <div class="result-card">
+            <h4>👫 "Tengo que hablarlo con mi pareja"</h4>
+            <div class="script-box">
+                <p><em>"Claro. ¿Cuándo puedo tener 20 minutos con los dos? ¿Te funciona el [día] o el [día]?"</em></p>
+            </div>
+            <div class="tip-box">
+                <strong>Nota:</strong> Si preguntaste en Fase 1, esta objeción no debería aparecer. Si aparece, no lo
+                confrontes — solo conviértelo en fecha fija.
+            </div>
+        </div>
+
+        <div class="result-card">
+            <h4>⏰ "No es el momento"</h4>
+            <div class="script-box">
+                <p><em>"¿Cuándo sería el momento? Me dijiste que llevas [tiempo] queriendo hacer esto. El momento nunca
+                        llega solo — el momento es cuando TÚ decides."</em></p>
+            </div>
+        </div>
+
+        <div class="result-card">
+            <h4>🔍 "Necesito investigar más"</h4>
+            <div class="script-box">
+                <p><em>"¿Qué específicamente? Si es sobre mi track record, todo lo que te mostré son registros públicos
+                        del condado. Lo puedes verificar hoy. Si es otra cosa, dime y te lo resuelvo ahora."</em></p>
+            </div>
+        </div>
+
+        <div class="result-card">
+            <h4>🛡️ "¿Qué garantía tengo?"</h4>
+            <div class="script-box">
+                <p><em>"La mejor garantía son los números reales de proyectos terminados — registros públicos del
+                        condado. Los puedes verificar hoy. Además, tienes acceso directo a mí y a todo mi equipo desde
+                        el día uno."</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ■■■ RESULTADOS ■■■ -->
+    <section class="section-light" id="resultados">
+        <div class="phase-label">Los 3 Únicos Resultados</div>
+        <h2>Así termina la llamada</h2>
+        <p class="subtitle">Solo hay 3 resultados. Ninguno es "estamos en contacto".</p>
+
+        <div class="grid-3">
+            <div class="outcome outcome-win">
+                <div class="icon">✅</div>
+                <h4>Cierre</h4>
+                <p>Paga los $3,000 en la llamada o inmediatamente después. Enviar link de pago. Agendar onboarding.</p>
+            </div>
+            <div class="outcome outcome-follow">
+                <div class="icon">📅</div>
+                <h4>Seguimiento con Fecha</h4>
+                <p>Tiene razón válida (pareja, revisar finanzas). Se agenda FECHA Y HORA exacta. Máximo 48h.</p>
+            </div>
+            <div class="outcome outcome-no">
+                <div class="icon">❌</div>
+                <h4>No quiere</h4>
+                <p>Después de derribar objeciones, no quiere. Se cierra con respeto. Va a pipeline de nutrición.</p>
+            </div>
+        </div>
+
+        <h3>📅 Si queda en seguimiento</h3>
+        <div class="script-box">
+            <div class="label">💬 Agendar fecha fija</div>
+            <p><em>"Ok [Nombre], entiendo. Lo que voy a hacer es agendarte para el [día] a las [hora]. Si tú y
+                    [pareja/socio] están de acuerdo, arrancamos ese mismo día. ¿Te funciona?"</em></p>
+        </div>
+
+        <div class="warn-box">
+            <strong>⚠️ NUNCA termines con:</strong> <em>"Estamos en contacto"</em> o <em>"cuando quieras me dices"</em>.
+            Si no cierra hoy, el único resultado es una FECHA FIJA en el calendario.
+        </div>
+
+        <h3>✅ Si cierra — Post-pago</h3>
+        <ol>
+            <li><strong>En el momento:</strong> <em>"Acabas de tomar la mejor decisión que podías tomar con ese
+                    capital."</em></li>
+            <li><strong>En 5 min:</strong> WhatsApp personalizado de Víctor con bienvenida.</li>
+            <li><strong>En 2 horas:</strong> Email con roadmap de los primeros 30 días.</li>
+            <li><strong>En 48 horas:</strong> Llamada de onboarding.</li>
+            <li><strong>A los 7 días:</strong> Primer reporte de avance.</li>
+        </ol>
+    </section>
+
+    <footer>
+        Víctor Arroyo · Guía de Ventas · Confidencial · 2026
+    </footer>
+
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll('.tabs-nav a');
+            const allSections = document.querySelectorAll('body > section');
+
+            // Map tab hrefs to section IDs
+            const tabMap = {};
+            tabs.forEach(t => {
+                const id = t.getAttribute('href').replace('#', '');
+                tabMap[id] = t;
+            });
+
+            // Group sections: each tab-target section + any following sections until the next tab-target
+            const sectionGroups = {};
+            let currentGroup = null;
+
+            allSections.forEach(sec => {
+                const id = sec.getAttribute('id');
+                if (id && tabMap[id]) {
+                    currentGroup = id;
+                    sectionGroups[id] = [sec];
+                } else if (currentGroup) {
+                    // This section has no tab, group it with the previous tab section
+                    sectionGroups[currentGroup].push(sec);
+                }
+            });
+
+            function showTab(targetId) {
+                // Hide ALL sections
+                allSections.forEach(s => s.style.display = 'none');
+
+                // Show sections for the target group
+                if (sectionGroups[targetId]) {
+                    sectionGroups[targetId].forEach(s => s.style.display = '');
+                }
+
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                if (tabMap[targetId]) {
+                    tabMap[targetId].classList.add('active');
+                    // Scroll tab into view in the horizontal nav
+                    tabMap[targetId].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+
+            // Attach click handlers to top tabs
+            tabs.forEach(t => {
+                t.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('href').replace('#', '');
+                    showTab(id);
+                    history.replaceState(null, '', '#' + id);
+                });
+            });
+
+            // Attach click handlers to overview cards
+            document.querySelectorAll('.overview-item[data-target]').forEach(card => {
+                card.addEventListener('click', function () {
+                    const id = this.getAttribute('data-target');
+                    showTab(id);
+                    history.replaceState(null, '', '#' + id);
+                });
+            });
+
+            // Handle initial hash on page load
+            const hash = window.location.hash.replace('#', '');
+            if (hash && sectionGroups[hash]) {
+                showTab(hash);
+            } else {
+                showTab('overview');
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

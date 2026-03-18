@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pipeline Comunicaciones — Víctor Arroyo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #0A0E1A;
+            --surface: rgba(255, 255, 255, .03);
+            --surface2: rgba(255, 255, 255, .06);
+            --accent: #F27A30;
+            --blue: #00AEEF;
+            --text: #fff;
+            --muted: rgba(255, 255, 255, .55);
+            --dim: rgba(255, 255, 255, .3);
+            --border: rgba(242, 122, 48, .15);
+            --green: #22c55e;
+            --red: #ef4444;
+            --yellow: #eab308;
+            --font: 'Outfit', sans-serif
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 16px 80px
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 3px solid var(--accent);
+            margin-bottom: 30px
+        }
+
+        header .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .merge-ref {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 28px
+        }
+
+        .merge-ref h3 {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase
+        }
+
+        .merge-ref .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .merge-ref .tag {
+            background: var(--surface2);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-family: monospace;
+            color: var(--muted)
+        }
+
+        .merge-ref .tag b {
+            color: var(--accent);
+            font-weight: 500
+        }
+
+        .stage-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--bg);
+            padding: 10px 0
+        }
+
+        .stage-tab {
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .2s
+        }
+
+        .stage-tab:hover {
+            background: var(--surface2);
+            color: var(--text)
+        }
+
+        .stage-tab.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent)
+        }
+
+        .stage-content {
+            display: none
+        }
+
+        .stage-content.active {
+            display: block
+        }
+
+        .stage-header {
+            margin-bottom: 20px
+        }
+
+        .stage-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .stage-header p {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .meta-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            font-size: 13px
+        }
+
+        .meta-box .row {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+            align-items: baseline
+        }
+
+        .meta-box .row:last-child {
+            margin-bottom: 0
+        }
+
+        .meta-box .label {
+            color: var(--dim);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: .5px;
+            min-width: 70px;
+            flex-shrink: 0
+        }
+
+        .meta-box .val {
+            color: var(--muted)
+        }
+
+        .ghl-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px
+        }
+
+        .ghl-tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500
+        }
+
+        .ghl-tag.add {
+            background: rgba(34, 197, 94, .12);
+            color: var(--green)
+        }
+
+        .ghl-tag.rm {
+            background: rgba(239, 68, 68, .12);
+            color: var(--red)
+        }
+
+        .sub-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .sub-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .2s;
+            background: var(--surface)
+        }
+
+        .sub-tab:hover {
+            background: var(--surface2)
+        }
+
+        .sub-tab.active-int {
+            background: rgba(242, 122, 48, .15);
+            color: var(--accent)
+        }
+
+        .sub-tab.active-ext {
+            background: rgba(0, 174, 239, .15);
+            color: var(--blue)
+        }
+
+        .sub-content {
+            display: none
+        }
+
+        .sub-content.active {
+            display: block
+        }
+
+        .msg-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 14px;
+            transition: .2s
+        }
+
+        .msg-card:hover {
+            border-color: var(--border)
+        }
+
+        .msg-card .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .msg-card .channel {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px
+        }
+
+        .ch-wa {
+            background: rgba(37, 211, 102, .12);
+            color: #25d366
+        }
+
+        .ch-sms {
+            background: rgba(0, 174, 239, .12);
+            color: var(--blue)
+        }
+
+        .ch-email {
+            background: rgba(242, 122, 48, .12);
+            color: var(--accent)
+        }
+
+        .ch-call {
+            background: rgba(234, 179, 8, .12);
+            color: var(--yellow)
+        }
+
+        .ch-task {
+            background: rgba(168, 85, 247, .12);
+            color: #a855f7
+        }
+
+        .msg-card .timing {
+            color: var(--dim);
+            font-size: 12px;
+            font-weight: 500
+        }
+
+        .msg-card .urgency {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase
+        }
+
+        .urg-high {
+            background: rgba(239, 68, 68, .12);
+            color: var(--red)
+        }
+
+        .urg-med {
+            background: rgba(234, 179, 8, .12);
+            color: var(--yellow)
+        }
+
+        .urg-low {
+            background: rgba(34, 197, 94, .12);
+            color: var(--green)
+        }
+
+        .urg-info {
+            background: rgba(0, 174, 239, .12);
+            color: var(--blue)
+        }
+
+        .msg-body {
+            background: rgba(0, 0, 0, .2);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.7;
+            white-space: pre-wrap
+        }
+
+        .msg-body b,
+        .msg-body strong {
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .script-label {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: block
+        }
+
+        .copy-btn {
+            background: rgba(242, 122, 48, .15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 8px;
+            transition: .2s
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            color: #fff
+        }
+
+        @media(max-width:600px) {
+            .stage-tabs {
+                gap: 4px
+            }
+
+            .stage-tab {
+                font-size: 11px;
+                padding: 6px 10px
+            }
+
+            header h1 {
+                font-size: 22px
+            }
+
+            .msg-card .top {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">Pipeline GHL — Marzo 2026</span>
+            <h1>📋 Comunicaciones por Etapa — Víctor Arroyo</h1>
+            <p>Funnel de Seguimiento VIP. Click en etapa → Interna o Externa. Cada mensaje en WhatsApp, SMS y Email.</p>
+        </header>
+        <div class="merge-ref">
+            <h3>■ GHL Merge Fields</h3>
+            <div class="tags">
+                <span class="tag"><b>Nombre:</b> {{contact.first_name}}</span>
+                <span class="tag"><b>Apellido:</b> {{contact.last_name}}</span>
+                <span class="tag"><b>Tel:</b> {{contact.phone}}</span>
+                <span class="tag"><b>Email:</b> {{contact.email}}</span>
+                <span class="tag"><b>Link:</b> {{contact.contact_link}}</span>
+                <span class="tag"><b>Capital:</b> {{custom_values.capital_disponible}}</span>
+                <span class="tag"><b>Cita:</b> {{appointment.date}} {{appointment.time}}</span>
+                <span class="tag"><b>Calendario:</b> {{appointment.calendar_link}}</span>
+            </div>
+        </div>
+        <div class="stage-tabs" id="stageTabs"></div>
+        <div id="stageContent"></div>
+    </div>
+    <script>
+        const STAGES = [
+            // ═══════════════════════════════════════════
+            // ETAPA 1: SEGUIMIENTO VIP
+            // ═══════════════════════════════════════════
+            {
+                id: "vip", label: "1 🔥 Seguimiento VIP", title: "Seguimiento VIP",
+                desc: "Lead calificado post-cita. Capital ≥$50K confirmado. Inicio del seguimiento con oferta gancho.",
+                trigger: "Lead completa cita y es calificado como VIP (capital ≥$50K)",
+                tags_add: ["[VIP] Capital Calificado", "[Pipeline] Seguimiento VIP"], tags_rm: [],
+                auto: ["Mover oportunidad a 'Seguimiento VIP'", "Crear tarea: 'Llamar con oferta gancho'", "96H sin respuesta → Auto-mover a C1"],
+                int: [
+                    {
+                        ch: "task", timing: "48H", urg: "high", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1", body: `🔥 Llama a {{contact.first_name}} {{contact.last_name}}
+
+📞 {{contact.phone}}
+💰 Capital: {{custom_values.capital_disponible}}
+
+Objetivo: Ofrecer GANCHO 1 — oportunidad de terreno específica.
+Mostrar terrenos por menos de $20,000 USD en zona de alto crecimiento.
+Personalizar con lo que se habló en la sesión.
+
+→ Si responde con interés → Agendar siguiente paso
+→ Si no contesta → Dejar voicemail + enviar WhatsApp`},
+                    {
+                        ch: "task", timing: "72H", urg: "high", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (2do intento)", body: `📞 Segundo intento de llamada a {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Ofrecer GANCHO 1 de nuevo con nuevo ángulo.
+Mencionar que el terreno anterior ya tiene otro interesado.
+
+→ Si no contesta → Voicemail + SMS`},
+                    {
+                        ch: "task", timing: "96H", urg: "med", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (3er intento)", body: `📞 Tercer y último intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Si no contesta → Enviar toda la info por mensaje.
+Si no hay respuesta → Mover a etapa C1.`}
+                ],
+                ext: [
+                    // 0H: Bienvenido
+                    {
+                        ch: "wa", timing: "0H — Bienvenida", urg: "info", body: `¡Hola {{contact.first_name}}! 👋
+
+Bienvenido al programa VIP de Víctor Arroyo. Fue un gusto platicar contigo en nuestra sesión.
+
+Quedamos con el plan de avanzar y te voy a estar enviando información exclusiva de oportunidades de inversión.
+
+Cualquier duda, escríbeme directo por aquí. 🏡
+
+— Equipo Víctor Arroyo`},
+                    { ch: "sms", timing: "0H — Bienvenida", urg: "info", body: `{{contact.first_name}}, bienvenido al programa VIP de Víctor Arroyo 🏡 Te estaremos enviando oportunidades exclusivas. Cualquier duda nos escribes. — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "0H — Bienvenida", urg: "info", subj: "Bienvenido al programa VIP, {{contact.first_name}} 🏡", body: `Hola {{contact.first_name}},
+
+¡Bienvenido! Fue un gusto platicar contigo en nuestra sesión.
+
+A partir de ahora eres parte de nuestro grupo VIP de inversionistas. Te estaré compartiendo oportunidades exclusivas de terrenos y proyectos que se ajusten a lo que platicamos.
+
+Si tienes alguna pregunta, no dudes en escribirme.
+
+Un saludo,
+Equipo Víctor Arroyo 🏡`},
+                    // 2H: te llamé para seguimiento
+                    {
+                        ch: "wa", timing: "2H", urg: "med", body: `{{contact.first_name}}, te llamé hace un momento para darle seguimiento a lo que acordamos en la sesión.
+
+¿Sigues interesado en avanzar? 📞
+
+Quedo pendiente de tu respuesta.`},
+                    { ch: "sms", timing: "2H", urg: "med", body: `{{contact.first_name}}, te llamé para seguimiento que acordamos. ¿Sigues interesado? Quedo pendiente. — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "2H", urg: "med", subj: "Te llamé, {{contact.first_name}} — Seguimiento", body: `Hola {{contact.first_name}},
+
+Te intenté llamar hace un momento para darle seguimiento a lo que acordamos en tu sesión.
+
+¿Sigues interesado en avanzar con tu inversión? Me encantaría poder mostrarte las opciones que tengo preparadas para ti.
+
+Quedo pendiente de tu respuesta.
+
+Un saludo,
+Equipo Víctor Arroyo`},
+                    // 48H: por respeto a tu tiempo
+                    {
+                        ch: "wa", timing: "48H", urg: "high", body: `{{contact.first_name}}, por respeto a tu tiempo te pregunto directamente: ¿decides avanzar o no?
+
+Necesito saberlo para organizarme y poder atenderte como mereces. Cualquier respuesta está bien. 👍`},
+                    { ch: "sms", timing: "48H", urg: "high", body: `{{contact.first_name}}, por respeto a tu tiempo: ¿decides avanzar o no? Necesito saberlo para organizarme. — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "48H", urg: "high", subj: "{{contact.first_name}}, ¿avanzamos?", body: `Hola {{contact.first_name}},
+
+Te he intentado contactar para darle seguimiento a nuestra conversación.
+
+Por respeto a tu tiempo, quiero preguntarte directamente: ¿decides avanzar con tu inversión o no?
+
+Cualquier respuesta está bien. Solo necesito tu confirmación para poder organizarme.
+
+Un saludo,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 2: C1
+            // ═══════════════════════════════════════════
+            {
+                id: "c1", label: "2 📞 C1", title: "C1 — Primera Llamada Oferta",
+                desc: "Primer ciclo de llamada con oferta gancho. El objetivo es reconectar y generar urgencia con una oportunidad real.",
+                trigger: "Sin respuesta/avance en Seguimiento VIP",
+                tags_add: ["[Pipeline] C1"], tags_rm: ["[Pipeline] Seguimiento VIP"],
+                auto: ["Mover oportunidad a C1", "Crear tarea: 'Llamar con oferta gancho'", "96H sin contacto → Auto-mover a C2"],
+                int: [
+                    {
+                        ch: "task", timing: "48H", urg: "high", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1", body: `📞 Llama a {{contact.first_name}} {{contact.last_name}}
+
+📞 {{contact.phone}}
+💰 Capital: {{custom_values.capital_disponible}}
+
+Objetivo: Ofrecer GANCHO 1 — terrenos por menos de $20K en zona de alto crecimiento.
+Diferente ángulo: mencionar que un cliente similar acaba de cerrar con X% de ROI.
+
+→ Si responde → Agendar Evento de Seguimiento
+→ Si no contesta → Voicemail + WhatsApp`},
+                    {
+                        ch: "task", timing: "72H", urg: "med", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (2do intento)", body: `📞 Segundo intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Mencionar que la oportunidad anterior ya tiene más interesados.
+Usar urgencia real de mercado.
+
+→ Si no contesta → Dejar voicemail + SMS`},
+                    {
+                        ch: "task", timing: "96H", urg: "med", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (3er intento)", body: `📞 Tercer intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Último intento antes de mover a C2.
+Si no responde → Mover a C2 automáticamente.`}
+                ],
+                ext: [
+                    {
+                        ch: "wa", timing: "0H — Post-llamada", urg: "high", body: `Hey {{contact.first_name}} 👋
+
+Te acabo de llamar porque encontré una oportunidad que creo que te va a interesar mucho.
+
+Son terrenos por menos de *$20,000 USD* en una zona con crecimiento confirmado. Te los quiero mostrar a ti primero.
+
+¿Cuándo puedes para que te cuente? 📞
+
+— Equipo Víctor Arroyo`},
+                    { ch: "sms", timing: "0H — Post-llamada", urg: "high", body: `{{contact.first_name}}, te llamé porque encontré terrenos por menos de $20K que te van a interesar. Te quiero mostrar antes que a nadie. ¿Cuándo hablamos? — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "0H — Post-llamada", urg: "high", subj: "{{contact.first_name}}, te llamé — tengo una oferta para ti", body: `Hola {{contact.first_name}},
+
+Te intenté llamar porque acaban de salir oportunidades de terrenos por menos de $20,000 USD que se ajustan a lo que platicamos.
+
+Están en una zona con proyección de crecimiento importante. Este tipo de oportunidades no duran mucho.
+
+Me encantaría mostrártelos. ¿Te va bien una llamada rápida?
+
+Un saludo,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 3: C2
+            // ═══════════════════════════════════════════
+            {
+                id: "c2", label: "3 🔄 C2", title: "C2 — Segunda Oferta",
+                desc: "Segundo ciclo de contacto. Se reitera la oferta gancho con nuevo ángulo y más urgencia.",
+                trigger: "96H en C1 sin respuesta",
+                tags_add: ["[Pipeline] C2"], tags_rm: ["[Pipeline] C1"],
+                auto: ["Mover oportunidad a C2", "Crear tarea: 'Llamar oferta gancho round 2'", "96H sin contacto → Auto-mover a Evento Seguimiento"],
+                int: [
+                    {
+                        ch: "task", timing: "48H", urg: "high", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1", body: `📞 Llama a {{contact.first_name}} {{contact.last_name}}
+
+📞 {{contact.phone}}
+
+Objetivo: Ofrecer GANCHO con urgencia elevada.
+Mencionar que ya hay otras personas interesadas en los terrenos.
+
+→ Si responde → Agendar Evento de Seguimiento
+→ Si no contesta → Voicemail + WhatsApp`},
+                    {
+                        ch: "task", timing: "72H", urg: "med", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (2do intento)", body: `📞 Segundo intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Último intento antes del tercer contacto.
+Ángulo: "Solo quiero asegurarme de que no te lo pierdas por falta de info."`},
+                    {
+                        ch: "task", timing: "96H", urg: "med", label: "📞 TAREA — Llamar al cliente, ofrecer gancho 1 (3er intento)", body: `📞 Tercer intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Si no responde → Enviar info por mensaje y mover a Evento Seguimiento.`}
+                ],
+                ext: [
+                    {
+                        ch: "wa", timing: "0H — Post-llamada", urg: "high", body: `{{contact.first_name}}, hola 👋
+
+Te intenté llamar de nuevo. Los terrenos que te mencioné siguen disponibles pero ya tengo a otras personas preguntando.
+
+No te quiero presionar, pero sí quiero que tengas la oportunidad de verlos antes. *Están por debajo de $20K* y el retorno proyectado es muy bueno.
+
+¿Te mando los detalles? 🏡`},
+                    { ch: "sms", timing: "0H — Post-llamada", urg: "high", body: `{{contact.first_name}}, te busqué otra vez. Terrenos <$20K siguen disponibles pero ya hay más interesados. ¿Te mando info? — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "0H — Post-llamada", urg: "med", subj: "Siguen disponibles, {{contact.first_name}}", body: `Hola {{contact.first_name}},
+
+Te he intentado contactar para mostrarte las oportunidades de terreno.
+
+La buena noticia: siguen disponibles. Pero ya tengo a otros inversionistas interesados y no creo que duren mucho más.
+
+Si quieres revisarlos, respóndeme y agendamos una llamada rápida de 10 minutos.
+
+Saludos,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 4: EVENTO SEGUIMIENTO
+            // ═══════════════════════════════════════════
+            {
+                id: "evento", label: "4 📅 Evento Seguimiento", title: "Evento Seguimiento",
+                desc: "Recordatorios automáticos antes de la cita/evento de seguimiento agendado. -24H, -2H y -10min.",
+                trigger: "Cita de seguimiento agendada en calendario",
+                tags_add: ["[Pipeline] Evento Seguimiento"], tags_rm: [],
+                auto: ["Enviar recordatorios automáticos -24H, -2H, -10min", "Crear tarea: 'Confirmar asistencia'"],
+                int: [
+                    {
+                        ch: "task", timing: "-24H antes del evento", urg: "med", label: "📞 TAREA — Llama a {{contact.first_name}}", body: `📞 Llama a {{contact.first_name}} {{contact.last_name}} para confirmar asistencia a la cita de mañana.
+
+📞 {{contact.phone}}
+📧 {{contact.email}}
+💰 Capital: {{custom_values.capital_disponible}}
+
+→ Si confirma: mantener en etapa
+→ Si no contesta: enviar recordatorio por WhatsApp`},
+                    {
+                        ch: "task", timing: "-2H antes del evento", urg: "high", label: "📞 TAREA — Llama a {{contact.first_name}}", body: `⚡ Cita con {{contact.first_name}} en 2 HORAS.
+
+📞 {{contact.phone}}
+
+Preparar: revisar notas de sesiones anteriores, terrenos disponibles para mostrar y objeciones previas.`},
+                    {
+                        ch: "task", timing: "-10min antes del evento", urg: "high", label: "🚨 TAREA — Llama a {{contact.first_name}}", body: `🚨 CITA EN 10 MINUTOS con {{contact.first_name}} {{contact.last_name}}
+
+📞 {{contact.phone}}
+
+Tener listo: terrenos, proyecciones, link de pago.`}
+                ],
+                ext: [
+                    // 0H: Felicitaciones (al agendar)
+                    {
+                        ch: "wa", timing: "0H — Al agendar", urg: "info", body: `¡Felicidades {{contact.first_name}}! 🎉
+
+Tu sesión de seguimiento ha sido agendada. Estamos preparando opciones exclusivas para ti.
+
+Te estaré mandando recordatorios antes de la cita. ¡Nos vemos pronto! 🏡`},
+                    { ch: "sms", timing: "0H — Al agendar", urg: "info", body: `¡Felicidades {{contact.first_name}}! Tu sesión de seguimiento está confirmada. Te enviaremos recordatorios. ¡Nos vemos! — Equipo Víctor Arroyo 🏡` },
+                    {
+                        ch: "email", timing: "0H — Al agendar", urg: "info", subj: "¡Felicidades! Tu sesión está confirmada, {{contact.first_name}}", body: `Hola {{contact.first_name}},
+
+¡Felicidades! Tu sesión de seguimiento ha sido agendada exitosamente.
+
+Estamos preparándote opciones exclusivas de inversión. Antes de la cita te enviaremos recordatorios para que no se te pase.
+
+¡Nos vemos pronto!
+
+Saludos,
+Equipo Víctor Arroyo 🏡`},
+                    // 24H post-evento: Compromiso de avanzar
+                    {
+                        ch: "wa", timing: "24H post-sesión", urg: "med", body: `{{contact.first_name}}, acabas de tener una sesión con nosotros 🙌
+
+Dejamos un compromiso de avanzar para el *{{appointment.date}}*.
+
+Quedo pendiente de ti para los próximos pasos. ¡Vamos con todo! 🔥`},
+                    { ch: "sms", timing: "24H post-sesión", urg: "med", body: `{{contact.first_name}}, acabas de tener tu sesión con nosotros. Dejamos un compromiso de avanzar para el {{appointment.date}}. ¡Vamos! — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "24H post-sesión", urg: "med", subj: "Próximos pasos, {{contact.first_name}} — Compromiso de avanzar", body: `Hola {{contact.first_name}},
+
+Gracias por tu sesión de seguimiento. Fue excelente.
+
+Como acordamos, quedamos con el compromiso de avanzar para el {{appointment.date}}.
+
+Estaré al pendiente para los próximos pasos. Si tienes alguna duda, escríbeme.
+
+Un saludo,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 5: POST-SEGUIMIENTO
+            // ═══════════════════════════════════════════
+            {
+                id: "post", label: "5 📊 Post-Seguimiento", title: "Post-Seguimiento",
+                desc: "Después del evento. Secuencia de presión escalonada: validar interés → oferta irresistible → liberación de espacio.",
+                trigger: "Evento de seguimiento completado sin cierre",
+                tags_add: ["[Pipeline] Post-Seguimiento"], tags_rm: ["[Pipeline] Evento Seguimiento"],
+                auto: ["Mover a Post-Seguimiento", "Crear tarea: 'Validar interés y avanzar'", "96H → Mensaje de oferta irresistible", "7D → Mensaje de liberación de espacio"],
+                int: [
+                    {
+                        ch: "task", timing: "48H", urg: "high", label: "📞 TAREA — Llamar al cliente, validar interés y avanzar", body: `📞 Llama a {{contact.first_name}} {{contact.last_name}}
+
+📞 {{contact.phone}}
+
+Objetivo: Validar interés post-sesión y empujar a avanzar.
+Preguntar: "¿Cómo te quedaste con las opciones? ¿Alguna te llamó la atención?"
+
+→ Si interesado → Avanzar a cierre / Venta
+→ Si dudas → Resolver objeciones
+→ Si no contesta → Siguiente intento`},
+                    {
+                        ch: "task", timing: "72H", urg: "high", label: "📞 TAREA — Llamar al cliente, validar interés y avanzar (2do)", body: `📞 Segundo intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Ser directo: "Las opciones que te mostré tienen a más personas interesadas. ¿Vas a avanzar o no?"
+
+→ Si no contesta → Siguiente intento`},
+                    {
+                        ch: "task", timing: "96H", urg: "med", label: "📞 TAREA — Llamar al cliente, validar interés y avanzar (3er)", body: `📞 Tercer intento con {{contact.first_name}}
+
+📞 {{contact.phone}}
+
+Preguntar directamente: "¿Es algo que quieres seguir explorando o prefieres dejarlo?"
+
+→ Si no responde → Esperar mensaje de oferta irresistible automático`}
+                ],
+                ext: [
+                    // 96H: Oferta irresistible + escasez
+                    {
+                        ch: "wa", timing: "96H", urg: "high", body: `{{contact.first_name}}, te comparto algo: acaba de salir una oportunidad que casi nunca se da — un terreno con *30% de ROI garantizado* en zona premium.
+
+Quedan muy pocos disponibles. Si alguna vez vas a invertir, *este es el momento*.
+
+¿Te interesa que te cuente más? 🔥`},
+                    { ch: "sms", timing: "96H", urg: "high", body: `{{contact.first_name}}, oferta irresistible: terreno con 30% ROI garantizado, escasez real, pocos disponibles. ¿Quieres saber más? — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "96H", urg: "high", subj: "Oportunidad exclusiva — 30% ROI garantizado, {{contact.first_name}}", body: `Hola {{contact.first_name}},
+
+Quiero compartirte algo que no ofrezco a todos: acaba de salir un terreno con retorno del 30% garantizado en una zona premium.
+
+Este tipo de oportunidad no aparece seguido y los espacios son muy limitados.
+
+Si en algún momento has pensado en dar el paso, te recomiendo hacerlo ahora.
+
+¿Hablamos?
+
+Saludos,
+Equipo Víctor Arroyo`},
+                    // 7D: Liberación de espacio
+                    {
+                        ch: "wa", timing: "7D", urg: "med", body: `{{contact.first_name}}, entiendo que quizás no es tu momento. No hay problema.
+
+Solo necesito saber: ¿sigo guardándote tu espacio VIP o se lo doy a alguien más?
+
+*Si no escucho de ti, daremos prioridad a otros inversionistas.* Sin resentimientos. 🤝`},
+                    { ch: "sms", timing: "7D", urg: "med", body: `{{contact.first_name}}, si no escucho de ti, daremos prioridad a otros inversionistas. ¿Te guardo tu espacio o lo libero? — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "7D", urg: "med", subj: "{{contact.first_name}}, ¿te guardo tu espacio?", body: `Hola {{contact.first_name}},
+
+He intentado contactarte varias veces y entiendo que quizás este no es tu momento.
+
+Sin embargo, necesito confirmar: ¿sigo reservándote acceso a las oportunidades VIP o prefieres que le demos prioridad a otros inversionistas?
+
+Si no escucho de ti, daremos prioridad a otros.
+
+Cualquier decisión está bien. Solo necesito tu confirmación.
+
+Un saludo,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 6: VENTA
+            // ═══════════════════════════════════════════
+            {
+                id: "venta", label: "6 🏆 Venta", title: "Venta ✅",
+                desc: "Prospecto confirma inversión y realiza pago. Bienvenida y onboarding.",
+                trigger: "Pago de entrada confirmado ($3,000 USD)",
+                tags_add: ["[Pipeline] Venta Cerrada", "[Status] Cliente Activo", "[VIP] Inversionista"], tags_rm: ["[Pipeline] Post-Seguimiento"],
+                auto: ["Mover a 'Venta ✅'", "Enviar bienvenida automática", "Crear tarea: 'Onboarding'", "Notificar a Víctor: VENTA CERRADA"],
+                int: [
+                    {
+                        ch: "task", timing: "0H — Inmediato", urg: "high", label: "🏆 NOTIFICACIÓN — ¡Felicidades! VENTA CERRADA", body: `🏆🏆🏆 ¡FELICIDADES! ¡VENTA CERRADA!
+
+{{contact.first_name}} {{contact.last_name}} acaba de confirmar su inversión.
+
+📞 {{contact.phone}}
+📧 {{contact.email}}
+💰 Capital: {{custom_values.capital_disponible}}
+🔗 {{contact.contact_link}}
+
+Siguiente:
+1. Enviar kit de bienvenida del inversionista
+2. Agendar llamada de onboarding (48H)
+3. Agregar a grupo exclusivo de inversionistas
+4. Enviar email con roadmap primeros 30 días`}
+                ],
+                ext: [
+                    {
+                        ch: "wa", timing: "0H — Inmediato", urg: "info", body: `¡{{contact.first_name}}, bienvenido! 🏆🔥
+
+Acabas de tomar una de las mejores decisiones de tu vida. A partir de ahora eres parte de un grupo exclusivo de inversionistas que están construyendo su patrimonio.
+
+Te voy a estar mandando toda la información de tu inversión y los próximos pasos.
+
+*¡Felicidades!* 🎉
+
+— Equipo Víctor Arroyo`},
+                    { ch: "sms", timing: "0H — Inmediato", urg: "info", body: `🏆 ¡Bienvenido, {{contact.first_name}}! Acabas de unirte a nuestro grupo exclusivo de inversionistas. Te enviaremos los próximos pasos. ¡Felicidades! — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "0H — Inmediato", urg: "info", subj: "🏆 ¡Bienvenido, {{contact.first_name}}! Tu inversión está confirmada", body: `Hola {{contact.first_name}},
+
+¡Felicidades! Tu inversión ha sido confirmada exitosamente.
+
+A partir de ahora eres parte de nuestro grupo exclusivo de inversionistas. En los próximos días recibirás:
+
+• Tu kit de bienvenida con toda la documentación
+• Acceso al grupo privado de inversionistas
+• Tu calendario de seguimiento personalizado
+• Roadmap de tus primeros 30 días
+
+Estamos muy contentos de tenerte con nosotros.
+
+¡Bienvenido!
+
+Equipo Víctor Arroyo 🏡`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 7: NO AVANZA
+            // ═══════════════════════════════════════════
+            {
+                id: "no", label: "7 ❌ No Avanza", title: "No Avanza",
+                desc: "Prospecto no responde o declina. Se envía mensaje de cierre y se libera espacio.",
+                trigger: "7D+ sin respuesta tras Post-Seguimiento o declina explícitamente",
+                tags_add: ["[Status] No Avanza", "[Pipeline] Cerrado-Perdido"], tags_rm: ["[Pipeline] Post-Seguimiento"],
+                auto: ["Mover a 'No Avanza'", "Enviar mensaje de cierre", "Crear tarea: 'Seguimiento largo plazo en 30D'"],
+                int: [
+                    {
+                        ch: "task", timing: "0H — Al mover", urg: "med", label: "❌ NOTIFICACIÓN — No avanza", body: `❌ {{contact.first_name}} {{contact.last_name}} movido a "No Avanza".
+
+📞 {{contact.phone}}
+📧 {{contact.email}}
+
+Razón: Sin respuesta / No interesado
+Acción: Crear seguimiento largo plazo en 30 días.`}
+                ],
+                ext: [
+                    {
+                        ch: "wa", timing: "0H", urg: "low", body: `{{contact.first_name}}, no te encontré. Asumiré que ya no estás interesado y liberaré tu espacio para otros inversionistas.
+
+Si en algún momento cambias de opinión, aquí estamos. Te deseo mucho éxito. 🤝
+
+— Equipo Víctor Arroyo`},
+                    { ch: "sms", timing: "0H", urg: "low", body: `{{contact.first_name}}, no te encontré. Asumiré que ya no estás interesado y liberaré el espacio. Si cambias de opinión, aquí estamos. Éxito. — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "0H", urg: "low", subj: "Liberamos tu espacio, {{contact.first_name}}", body: `Hola {{contact.first_name}},
+
+He intentado contactarte en varias ocasiones sin éxito.
+
+Voy a asumir que ya no estás interesado y liberaré tu espacio en nuestro programa de inversionistas.
+
+Si en el futuro decides explorar esta oportunidad, la puerta está abierta.
+
+Te deseo el mayor de los éxitos.
+
+Saludos cordiales,
+Equipo Víctor Arroyo`}
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // ETAPA 8: SEGUIMIENTO LARGO PLAZO
+            // ═══════════════════════════════════════════
+            {
+                id: "largo", label: "8 🔮 Seg. Largo Plazo", title: "Seguimiento Largo Plazo",
+                desc: "Contacto que no avanzó ahora. Se programa re-contacto periódico con ofertas de urgencia.",
+                trigger: "30D después de mover a 'No Avanza'",
+                tags_add: ["[Pipeline] Seg. Largo Plazo"], tags_rm: ["[Status] No Avanza"],
+                auto: ["Crear seguimiento largo plazo", "Programar tarea recurrente cada 30D", "96H inacción → Mensaje de urgencia automático"],
+                int: [
+                    {
+                        ch: "task", timing: "0H — Al crear", urg: "low", label: "📋 TAREA — Seguimiento largo plazo creado", body: `🔮 Seguimiento de largo plazo creado para {{contact.first_name}} {{contact.last_name}}.
+
+📞 Llama a {{contact.first_name}} el día {{appointment.date}}
+📱 {{contact.phone}}
+💰 Capital de interés: {{custom_values.capital_disponible}}
+
+Notas: Revisar nuevas oportunidades de terrenos antes de llamar. Preparar oferta personalizada con datos actualizados del mercado.`}
+                ],
+                ext: [
+                    // Mensaje de urgencia / oferta de urgencia
+                    {
+                        ch: "wa", timing: "30D — Re-contacto", urg: "med", body: `{{contact.first_name}}, ¿cómo te va? Soy del equipo de Víctor Arroyo.
+
+Ha pasado un tiempo y quería saludarte. Han salido *nuevas oportunidades de inversión* que creo que podrían interesarte mucho.
+
+¿Te gustaría que te cuente? Sin compromiso. 😊`},
+                    { ch: "sms", timing: "30D — Re-contacto", urg: "med", body: `{{contact.first_name}}, soy del equipo de Víctor Arroyo. Nuevas oportunidades de inversión disponibles. ¿Te interesa saber más? Sin compromiso.` },
+                    {
+                        ch: "email", timing: "30D — Re-contacto", urg: "med", subj: "Nuevas oportunidades, {{contact.first_name}}", body: `Hola {{contact.first_name}},
+
+Espero que estés bien. Ha pasado un tiempo desde nuestra última conversación.
+
+Han aparecido nuevas oportunidades de inversión en bienes raíces con condiciones especiales que no habíamos visto antes.
+
+Si te interesa, agendamos una llamada rápida para ponerte al día. Sin compromiso.
+
+Saludos,
+Equipo Víctor Arroyo`},
+                    // 96H: Inacción
+                    {
+                        ch: "wa", timing: "96H post-contacto", urg: "high", body: `{{contact.first_name}}, te he buscado y no hemos podido conectar.
+
+Tengo una *oferta de urgencia* disponible — terreno con condiciones especiales que no va a durar.
+
+Si no escucho de ti pronto, seguiré adelante con otros inversionistas. 🔥
+
+¿Te interesa?`},
+                    { ch: "sms", timing: "96H post-contacto", urg: "high", body: `{{contact.first_name}}, tengo una oferta de urgencia para ti. Terreno con condiciones especiales. Si no escucho de ti, seguiré con otros. ¿Te interesa? — Equipo Víctor Arroyo` },
+                    {
+                        ch: "email", timing: "96H post-contacto", urg: "high", subj: "Oferta de urgencia, {{contact.first_name}} — No va a durar", body: `Hola {{contact.first_name}},
+
+Te he intentado contactar sin éxito. Quiero compartirte una oferta de urgencia: un terreno con condiciones especiales que no va a durar mucho.
+
+Si estás interesado, necesito saberlo pronto porque tengo a otros inversionistas esperando.
+
+¿Hablamos?
+
+Saludos,
+Equipo Víctor Arroyo`}
+                ]
+            }
+        ];
+
+        function chClass(c) { return { wa: "ch-wa", sms: "ch-sms", email: "ch-email", call: "ch-call", task: "ch-task" }[c] || "ch-wa" }
+        function chLabel(c) { return { wa: "WHATSAPP", sms: "SMS", email: "EMAIL", call: "LLAMADA", task: "TAREA" }[c] || c.toUpperCase() }
+        function urgClass(u) { return { high: "urg-high", med: "urg-med", low: "urg-low", info: "urg-info" }[u] || "urg-info" }
+        function urgLabel(u) { return { high: "🔴 Urgente", med: "🟡 Medio", low: "🟢 Bajo", info: "🔵 Info" }[u] || "" }
+
+        function renderCard(m) {
+            let s = m.subj ? `<span class="script-label">Asunto: ${m.subj}</span>` : "";
+            let l = m.label ? `<span class="script-label">${m.label}</span>` : "";
+            return `<div class="msg-card"><div class="top"><div><span class="channel ${chClass(m.ch)}">${chLabel(m.ch)}</span> <span class="timing">${m.timing}</span></div><span class="urgency ${urgClass(m.urg)}">${urgLabel(m.urg)}</span></div>${l}${s}<div class="msg-body">${m.body}</div></div>`
+        }
+
+        function renderStage(idx) {
+            const s = STAGES[idx];
+            let tagsH = s.tags_add.map(t => `<span class="ghl-tag add">+ ${t}</span>`).join("") + s.tags_rm.map(t => `<span class="ghl-tag rm">- ${t}</span>`).join("");
+            let autoH = s.auto.map(a => `<div>• ${a}</div>`).join("");
+            let intH = s.int.map(renderCard).join("");
+            let extH = s.ext.map(renderCard).join("");
+            return `<div class="stage-header"><h2>${s.title}</h2><p>${s.desc}</p></div>
+<div class="meta-box"><div class="row"><span class="label">Trigger</span><span class="val">${s.trigger}</span></div>
+<div class="row"><span class="label">Tags</span><div class="ghl-tags">${tagsH}</div></div>
+<div class="row"><span class="label">Auto</span><div class="val">${autoH}</div></div></div>
+<div class="sub-tabs"><div class="sub-tab active-int" onclick="toggleSub(${idx},'int')">🔒 Interna (Equipo)</div><div class="sub-tab" onclick="toggleSub(${idx},'ext')">📣 Externa (Prospecto)</div></div>
+<div class="sub-content active" id="int-${idx}">${intH}</div>
+<div class="sub-content" id="ext-${idx}">${extH}</div>`
+        }
+
+        const tabsEl = document.getElementById("stageTabs");
+        const contentEl = document.getElementById("stageContent");
+        STAGES.forEach((s, i) => {
+            let t = document.createElement("div"); t.className = "stage-tab" + (i === 0 ? " active" : ""); t.textContent = s.label;
+            t.onclick = () => switchStage(i); tabsEl.appendChild(t)
+        });
+        let stagesHTML = STAGES.map((_, i) => `<div class="stage-content${i === 0 ? ' active' : ''}" id="stage-${i}">${renderStage(i)}</div>`).join("");
+        contentEl.innerHTML = stagesHTML;
+
+        function switchStage(idx) {
+            document.querySelectorAll(".stage-tab").forEach((t, i) => t.className = "stage-tab" + (i === idx ? " active" : ""));
+            document.querySelectorAll(".stage-content").forEach((c, i) => { c.className = "stage-content" + (i === idx ? " active" : "") });
+        }
+        function toggleSub(idx, type) {
+            const tabs = document.querySelectorAll(`#stage-${idx} .sub-tab`);
+            tabs[0].className = "sub-tab" + (type === "int" ? " active-int" : "");
+            tabs[1].className = "sub-tab" + (type === "ext" ? " active-ext" : "");
+            document.getElementById(`int-${idx}`).className = "sub-content" + (type === "int" ? " active" : "");
+            document.getElementById(`ext-${idx}`).className = "sub-content" + (type === "ext" ? " active" : "");
+        }
+    </script>
+</body>
+
+</html>

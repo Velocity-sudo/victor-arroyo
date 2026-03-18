@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Plan de Ventas · Víctor Arroyo · Feb 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --s1: #111118;
+      --s2: #18181f;
+      --bd: rgba(255, 255, 255, .07);
+      --ac: #6c63ff;
+      --ac2: #a78bfa;
+      --g: #22c55e;
+      --y: #f59e0b;
+      --r: #ef4444;
+      --b: #3b82f6;
+      --t: #f0f0f5;
+      --m: #6b7280
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--t);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d0d1a, #130f2a 50%, #0a0a0f);
+      border-bottom: 1px solid var(--bd);
+      padding: 56px 40px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(108, 99, 255, .18), transparent 70%);
+      pointer-events: none
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(108, 99, 255, .15);
+      border: 1px solid rgba(108, 99, 255, .35);
+      color: var(--ac2);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 18px
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 10px
+    }
+
+    .hero h1 span {
+      color: var(--ac2)
+    }
+
+    .hero p {
+      color: var(--m);
+      font-size: 14px;
+      max-width: 540px;
+      margin: 0 auto
+    }
+
+    .wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 48px 22px
+    }
+
+    .stit {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ac2);
+      margin-bottom: 4px
+    }
+
+    .sh {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 800;
+      letter-spacing: -.7px;
+      margin-bottom: 6px
+    }
+
+    .ss {
+      color: var(--m);
+      font-size: 13px;
+      margin-bottom: 32px
+    }
+
+    .alert {
+      background: rgba(239, 68, 68, .07);
+      border: 1px solid rgba(239, 68, 68, .22);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 44px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start
+    }
+
+    .alert b {
+      display: block;
+      color: #fca5a5;
+      font-size: 13px;
+      margin-bottom: 3px
+    }
+
+    .alert p {
+      color: var(--m);
+      font-size: 12px
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--bd);
+      margin: 44px 0
+    }
+
+    /* cards */
+    .card {
+      background: var(--s1);
+      border: 1px solid var(--bd);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: border-color .2s
+    }
+
+    .card:hover {
+      border-color: rgba(108, 99, 255, .25)
+    }
+
+    .ch {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--bd)
+    }
+
+    .cn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0
+    }
+
+    .ct {
+      font-size: 15px;
+      font-weight: 700
+    }
+
+    .ctm {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap
+    }
+
+    .cb {
+      padding: 22px 24px
+    }
+
+    /* colors */
+    .np {
+      background: rgba(108, 99, 255, .15);
+      color: var(--ac2)
+    }
+
+    .nb {
+      background: rgba(59, 130, 246, .12);
+      color: #60a5fa
+    }
+
+    .ny {
+      background: rgba(245, 158, 11, .12);
+      color: #fbbf24
+    }
+
+    .ng {
+      background: rgba(34, 197, 94, .12);
+      color: #4ade80
+    }
+
+    .nr {
+      background: rgba(239, 68, 68, .12);
+      color: #f87171
+    }
+
+    .tp {
+      background: rgba(108, 99, 255, .1);
+      color: var(--ac2)
+    }
+
+    .tb {
+      background: rgba(59, 130, 246, .1);
+      color: #60a5fa
+    }
+
+    .ty {
+      background: rgba(245, 158, 11, .1);
+      color: #fbbf24
+    }
+
+    .tg {
+      background: rgba(34, 197, 94, .1);
+      color: #4ade80
+    }
+
+    .tr {
+      background: rgba(239, 68, 68, .1);
+      color: #f87171
+    }
+
+    /* script block */
+    .scr {
+      margin-top: 10px;
+      background: var(--s2);
+      border: 1px solid var(--bd);
+      border-left: 3px solid var(--ac);
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+      font-size: 12.5px;
+      color: #c4b5fd;
+      font-style: italic;
+      line-height: 1.65
+    }
+
+    .scr-b {
+      border-left-color: #3b82f6;
+      color: #93c5fd
+    }
+
+    .scr-r {
+      border-left-color: #ef4444;
+      color: #fca5a5
+    }
+
+    .scr-y {
+      border-left-color: #f59e0b;
+      color: #fcd34d
+    }
+
+    .scr-g {
+      border-left-color: #22c55e;
+      color: #86efac
+    }
+
+    /* rule boxes */
+    .rule {
+      background: rgba(239, 68, 68, .06);
+      border: 1px solid rgba(239, 68, 68, .18);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 14px 0
+    }
+
+    .rule b {
+      color: #fca5a5;
+      font-size: 12px
+    }
+
+    .rule p {
+      color: var(--m);
+      font-size: 12px;
+      margin-top: 3px
+    }
+
+    .rule-g {
+      background: rgba(34, 197, 94, .06);
+      border-color: rgba(34, 197, 94, .18)
+    }
+
+    .rule-g b {
+      color: #86efac
+    }
+
+    /* action list */
+    .al {
+      list-style: none;
+      display: flex;
+      flex-direction: column
+    }
+
+    .ai {
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--bd);
+      align-items: flex-start
+    }
+
+    .ai:last-child {
+      border-bottom: none;
+      padding-bottom: 0
+    }
+
+    .ai-i {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0
+    }
+
+    .ai b {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 2px
+    }
+
+    .ai p,
+    .ai .det {
+      font-size: 11.5px;
+      color: var(--m);
+      line-height: 1.5
+    }
+
+    .det {
+      margin-top: 6px
+    }
+
+    /* tags */
+    .trow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px
+    }
+
+    .tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 100px
+    }
+
+    .ta {
+      background: rgba(34, 197, 94, .1);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, .2)
+    }
+
+    .tr2 {
+      background: rgba(239, 68, 68, .1);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, .2)
+    }
+
+    .tn {
+      background: rgba(59, 130, 246, .1);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, .2)
+    }
+
+    .tw {
+      background: rgba(245, 158, 11, .1);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, .2)
+    }
+
+    /* table */
+    .tb-wrap {
+      background: var(--s1);
+      border: 1px solid var(--bd);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px
+    }
+
+    .tb-wrap table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    .tb-wrap th {
+      background: var(--s2);
+      padding: 10px 18px;
+      text-align: left;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--m);
+      border-bottom: 1px solid var(--bd)
+    }
+
+    .tb-wrap td {
+      padding: 12px 18px;
+      font-size: 12px;
+      border-bottom: 1px solid var(--bd);
+      vertical-align: top
+    }
+
+    .tb-wrap tr:last-child td {
+      border-bottom: none
+    }
+
+    .tb-wrap code {
+      background: rgba(108, 99, 255, .12);
+      color: var(--ac2);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-family: monospace
+    }
+
+    /* priority */
+    .pgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 44px
+    }
+
+    @media(max-width:640px) {
+      .pgrid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .pc {
+      background: var(--s1);
+      border: 1px solid var(--bd);
+      border-radius: 14px;
+      padding: 18px 20px
+    }
+
+    .pc .pl {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px
+    }
+
+    .pc h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px
+    }
+
+    .pc p {
+      font-size: 11.5px;
+      color: var(--m);
+      line-height: 1.5
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%
+    }
+
+    .footer {
+      border-top: 1px solid var(--bd);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer p {
+      font-size: 11px;
+      color: var(--m)
+    }
+
+    .footer .br {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ac2)
+    }
+
+    /* dont/do */
+    .dd {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0
+    }
+
+    @media(max-width:640px) {
+      .dd {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .dd-c {
+      border-radius: 12px;
+      padding: 16px 18px
+    }
+
+    .dd-c h5 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .dd-c li {
+      font-size: 11.5px;
+      line-height: 1.6;
+      margin-left: 14px
+    }
+
+    .dont {
+      background: rgba(239, 68, 68, .05);
+      border: 1px solid rgba(239, 68, 68, .15)
+    }
+
+    .dont h5 {
+      color: #f87171
+    }
+
+    .dont li {
+      color: var(--m)
+    }
+
+    .doo {
+      background: rgba(34, 197, 94, .05);
+      border: 1px solid rgba(34, 197, 94, .15)
+    }
+
+    .doo h5 {
+      color: #4ade80
+    }
+
+    .doo li {
+      color: var(--m)
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="badge">Plan de ejecución · Feb 2026</div>
+    <h1>Plan de Ventas y Pipeline<br><span>Víctor Arroyo</span></h1>
+    <p>Desde la estructura de la llamada hasta lo que pasa después en GHL. Sin teoría — solo acción.</p>
+  </div>
+
+  <div class="wrap">
+
+    <div class="alert">
+      <div style="font-size:20px;flex-shrink:0">🚨</div>
+      <div>
+        <b>El problema #1: Las llamadas educan en lugar de cerrar.</b>
+        <p>Víctor hace una clase magistral. El prospecto se va sabiendo todo pero sin urgencia ni compromiso. Con la
+          estructura de abajo, Víctor puede seguir siendo educativo pero dentro de un sistema que cierra. No cambiamos a
+          Víctor — cambiamos el proceso alrededor de él.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PARTE 1: LA LLAMADA -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="stit">Parte 1 — El Primer Dolor</div>
+    <div class="sh">La Llamada de Ventas: C.L.O.S.E.R.</div>
+    <div class="ss">45-50 min máximo. El orden es obligatorio. Saltar una fase = "lo pienso".</div>
+
+    <!-- REGLAS ANTES DE EMPEZAR -->
+    <div class="card" style="border-color:rgba(239,68,68,.25)">
+      <div class="ch" style="background:rgba(239,68,68,.04)">
+        <div class="cn nr">⚠️</div>
+        <div>
+          <div class="ct" style="color:#fca5a5">Reglas de la llamada — lo que NO se debe hacer</div>
+        </div>
+      </div>
+      <div class="cb">
+        <div class="dd">
+          <div class="dd-c dont">
+            <h5>❌ NUNCA hacer esto en la llamada</h5>
+            <ul>
+              <li>Explicar el modelo completo de construcción</li>
+              <li>Dar cifras de ROI sin antes saber su capital</li>
+              <li>Mencionar precios antes del minuto 38</li>
+              <li>Hablar de zonas, materiales o permisos en detalle</li>
+              <li>Dejar que el prospecto tome el control del flujo</li>
+              <li>Terminar con "estamos en contacto" o "piénsalo"</li>
+              <li>Usar urgencia falsa: "quedan pocos cupos"</li>
+            </ul>
+          </div>
+          <div class="dd-c doo">
+            <h5>✅ SIEMPRE hacer esto</h5>
+            <ul>
+              <li>Leer las respuestas del formulario ANTES de conectarse</li>
+              <li>Abrir con el detonante del prospecto, nunca con el producto</li>
+              <li>Preguntar capital antes del minuto 10</li>
+              <li>Hacer que el prospecto diga su dolor EN VOZ ALTA</li>
+              <li>Presentar UNA opción basada en el diagnóstico</li>
+              <li>Terminar con pago, fecha fija o propuesta con deadline 48h</li>
+              <li>Urgencia real: lotes específicos, timing del mercado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn np">C</div>
+        <div>
+          <div class="ct">Clarify — ¿Por qué agendó HOY? </div>
+          <div style="font-size:11px;color:var(--m)">No asumir la motivación — preguntar siempre</div>
+        </div>
+        <span class="ctm tp">0 – 8 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:10px"><b style="color:var(--t)">Objetivo:</b>
+          Identificar el evento detonante real. ¿Qué pasó en su vida que lo hizo agendar HOY y no hace 6 meses?</p>
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:10px"><b style="color:var(--t)">Preparación
+            obligatoria:</b> Leer respuestas del formulario ANTES de la llamada. Tener el detonante, el capital
+          declarado y la meta financiera abiertos.</p>
+        <div class="scr">
+          "Antes de que te cuente cualquier cosa de lo que hacemos, necesito entender algo. En el formulario me dijiste
+          <b>[detonante específico del formulario]</b>. Cuéntame más — ¿qué fue exactamente lo que pasó? Porque lo que
+          me digas ahora es lo que va a definir si lo que hacemos tiene sentido para ti o no."
+        </div>
+        <p style="font-size:11.5px;color:var(--m);margin-top:12px"><b style="color:var(--t)">Si la respuesta es
+            vaga:</b> "¿Cuándo pasó eso exactamente? ¿Qué cambió en ese momento?"</p>
+        <p style="font-size:11.5px;color:var(--m);margin-top:4px"><b style="color:var(--t)">Confirmar capital:</b> "Y en
+          el formulario pusiste que tienes $[X] disponibles. ¿Eso sigue vigente hoy?"</p>
+      </div>
+    </div>
+
+    <!-- L -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn nb">L</div>
+        <div>
+          <div class="ct">Label — Espejo empático</div>
+          <div style="font-size:11px;color:var(--m)">Lograr el "Exactamente, eso es"</div>
+        </div>
+        <span class="ctm tb">8 – 15 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:10px"><b style="color:var(--t)">Objetivo:</b> Demostrar
+          que ENTIENDES su situación. Parafrasear con SUS palabras, no las tuyas. No avanzar hasta que diga "exacto".
+        </p>
+        <div class="scr scr-b">
+          "A ver si lo entiendo bien. Llevas <b>[X años]</b> trabajando duro, tienes <b>[capital]</b> ahorrado, y estás
+          cansado de que ese dinero no trabaje por ti. Que si en <b>[timeframe]</b> no ves un cambio real, vas a seguir
+          en el mismo ciclo. Y lo que te trajo aquí hoy fue <b>[detonante]</b>. ¿Lo estoy entendiendo bien?"
+        </div>
+        <div class="rule-g rule">
+          <b>✅ Si dice "casi" o corrige algo</b>
+          <p>No avanzar. Escuchar más. Ajustar el resumen y volver a preguntar "¿Ahora sí lo estoy entendiendo?"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- O -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn nr">O</div>
+        <div>
+          <div class="ct">Overview the Pain — Amplificar la inacción</div>
+          <div style="font-size:11px;color:var(--m)">Sin dolor articulado en voz alta, no hay compra de alto valor</div>
+        </div>
+        <span class="ctm tr">15 – 25 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:10px"><b style="color:var(--t)">Objetivo:</b> Que el
+          prospecto DIGA EN VOZ ALTA lo que le ha costado NO actuar. No responder ni dar soluciones hasta que lo
+          articule.</p>
+        <div class="scr scr-r">
+          "Antes de contarte cómo trabajamos, necesito entender algo más. Me dices que llevas <b>[tiempo]</b> queriendo
+          hacer esto. ¿Qué has intentado antes?"<br><br>
+          <b>[ESCUCHAR — no interrumpir]</b><br><br>
+          "Y cuando eso no funcionó, ¿qué impacto tuvo en ti — no solo económicamente, sino en cómo te sentiste con tus
+          metas?"<br><br>
+          <b>[ESCUCHAR — dejar silencio]</b><br><br>
+          "Ahora dime: si en 12 meses estuvieras exactamente igual, sin haber movido ese capital, ¿qué significaría eso
+          para ti?"
+        </div>
+        <div class="rule">
+          <b>⚠️ Regla crítica de esta fase</b>
+          <p>NUNCA soltar la solución antes de que el prospecto haya descrito el dolor completo. El dolor es lo que
+            ancla el valor de $3,000 y $20,000. Sin dolor = "es mucho dinero".</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- S -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn ny">S</div>
+        <div>
+          <div class="ct">Sell the Vacation — Los 3 pilares</div>
+          <div style="font-size:11px;color:var(--m)">Vende el destino, NO el proceso</div>
+        </div>
+        <span class="ctm ty">25 – 38 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:14px"><b style="color:var(--t)">Objetivo:</b> Presentar
+          la solución como un vehículo hacia la vida que quiere. NO explicar cómo se construye una casa — explicar cómo
+          su capital se convierte en libertad financiera.</p>
+
+        <ul class="al">
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(245,158,11,.1)">1️⃣</div>
+            <div><b>Tu dinero trabaja — tú supervisas</b>
+              <p>"El banco financia el 80%. Tú pones $50k, el banco pone $150k. Cuando se vende, la ganancia es 100%
+                tuya."</p>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(245,158,11,.1)">2️⃣</div>
+            <div><b>No eres constructor — eres inversionista</b>
+              <p>"Yo gestiono. Tú decides. No vas a la obra, no hablas con contratistas, no estás en permisos."</p>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(245,158,11,.1)">3️⃣</div>
+            <div><b>Florida no para</b>
+              <p>"Tu casa vale más el día que termina que cuando empezaste. $500+/mes en flujo pasivo."</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="scr scr-y" style="margin-top:16px">
+          <b>La analogía del banco (alto impacto):</b><br>
+          "¿Sabes cómo gana dinero un banco? Te presta $200k, cobras intereses sobre $200k aunque tú pusiste $40k. Vamos
+          a hacer exactamente eso — pero al revés. Usamos el dinero del banco para construir un activo que se vende en
+          $240k. Tú pones $50k, el banco $150k, y los $40k de ganancia son 100% tuyos. Eso es lo que hacen los ricos que
+          nadie enseña en la escuela."
+        </div>
+
+        <div class="rule">
+          <b>⚠️ Trampa: NO dar más educación que la necesaria</b>
+          <p>Máximo 3 ideas (los 3 pilares). NO hablar de materiales, zonas específicas, planos, ni procesos de
+            permisos. El conocimiento profundo es el PRODUCTO — darlo gratis elimina la razón de comprarlo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn ng">E</div>
+        <div>
+          <div class="ct">Explain Away — Objeciones preventivas</div>
+          <div style="font-size:11px;color:var(--m)">Frase mágica: "Una cosa que la gente me pregunta siempre en este
+            punto es..."</div>
+        </div>
+        <span class="ctm tg">38 – 46 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:14px"><b style="color:var(--t)">Objetivo:</b> Víctor
+          INTRODUCE las objeciones ANTES de que el prospecto las diga. Esto le quita el poder a la objeción.</p>
+        <ul class="al">
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(34,197,94,.1)">⏱️</div>
+            <div><b>Tiempo</b>
+              <p>"Una llamada de 20 min a la semana conmigo. Tú no vas a la obra. Yo soy tu gerente de proyecto."</p>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(34,197,94,.1)">💰</div>
+            <div><b>Capital</b>
+              <p>"El problema no es que no tengas suficiente — es que no sabes cuánto necesitas realmente. Déjame
+                mostrarte con TU capital específico."</p>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(34,197,94,.1)">👫</div>
+            <div><b>Pareja</b>
+              <p>"Por eso pedí que estuvieran juntos hoy. Si no está, necesito 20 min con los tres esta semana."</p>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(34,197,94,.1)">🔍</div>
+            <div><b>Confianza</b>
+              <p>"[Proyecto Ocala NW], Marion County, 2024, costo $180k, vendido en $242k, ganancia $40k en 7 meses.
+                Registros públicos del condado. Lo verificas hoy."</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- R — CIERRE -->
+    <div class="card" style="border-color:rgba(108,99,255,.3)">
+      <div class="ch" style="background:rgba(108,99,255,.05)">
+        <div class="cn np">R</div>
+        <div>
+          <div class="ct" style="color:var(--ac2)">Reinforce + Close — El cierre</div>
+          <div style="font-size:11px;color:var(--m)">Recomendar UNA opción basada en el diagnóstico — nunca un menú
+          </div>
+        </div>
+        <span class="ctm tp">46 – 50 min</span>
+      </div>
+      <div class="cb">
+        <p style="font-size:12.5px;color:var(--m);margin-bottom:12px"><b style="color:var(--t)">Regla #1:</b> NO
+          presentar 3 tiers como un menú. Recomendar UNA opción basada en todo lo que dijo.</p>
+
+        <div class="scr" style="margin-bottom:16px">
+          "Basado en lo que me contaste — tienes <b>$[X]</b> disponibles, tu meta es <b>[meta]</b> en
+          <b>[timeframe]</b>, y lo que te detuvo antes fue <b>[bloqueo]</b> — mi recomendación es que empecemos con
+          <b>[tier específico]</b>. No porque sea el más caro, sino porque con tu perfil, intentar hacerlo sin
+          acompañamiento es lo que te haría perder tiempo y dinero. ¿Tiene sentido lo que te digo?"
+        </div>
+
+        <p style="font-size:12.5px;color:var(--t);font-weight:700;margin-bottom:10px">La única pregunta de cierre
+          válida:</p>
+        <div class="scr" style="font-size:14px;font-weight:600">
+          "¿Qué necesitas para sentirte cómodo tomando esta decisión hoy?"
+        </div>
+
+        <p style="font-size:13px;color:var(--t);font-weight:700;margin:20px 0 10px">Los 3 posibles cierres — no hay
+          cuarto:</p>
+
+        <ul class="al">
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(34,197,94,.12)">💳</div>
+            <div><b style="color:#4ade80">Cierre A — Paga hoy</b>
+              <p>El prospecto paga al menos $1,000 como compromiso. Se activa acceso inmediato. Víctor envía WhatsApp en
+                5 min.</p>
+              <div class="scr scr-g" style="margin-top:8px">"Perfecto. Te paso el link de pago ahora mismo. En 5 minutos
+                te mando acceso completo y tu roadmap de los primeros 30 días. Acabas de tomar la decisión más
+                inteligente que podías tomar con ese capital."</div>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(245,158,11,.12)">📅</div>
+            <div><b style="color:#fbbf24">Cierre B — Segunda llamada con pareja (fecha fija)</b>
+              <p>No dijo "no" — necesita involucrar a su pareja. Agendar en esa misma llamada.</p>
+              <div class="scr scr-y" style="margin-top:8px">"Tiene todo el sentido. ¿Cuándo puede estar tu pareja
+                disponible? Necesito 20 minutos con los dos. ¿El martes o el miércoles a esta hora te funciona?"</div>
+              <div class="rule-g rule"><b>✅ Tarea GHL:</b>
+                <p>Laurier confirma la segunda llamada por WhatsApp antes de 2h. Si no confirma en 24h, Víctor envía WA
+                  directo.</p>
+              </div>
+            </div>
+          </li>
+          <li class="ai">
+            <div class="ai-i" style="background:rgba(59,130,246,.12)">📄</div>
+            <div><b style="color:#60a5fa">Cierre C — Propuesta con deadline 48h</b>
+              <p>Para el que necesita "verlo por escrito". Se envía propuesta personalizada.</p>
+              <div class="scr scr-b" style="margin-top:8px">"Te voy a mandar una propuesta con TODO lo que hablamos — tu
+                capital, el plan específico para tu caso, y los números del proyecto que te mostré. Pero necesito que
+                sepas algo: esta propuesta tiene validez de 48 horas porque los terrenos que te mencioné están activos.
+                ¿Estás de acuerdo?"</div>
+              <div class="rule"><b>⚠️ Regla:</b>
+                <p>Si en 48h no respondió, la propuesta expira. Entra a pipeline de seguimiento VIP (Ruta B).</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OBJECIONES FINALES -->
+    <div class="card">
+      <div class="ch">
+        <div class="cn nr">🛡️</div>
+        <div>
+          <div class="ct">Protocolo de objeciones finales</div>
+          <div style="font-size:11px;color:var(--m)">"Lo pienso" nunca es la respuesta real — siempre hay algo debajo
+          </div>
+        </div>
+      </div>
+      <div class="cb">
+        <div class="tb-wrap" style="margin:0">
+          <table>
+            <thead>
+              <tr>
+                <th>Objeción</th>
+                <th>Diagnóstico</th>
+                <th>Respuesta exacta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>"Lo pienso"</b></td>
+                <td style="color:var(--m)">Objeción real no identificada</td>
+                <td style="font-size:11.5px"><i>"¿Qué es exactamente lo que necesitas resolver para decir sí? Dame la
+                    objeción real — eso es lo que necesito para ayudarte."</i></td>
+              </tr>
+              <tr>
+                <td><b>"Es mucho dinero"</b></td>
+                <td style="color:var(--m)">ROI no ancló</td>
+                <td style="font-size:11.5px"><i>"Si pones $[precio] y en 8 meses recuperas $[retorno], ¿sigue siendo
+                    mucho? No es un gasto — es el costo de una operación que genera $[X] cada 6-8 meses."</i></td>
+              </tr>
+              <tr>
+                <td><b>"No es el momento"</b></td>
+                <td style="color:var(--m)">Costo de inacción no amplificado</td>
+                <td style="font-size:11.5px"><i>"¿Cuándo sería? Llevas [X tiempo] esperando ese momento — y el momento
+                    no llegó solo."</i></td>
+              </tr>
+              <tr>
+                <td><b>"Mi esposa/esposo"</b></td>
+                <td style="color:var(--m)">No es objeción, es proceso</td>
+                <td style="font-size:11.5px"><i>"¿El martes o el miércoles te funciona? 20 min con los dos. No para
+                    venderle — para que tú tengas su respaldo."</i></td>
+              </tr>
+              <tr>
+                <td><b>"Voy a investigar"</b></td>
+                <td style="color:var(--m)">Desconfianza</td>
+                <td style="font-size:11.5px"><i>"¿Qué necesitas investigar? Hay 3 personas haciendo esto en Florida en
+                    serio. La diferencia: [diferenciador]."</i></td>
+              </tr>
+              <tr>
+                <td><b>"¿Qué garantía?"</b></td>
+                <td style="color:var(--m)">Desconfianza directa</td>
+                <td style="font-size:11.5px"><i>"Números reales de proyectos terminados en registros públicos. Lo
+                    verificas ahora. Lo que garantizo es el proceso."</i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PARTE 2: PIPELINE GHL POST-LLAMADA -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="stit">Parte 2 — El Pipeline en GHL</div>
+    <div class="sh">¿Qué pasa después de la llamada?</div>
+    <div class="ss">Cada resultado de la llamada activa un flujo distinto. Mensajes, canales y horarios exactos.</div>
+
+    <!-- RUTA A: CERRÓ -->
+    <div class="card" style="border-color:rgba(34,197,94,.3)">
+      <div class="ch" style="background:rgba(34,197,94,.04)">
+        <div class="cn ng">✅</div>
+        <div>
+          <div class="ct" style="color:#4ade80">Ruta A — CERRÓ: Protocolo Post-Pago</div>
+          <div style="font-size:11px;color:var(--m)">Pipeline GHL: "Cliente — Onboarding"</div>
+        </div>
+        <span class="ctm tg">Automático</span>
+      </div>
+      <div class="cb">
+        <div class="trow">
+          <span class="tag ta">+ [Cliente] Activo</span>
+          <span class="tag ta">+ [Oferta] $3k-Mentoría</span>
+          <span class="tag tr2">- [VIP] Prospect</span>
+        </div>
+        <div class="tb-wrap" style="margin:0">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Quién</th>
+                <th>Mensaje exacto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>+5 min</b></td>
+                <td>💬 WhatsApp</td>
+                <td>Víctor</td>
+                <td><i>"[Nombre], Víctor por aquí. Acabas de tomar la decisión más inteligente que podías tomar con ese
+                    capital hoy. Te acabo de dar acceso. Bienvenido al equipo 🚀"</i></td>
+              </tr>
+              <tr>
+                <td><b>+2 horas</b></td>
+                <td>📧 Email</td>
+                <td>Automático GHL</td>
+                <td>Asunto: <i>"Tu roadmap de los primeros 30 días"</i> — Semana 1: diagnóstico. Semana 2: búsqueda
+                  terreno. Semana 3: análisis opciones. Semana 4: primera decisión de compra.</td>
+              </tr>
+              <tr>
+                <td><b>+48 horas</b></td>
+                <td>📞 Llamada</td>
+                <td>Laurier</td>
+                <td>Llamada de onboarding 15 min. Confirmar que entendió el roadmap, responder dudas, eliminar ansiedad
+                  post-compra.</td>
+              </tr>
+              <tr>
+                <td><b>+7 días</b></td>
+                <td>📧 Email</td>
+                <td>Automático GHL</td>
+                <td>Asunto: <i>"Tu primer reporte de avance"</i> — Resumen de lo que se hizo en Semana 1. Próximos pasos
+                  concretos. Refuerza la decisión.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUTA B: VIP NO CERRÓ -->
+    <div class="card" style="border-color:rgba(245,158,11,.3)">
+      <div class="ch" style="background:rgba(245,158,11,.04)">
+        <div class="cn ny">🔥</div>
+        <div>
+          <div class="ct" style="color:#fbbf24">Ruta B — No cerró pero es VIP ($30k+ capital): Negociación activa</div>
+          <div style="font-size:11px;color:var(--m)">Pipeline GHL: "VIP — Negociación Activa"</div>
+        </div>
+        <span class="ctm ty">Urgente</span>
+      </div>
+      <div class="cb">
+        <div class="trow">
+          <span class="tag ta">+ [VIP] Negociación Activa</span>
+          <span class="tag tn">🔔 Notificar Víctor</span>
+        </div>
+        <div class="tb-wrap" style="margin:0">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Quién</th>
+                <th>Mensaje exacto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>+0 min</b><br><span style="font-size:10px;color:var(--m)">Al colgar</span></td>
+                <td>🔔 Notificación interna</td>
+                <td>GHL → Víctor</td>
+                <td><i>"🔥 Lead VIP [Nombre] en negociación. Capital: $[X]. Meta: [meta]. Objeción: [objeción]. Acción
+                    requerida < 24h."</i>
+                </td>
+              </tr>
+              <tr>
+                <td><b>+4 horas</b><br><span style="font-size:10px;color:var(--m)">Ese mismo día</span></td>
+                <td>💬 WhatsApp</td>
+                <td>Víctor</td>
+                <td><i>"[Nombre], Víctor por aquí. Me quedé pensando en lo que me contaste hoy. Con $[X] disponibles y
+                    la meta que me dijiste, el timing es perfecto. ¿Qué necesitas para avanzar esta semana?"</i></td>
+              </tr>
+              <tr>
+                <td><b>+24 horas</b><br><span style="font-size:10px;color:var(--m)">Día siguiente, 10am</span></td>
+                <td>📧 Email</td>
+                <td>Automático GHL</td>
+                <td>Asunto: <i>"Tu propuesta personalizada — válida 48h"</i><br>Contenido: Resumen de su situación +
+                  plan concreto para su capital + tabla de números + link de pago + expira en 48h.</td>
+              </tr>
+              <tr>
+                <td><b>+48 horas</b><br><span style="font-size:10px;color:var(--m)">Si no respondió</span></td>
+                <td>💬 WhatsApp</td>
+                <td>Laurier</td>
+                <td><i>"Hola [Nombre], Laurier del equipo de Víctor. Vi que te mandó la propuesta ayer — ¿pudiste
+                    revisarla? Si hay algo que no quedó claro, Víctor puede darte 15 min esta semana para resolver. La
+                    propuesta está activa hasta hoy."</i></td>
+              </tr>
+              <tr>
+                <td><b>+72 horas</b><br><span style="font-size:10px;color:var(--m)">Si sigue sin responder</span></td>
+                <td>📞 Llamada</td>
+                <td>Laurier</td>
+                <td>Intento de llamada directa. Si contesta: agendar 15 min con Víctor. Si no contesta → pasa a Ruta C.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rule">
+          <b>⚠️ Si al día 3 no ha respondido: GHL mueve automáticamente a Ruta C (Seguimiento VIP)</b>
+          <p>Se le quita el tag [VIP] Negociación Activa y se le pone [VIP] Seguimiento. Víctor deja de intervenir
+            directamente.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUTA C: SEGUIMIENTO VIP -->
+    <div class="card" style="border-color:rgba(239,68,68,.2)">
+      <div class="ch" style="background:rgba(239,68,68,.03)">
+        <div class="cn nr">❄️</div>
+        <div>
+          <div class="ct" style="color:#f87171">Ruta C — Seguimiento VIP: 3 etapas en 14 días</div>
+          <div style="font-size:11px;color:var(--m)">Pipeline GHL: "VIP — Seguimiento" → luego "Nurturing Largo Plazo"
+          </div>
+        </div>
+      </div>
+      <div class="cb">
+        <div class="trow">
+          <span class="tag ta">+ [VIP] Seguimiento</span>
+          <span class="tag tr2">- [VIP] Negociación Activa</span>
+        </div>
+
+        <p style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">Etapa 1 — Urgencia Real (Día 1-2)</p>
+        <p style="font-size:11.5px;color:var(--m);margin-bottom:10px">Mensaje de oportunidad específica — no genérica.
+        </p>
+        <div class="tb-wrap" style="margin-bottom:16px">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Quién</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Día 1, 10am</b></td>
+                <td>📞 Llamada</td>
+                <td>Laurier</td>
+                <td>Intento de contacto directo.</td>
+              </tr>
+              <tr>
+                <td><b>Día 1, 2pm</b><br><span style="font-size:10px;color:var(--m)">Si no contestó</span></td>
+                <td>💬 WhatsApp</td>
+                <td>Laurier</td>
+                <td><i>"[Nombre], Laurier del equipo de Víctor. Víctor me pidió contactarte — acaba de entrar un lote en
+                    [zona] a $[precio] con ROI del [X]%. Con tu perfil hace mucho sentido. ¿Puedes hablar hoy?"</i></td>
+              </tr>
+              <tr>
+                <td><b>Día 2, 10am</b></td>
+                <td>📧 Email</td>
+                <td>Automático</td>
+                <td>Asunto: <i>"Oportunidad activa — [zona], $[precio]"</i><br>Contenido: Los detalles del lote + la
+                  proyección + "Esta oportunidad tiene un comprador interesado. Si quieres bloquearla, escríbeme hoy."
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">Etapa 2 — Prueba Social (Día 5-7)</p>
+        <p style="font-size:11.5px;color:var(--m);margin-bottom:10px">Un caso espejo — alguien similar que SÍ se
+          decidió.</p>
+        <div class="tb-wrap" style="margin-bottom:16px">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Día 5, 10am</b></td>
+                <td>💬 WhatsApp</td>
+                <td><i>"[Nombre], un cliente con un perfil similar al tuyo — también en [ciudad], capital parecido —
+                    acaba de cerrar su primer terreno. El proceso tomó [X semanas]. ¿Quieres ver el caso? Te lo
+                    mando."</i></td>
+              </tr>
+              <tr>
+                <td><b>Día 7, 10am</b></td>
+                <td>📧 Email</td>
+                <td>Asunto: <i>"Caso de estudio: [Nombre cliente] — de $0 a $40k en 7 meses"</i><br>Adjunta PDF del caso
+                  de estudio real. CTA: "¿Quieres una propuesta actualizada para tu capital?"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">Etapa 3 — Pérdida + Escasez (Día
+          12-14)</p>
+        <p style="font-size:11.5px;color:var(--m);margin-bottom:10px">Mensaje directo de ruptura — sin agresividad pero
+          sin ambigüedad.</p>
+        <div class="tb-wrap" style="margin-bottom:16px">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Día 12, 10am</b></td>
+                <td>💬 WhatsApp</td>
+                <td><i>"[Nombre], veo que no es el momento. No pasa nada — lo entiendo. Mi equipo tiene un cupo
+                    disponible esta semana y necesito asignarlo. Cuando estés listo, escríbeme directamente. Te deseo lo
+                    mejor."</i></td>
+              </tr>
+              <tr>
+                <td><b>Día 14, 10am</b></td>
+                <td>📧 Email</td>
+                <td>Asunto: <i>"Última actualización — cerrando tu archivo"</i><br>Contenido: "Te mantengo en mi lista
+                  de inversores interesados. Cuando estés listo, responde este email y retomamos donde lo dejamos."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rule-g rule">
+          <b>Post día 14 → Nurturing largo plazo (6 meses)</b>
+          <p>Tag: [Nurturing] Largo Plazo. Un email mensual con: oportunidad del mercado, testimonio nuevo, o
+            actualización del portafolio. Sin presión. Si responde → regresa a Ruta B.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUTA D: NO-SHOW -->
+    <div class="card" style="margin-bottom:44px">
+      <div class="ch">
+        <div class="cn nb">👻</div>
+        <div>
+          <div class="ct">Ruta D — No-Show (no se presentó a la llamada)</div>
+          <div style="font-size:11px;color:var(--m)">Pipeline GHL: "Reagendar"</div>
+        </div>
+      </div>
+      <div class="cb">
+        <div class="trow">
+          <span class="tag tw">+ [Status] No-Show</span>
+          <span class="tag tn">Tarea → Laurier</span>
+        </div>
+        <div class="tb-wrap" style="margin:0">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuándo</th>
+                <th>Canal</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>+15 min</b></td>
+                <td>💬 WhatsApp</td>
+                <td><i>"Hola [Nombre], teníamos llamada hoy a las [hora]. ¿Todo bien? Si surgió algo, podemos reagendar
+                    para esta semana. Aquí el link: [link calendario]."</i></td>
+              </tr>
+              <tr>
+                <td><b>+24 horas</b></td>
+                <td>📧 Email</td>
+                <td>Asunto: <i>"¿Reagendamos tu llamada con Víctor?"</i><br>"Sé que las cosas pasan. Te dejo el link
+                  para elegir otro horario esta semana. Si ya no te interesa, no pasa nada."</td>
+              </tr>
+              <tr>
+                <td><b>+48 horas</b></td>
+                <td>💬 WhatsApp</td>
+                <td><i>"Hola [Nombre], segundo intento. Víctor tiene [2 horarios] disponibles esta semana. ¿Cuál
+                    prefieres?"</i></td>
+              </tr>
+              <tr>
+                <td><b>+72 horas</b></td>
+                <td>—</td>
+                <td>Sin respuesta → Tag [Nurturing] Largo Plazo. Sale del pipeline activo.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TAGS -->
+    <div class="stit">Sistema de Tags GHL</div>
+    <div class="sh">Nomenclatura completa</div>
+    <div class="ss">Estos tags deben existir en GHL para que todo funcione sin confusión.</div>
+
+    <div class="tb-wrap" style="margin-bottom:44px">
+      <table>
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Se agrega cuando...</th>
+            <th>Se quita cuando...</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>[Lead] Instagram</code></td>
+            <td>Llega por DM de IG</td>
+            <td>Nunca — es fuente</td>
+          </tr>
+          <tr>
+            <td><code>[Pre-Llamada] Calificado</code></td>
+            <td>Pasa el formulario de precalificación</td>
+            <td>Después de la llamada</td>
+          </tr>
+          <tr>
+            <td><code>[VIP] Inversor</code></td>
+            <td>Capital $50k+, califica en llamada</td>
+            <td>Al pagar</td>
+          </tr>
+          <tr>
+            <td><code>[VIP] Negociación Activa</code></td>
+            <td>No pagó pero dijo "sí" — Ruta B</td>
+            <td>Paga o 72h sin respuesta</td>
+          </tr>
+          <tr>
+            <td><code>[VIP] Seguimiento</code></td>
+            <td>Terminó negociación sin cierre — Ruta C</td>
+            <td>Responde con interés o paga</td>
+          </tr>
+          <tr>
+            <td><code>[Status] No-Show</code></td>
+            <td>No se presentó a la llamada</td>
+            <td>Reagenda o pasa a nurturing</td>
+          </tr>
+          <tr>
+            <td><code>[Cliente] Activo</code></td>
+            <td>Paga cualquier tier</td>
+            <td>No se quita</td>
+          </tr>
+          <tr>
+            <td><code>[Oferta] $997-Educación</code></td>
+            <td>Paga programa base</td>
+            <td>Al subir de tier</td>
+          </tr>
+          <tr>
+            <td><code>[Oferta] $3k-Mentoría</code></td>
+            <td>Paga mentoría terreno</td>
+            <td>No se quita</td>
+          </tr>
+          <tr>
+            <td><code>[Oferta] $20k-Construcción</code></td>
+            <td>Paga construcción delegada</td>
+            <td>No se quita</td>
+          </tr>
+          <tr>
+            <td><code>[Nurturing] Largo Plazo</code></td>
+            <td>No respondió en 14 días (Ruta C) o 72h (No-Show)</td>
+            <td>Responde activamente</td>
+          </tr>
+          <tr>
+            <td><code>[No Calificado] Capital Bajo</code></td>
+            <td>Formulario: menos de $15k</td>
+            <td>Nunca</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- IMPLEMENTACIÓN -->
+    <div class="stit">Implementación</div>
+    <div class="sh">Lo que hacemos esta semana</div>
+    <div class="ss">En orden de impacto directo. Semana 1 = lo que más duele hoy.</div>
+
+    <div class="pgrid">
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#ef4444"></div><span style="color:#f87171">Semana 1 — CRÍTICO</span>
+        </div>
+        <h4>Crear pipeline GHL con 5 stages</h4>
+        <p>Pre-Llamada Calificado → Negociación Activa (Ruta B) → Seguimiento VIP (Ruta C) → Cliente Activo (Ruta A) →
+          Nurturing Largo Plazo. Crear los tags y asignar responsables.</p>
+      </div>
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#ef4444"></div><span style="color:#f87171">Semana 1 — CRÍTICO</span>
+        </div>
+        <h4>Imprimir el guión C.L.O.S.E.R.</h4>
+        <p>Víctor debe tener los scripts al lado durante las próximas 5 llamadas. No memorizarlos — leerlos. Con
+          práctica se vuelven naturales.</p>
+      </div>
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#f59e0b"></div><span style="color:#fbbf24">Semana 2 — IMPORTANTE</span>
+        </div>
+        <h4>Automatizar secuencia Ruta B + C en GHL</h4>
+        <p>Configurar los workflows con los mensajes exactos de arriba. WhatsApp de Víctor a las 4h, email propuesta a
+          las 24h, seguimiento Laurier a las 48h.</p>
+      </div>
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#f59e0b"></div><span style="color:#fbbf24">Semana 2 — IMPORTANTE</span>
+        </div>
+        <h4>Crear propuesta PDF template</h4>
+        <p>Template en Canva/GHL con campos dinámicos: nombre, capital, plan personalizado, números del proyecto, link
+          de pago, fecha de expiración 48h.</p>
+      </div>
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#22c55e"></div><span style="color:#4ade80">Semana 3 — MEJORABLE</span>
+        </div>
+        <h4>Grabar y revisar 1 llamada contra C.L.O.S.E.R.</h4>
+        <p>¿Preguntó el detonante? ¿Amplificó el dolor? ¿Presentó 1 opción? ¿Cerró con acción concreta? Ajustar según
+          hallazgos.</p>
+      </div>
+      <div class="pc">
+        <div class="pl">
+          <div class="dot" style="background:#22c55e"></div><span style="color:#4ade80">Semana 3 — MEJORABLE</span>
+        </div>
+        <h4>Activar protocolo post-pago completo (Ruta A)</h4>
+        <p>WA 5 min, email roadmap 2h, onboarding Laurier 48h, reporte semana 1. Todo automatizado en GHL excepto el WA
+          de Víctor.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div>
+      <p>Construido para la reunión del <b>Martes 25/Feb/2026</b> · Confidencial</p>
+      <p style="margin-top:3px">Cliente: Víctor Arroyo · Sales Velocity System</p>
+    </div>
+    <div class="br">Sales Velocity ⚡️</div>
+  </div>
+
+</body>
+
+</html>
