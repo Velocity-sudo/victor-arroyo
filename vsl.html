@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenamiento Método Nexus — Víctor Arroyo</title>
+  <meta name="description" content="Aprende el sistema de 5 pasos para construir tu propia casa en Florida y ganar entre $50K y $80K con $50K de entrada + financiamiento bancario.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark: #0A0E1A;
+      --bg-dark-2: #0F1525;
+      --bg-light: #F8F9FC;
+      --bg-white: #FFFFFF;
+      --bg-card-dark: rgba(255,255,255,0.04);
+      --bg-card-light: rgba(10,14,26,0.03);
+      --orange: #F27A30;
+      --orange-hover: #FF8C42;
+      --orange-soft: rgba(242,122,48,0.1);
+      --cyan: #00AEEF;
+      --cyan-soft: rgba(0,174,239,0.08);
+      --green: #34D399;
+      --white: #FFFFFF;
+      --dark: #0A0E1A;
+      --gray-100: #F5F5F7;
+      --gray-200: #E5E7EB;
+      --gray-300: #B0B3BE;
+      --gray-500: #6B7080;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --font: 'Outfit', -apple-system, sans-serif;
+      --container: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===========================
+       SECTION 1: VIDEO HERO (DARK)
+       =========================== */
+    .s-video-hero {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+      padding: 48px 0 56px;
+      position: relative;
+    }
+    .s-video-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(242,122,48,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .s-video-hero .container { position: relative; z-index: 1; }
+
+    .video-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(242,122,48,0.1);
+      border: 1px solid rgba(242,122,48,0.2);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .video-hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+
+    .video-hero-title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .video-hero-title .accent { color: var(--orange); }
+
+    .video-hero-sub {
+      font-size: 16px;
+      color: var(--gray-300);
+      line-height: 1.6;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    /* Video wrapper */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(242,122,48,0.1), rgba(0,174,239,0.05));
+      gap: 12px;
+    }
+    .play-btn {
+      width: 72px; height: 72px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 40px rgba(242,122,48,0.4);
+    }
+    .play-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px rgba(242,122,48,0.6);
+    }
+    .play-btn svg { width: 28px; height: 28px; fill: var(--white); margin-left: 4px; }
+    .video-placeholder-text {
+      font-size: 14px;
+      color: var(--gray-300);
+      font-weight: 500;
+    }
+
+    /* ==============================
+       SECTION 2: REFRAME (WHITE/LIGHT)
+       ============================== */
+    .s-reframe {
+      background: var(--bg-white);
+      color: var(--dark);
+      padding: 80px 0;
+    }
+    .s-reframe .section-tag {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .s-reframe .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .s-reframe .section-title .accent { color: var(--orange); }
+    .s-reframe .section-desc {
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .math-card {
+      max-width: 560px;
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--gray-200);
+    }
+    .math-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .math-row + .math-row { border-top: 1px solid var(--gray-200); }
+    .math-row.result { border-top: 2px dashed var(--orange); margin-top: 8px; padding-top: 20px; }
+    .math-label {
+      font-size: 15px;
+      color: var(--gray-700);
+      font-weight: 500;
+    }
+    .math-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .math-row.result .math-label { font-weight: 700; color: var(--dark); }
+    .math-row.result .math-value { color: var(--orange); font-size: 26px; }
+    .math-footnote {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+    .math-footnote strong { color: var(--orange); font-weight: 700; }
+
+    /* ==============================
+       SECTION 3: 5 STEPS (DARK)
+       ============================== */
+    .s-steps {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+      padding: 80px 0;
+    }
+    .s-steps .section-tag {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .s-steps .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .s-steps .section-title .accent { color: var(--orange); }
+    .s-steps .section-desc {
+      font-size: 15px;
+      color: var(--gray-300);
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .step-card {
+      background: var(--bg-card-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 28px 16px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .step-card:hover {
+      border-color: rgba(242,122,48,0.3);
+      transform: translateY(-4px);
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-hover));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 auto 16px;
+    }
+    .step-name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--gray-300);
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       SECTION 4: CASES (WHITE/LIGHT)
+       ============================== */
+    .s-cases {
+      background: var(--bg-white);
+      color: var(--dark);
+      padding: 80px 0;
+    }
+    .s-cases .section-tag {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .s-cases .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .s-cases .section-title .accent { color: var(--orange); }
+    .s-cases .section-desc {
+      font-size: 15px;
+      color: var(--gray-700);
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .case-card {
+      background: var(--bg-light);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .case-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .case-headline {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.35;
+    }
+    .case-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .case-metric-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .case-metric-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .case-metric-value.profit { color: var(--green); }
+    .case-metric-value.highlight { color: var(--cyan); }
+
+    .cases-disclaimer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* ==============================
+       SECTION 5: AUTHORITY (DARK)
+       ============================== */
+    .s-authority {
+      background: linear-gradient(180deg, var(--bg-dark-2), var(--bg-dark));
+      padding: 80px 0;
+    }
+    .authority-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .authority-tag {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .authority-headline {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+    .authority-headline .accent { color: var(--orange); }
+    .authority-text {
+      font-size: 15px;
+      color: var(--gray-300);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .authority-stats {
+      display: flex;
+      gap: 2px;
+    }
+    .auth-stat {
+      flex: 1;
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--bg-card-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .auth-stat:first-child { border-radius: 12px 0 0 12px; }
+    .auth-stat:last-child { border-radius: 0 12px 12px 0; }
+    .auth-stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+    .auth-stat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Authority photo */
+    .authority-photo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .authority-photo-frame {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-card-dark);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .authority-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Placeholder for photo */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gray-500);
+    }
+    .photo-placeholder svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.3;
+    }
+    .authority-name-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(10,14,26,0.85);
+      backdrop-filter: blur(16px);
+      border-radius: 12px;
+      padding: 16px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .authority-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .authority-role {
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ==============================
+       SECTION 6: WHAT IT IS / ISN'T (LIGHT)
+       ============================== */
+    .s-clarity {
+      background: var(--bg-light);
+      color: var(--dark);
+      padding: 80px 0;
+    }
+    .clarity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+    .clarity-card {
+      padding: 32px 28px;
+      border-radius: 16px;
+    }
+    .clarity-card.is {
+      background: var(--bg-white);
+      border: 2px solid var(--orange);
+    }
+    .clarity-card.isnt {
+      background: var(--bg-white);
+      border: 1px solid var(--gray-200);
+    }
+    .clarity-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .clarity-card.is h3 { color: var(--orange); }
+    .clarity-card.isnt h3 { color: var(--gray-500); }
+    .clarity-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .clarity-list li {
+      font-size: 14px;
+      color: var(--gray-700);
+      line-height: 1.5;
+      padding-left: 28px;
+      position: relative;
+    }
+    .clarity-card.is .clarity-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .clarity-card.isnt .clarity-list li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: var(--gray-500);
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .s-clarity .section-tag {
+      text-align: center;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .s-clarity .section-title {
+      text-align: center;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .s-clarity .section-title .accent { color: var(--orange); }
+
+    /* ==============================
+       SECTION 7: FINAL CTA (DARK)
+       ============================== */
+    .s-cta-final {
+      background: linear-gradient(180deg, var(--bg-dark), #060912);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .s-cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(242,122,48,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .s-cta-final .container { position: relative; z-index: 1; }
+
+    .cta-final-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-final-title .accent { color: var(--orange); }
+    .cta-final-sub {
+      font-size: 16px;
+      color: var(--gray-300);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-form-inline {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cta-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.25s;
+    }
+    .cta-input::placeholder { color: var(--gray-500); }
+    .cta-input:focus { border-color: var(--orange); }
+    select.cta-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%236B7080' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    select.cta-input option {
+      background: #1a1f30;
+      color: var(--white);
+    }
+
+    .cta-btn {
+      padding: 18px 32px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-hover));
+      color: var(--white);
+      border: none;
+      border-radius: 14px;
+      font-family: var(--font);
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 30px rgba(242,122,48,0.35);
+      margin-top: 4px;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(242,122,48,0.5);
+    }
+    .cta-disclaimer {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 12px;
+    }
+
+    /* ==============================
+       FOOTER
+       ============================== */
+    footer {
+      background: #060912;
+      padding: 32px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-500);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ==============================
+       RESPONSIVE
+       ============================== */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+      .cases-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .authority-grid { grid-template-columns: 1fr; text-align: center; }
+      .authority-text { margin-left: auto; margin-right: auto; }
+      .authority-stats { max-width: 400px; margin: 0 auto; }
+      .authority-photo-wrap { order: -1; }
+      .clarity-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+    @media (max-width: 640px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .step-card:last-child { grid-column: span 2; max-width: 280px; margin: 0 auto; }
+      .case-metrics { grid-template-columns: 1fr 1fr; }
+      .s-video-hero, .s-reframe, .s-steps, .s-cases, .s-authority, .s-clarity, .s-cta-final {
+        padding: 56px 0;
+      }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .math-card { padding: 24px 20px; }
+      .math-value { font-size: 20px; }
+      .math-row.result .math-value { font-size: 22px; }
+    }
+
+    /* ==============================
+       SCROLL ANIMATIONS
+       ============================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       SECTION 1: VIDEO HERO (DARK)
+       ============================== -->
+  <section class="s-video-hero">
+    <div class="container">
+      <div class="video-hero-badge">Entrenamiento exclusivo — Método Nexus</div>
+      <h1 class="video-hero-title">
+        Los <span class="accent">5 Pasos</span> Para Construir Tu Casa en Florida y Ganar Entre <span class="accent">$50K y $80K</span>
+      </h1>
+      <p class="video-hero-sub">
+        Mira el entrenamiento completo donde te explico paso a paso cómo inversionistas latinos como tú están construyendo patrimonio real en Estados Unidos.
+      </p>
+      <div class="video-wrapper">
+        <!-- === REPLACE with real embed === -->
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span class="video-placeholder-text">Reproducir entrenamiento (20 min)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 2: REFRAME (WHITE)
+       ============================== -->
+  <section class="s-reframe">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">Lo que nadie te explica</div>
+        <h2 class="section-title">
+          Cuando compras una casa lista, pagas <span class="accent">el margen del constructor</span>
+        </h2>
+        <p class="section-desc">
+          La mayoría de personas compra sin saber que está dejando $50,000 – $100,000 encima de la mesa. Esa diferencia es tu oportunidad.
+        </p>
+      </div>
+
+      <div class="math-card reveal">
+        <div class="math-row">
+          <span class="math-label">Una casa se vende por</span>
+          <span class="math-value">$450,000</span>
+        </div>
+        <div class="math-row">
+          <span class="math-label">Construirla cuesta</span>
+          <span class="math-value">$350,000</span>
+        </div>
+        <div class="math-row result">
+          <span class="math-label">Dinero que tú pagas de más</span>
+          <span class="math-value">$100,000</span>
+        </div>
+        <p class="math-footnote">
+          Ese dinero se lo queda el constructor. <strong>A menos que tú seas el constructor.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 3: 5 STEPS (DARK)
+       ============================== -->
+  <section class="s-steps">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">El sistema probado</div>
+        <h2 class="section-title">El Método <span class="accent">Nexus</span> en 5 Pasos</h2>
+        <p class="section-desc">
+          El mismo proceso que usan los developers profesionales — adaptado para que tú puedas replicarlo aunque sea tu primera vez.
+        </p>
+      </div>
+
+      <div class="steps-grid reveal">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-name">Estructura Financiera</div>
+          <div class="step-desc">Analizamos cuánto cuesta construir, cuánto vale la casa terminada y cuánto margen te deja. Mínimo 20%.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-name">Terreno Correcto</div>
+          <div class="step-desc">Analizamos 30-40 terrenos antes de escoger uno. No el más barato — el que no te haga perder dinero.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-name">Financiamiento</div>
+          <div class="step-desc">El banco financia hasta 85% del proyecto. Tú pones ~$50K. El banco pone el resto. Así construimos nosotros.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-name">Construcción</div>
+          <div class="step-desc">Mi equipo gestiona permisos, constructora, inspecciones y materiales. Tú supervisas. 4-6 meses.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <div class="step-name">Monetización</div>
+          <div class="step-desc">Vive, vende o renta. Tu equity inmediato: 20-30% sobre la inversión. Repite y escala.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 4: CASES (WHITE)
+       ============================== -->
+  <section class="s-cases">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">Resultados comprobados</div>
+        <h2 class="section-title">Personas reales. <span class="accent">Números reales.</span></h2>
+        <p class="section-desc">
+          No proyecciones. No promedios. Resultados de personas que siguieron el proceso.
+        </p>
+      </div>
+
+      <div class="cases-grid reveal">
+        <div class="case-card">
+          <div class="case-tag">Primer proyecto — sin experiencia</div>
+          <div class="case-headline">Construyó su primera casa y generó +$20K netos</div>
+          <div class="case-metrics">
+            <div>
+              <div class="case-metric-label">Terreno</div>
+              <div class="case-metric-value">$18,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Construcción</div>
+              <div class="case-metric-value">$180,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Valor final</div>
+              <div class="case-metric-value highlight">$280,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Ganancia neta</div>
+              <div class="case-metric-value profit">+$20,000</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-tag">Casa propia — ahorro inmediato</div>
+          <div class="case-headline">Se mudaron con $70-80K de equity instantáneo</div>
+          <div class="case-metrics">
+            <div>
+              <div class="case-metric-label">Terreno</div>
+              <div class="case-metric-value">$35,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Construcción</div>
+              <div class="case-metric-value">$250,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Casas similares</div>
+              <div class="case-metric-value highlight">$350-380K</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Equity ganado</div>
+              <div class="case-metric-value profit">+$70-80K</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-tag">Inversionista — sistema repetible</div>
+          <div class="case-headline">2 casas en North Port = +$50K/año extras</div>
+          <div class="case-metrics">
+            <div>
+              <div class="case-metric-label">Modelo</div>
+              <div class="case-metric-value">2 casas/año</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Financiamiento</div>
+              <div class="case-metric-value">Bancario</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Ganancia × casa</div>
+              <div class="case-metric-value highlight">$25,000</div>
+            </div>
+            <div>
+              <div class="case-metric-label">Total anual</div>
+              <div class="case-metric-value profit">+$50,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="cases-disclaimer reveal">Estos resultados son específicos de cada proyecto. El retorno depende del terreno, la zona y la ejecución.</p>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 5: AUTHORITY (DARK)
+       ============================== -->
+  <section class="s-authority">
+    <div class="container">
+      <div class="authority-grid reveal">
+        <div class="authority-content">
+          <div class="authority-tag">Quién soy</div>
+          <h2 class="authority-headline">
+            <span class="accent">No soy un coach.</span><br>Soy constructor.
+          </h2>
+          <p class="authority-text">
+            Mi nombre es Víctor Arroyo. Soy developer y real estate broker. Construyo casas todos los días en Florida — Palm Bay, Sebring, Ocala, Kissimmee, Orlando y más.
+            He acompañado a más de 100 inversionistas latinos a construir su primera propiedad con mi equipo.
+          </p>
+          <div class="authority-stats">
+            <div class="auth-stat">
+              <div class="auth-stat-number">+100</div>
+              <div class="auth-stat-label">Inversionistas</div>
+            </div>
+            <div class="auth-stat">
+              <div class="auth-stat-number">20-30%</div>
+              <div class="auth-stat-label">ROI promedio</div>
+            </div>
+            <div class="auth-stat">
+              <div class="auth-stat-number">6+</div>
+              <div class="auth-stat-label">Zonas activas</div>
+            </div>
+          </div>
+        </div>
+        <div class="authority-photo-wrap">
+          <div class="authority-photo-frame">
+            <!-- Replace with Victor's real photo -->
+            <div class="photo-placeholder">
+              <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="14" stroke="currentColor" stroke-width="2"/><path d="M12 72c0-15.464 12.536-28 28-28s28 12.536 28 28" stroke="currentColor" stroke-width="2"/></svg>
+              <span style="font-size:12px;color:var(--gray-500);">Foto de Víctor</span>
+            </div>
+            <div class="authority-name-badge">
+              <div class="authority-name">VÍCTOR ARROYO</div>
+              <div class="authority-role">Developer · Broker · Mentor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 6: WHAT IT IS / ISN'T (LIGHT)
+       ============================== -->
+  <section class="s-clarity">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">Transparencia total</div>
+        <h2 class="section-title">Esto <span class="accent">SÍ es</span> / Esto NO es</h2>
+      </div>
+
+      <div class="clarity-grid reveal">
+        <div class="clarity-card is">
+          <h3>✓ Esto SÍ es</h3>
+          <ul class="clarity-list">
+            <li>Acompañamiento real de 6 meses con un developer activo</li>
+            <li>Un sistema paso a paso para construir tu primera casa en Florida</li>
+            <li>Acceso a mi equipo: constructora, abogados, contadores y bancos</li>
+            <li>Análisis financiero personalizado antes de iniciar</li>
+            <li>Supervisión directa de la construcción (permisos, inspecciones, timeline)</li>
+          </ul>
+        </div>
+        <div class="clarity-card isnt">
+          <h3>✗ Esto NO es</h3>
+          <ul class="clarity-list">
+            <li>Un curso online grabado que nunca terminas de ver</li>
+            <li>Coaching motivacional o mentoría genérica de "real estate"</li>
+            <li>Esquema de inversión pasiva tipo Airbnb o flipping</li>
+            <li>Algo que puedes hacer sin capital ($50K mínimo requerido)</li>
+            <li>Promesas de dinero fácil — esto requiere trabajo y compromiso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 7: FINAL CTA (DARK)
+       ============================== -->
+  <section class="s-cta-final">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="cta-final-title">
+          ¿Listo para construir <span class="accent">tu patrimonio</span> en Florida?
+        </h2>
+        <p class="cta-final-sub">
+          Agenda una llamada estratégica con nuestro equipo. Analizaremos tu situación financiera y te mostraremos exactamente cómo empezar.
+        </p>
+
+        <form class="cta-form-inline" id="cta-form" action="#" method="POST">
+          <input class="cta-input" type="text" name="full_name" placeholder="Tu nombre completo" required>
+          <input class="cta-input" type="email" name="email" placeholder="Tu correo electrónico" required>
+          <input class="cta-input" type="tel" name="phone" placeholder="WhatsApp (con código de país)">
+          <select class="cta-input" name="capital" required>
+            <option value="" disabled selected>¿Capital disponible?</option>
+            <option value="menos-30k">Menos de $30,000</option>
+            <option value="30k-50k">$30,000 — $50,000</option>
+            <option value="50k-100k">$50,000 — $100,000</option>
+            <option value="100k-plus">Más de $100,000</option>
+          </select>
+          <select class="cta-input" name="timeline" required>
+            <option value="" disabled selected>¿Cuándo quieres empezar?</option>
+            <option value="inmediato">Lo antes posible</option>
+            <option value="1-3-meses">En 1-3 meses</option>
+            <option value="3-6-meses">En 3-6 meses</option>
+            <option value="explorando">Solo estoy explorando</option>
+          </select>
+          <button type="submit" class="cta-btn">Quiero agendar mi llamada →</button>
+          <p class="cta-disclaimer">🔒 Sin compromiso. 100% confidencial.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2025 Víctor Arroyo — Developer & Broker. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // CTA form handler
+    document.getElementById('cta-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(this));
+      console.log('CTA form data:', data);
+      // TODO: POST to GHL webhook + redirect to calendar
+      alert('¡Gracias! Te contactaremos pronto para agendar tu llamada.');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método Nexus — Entrenamiento Exclusivo | Víctor Arroyo</title>
+  <meta name="description" content="Accede al entrenamiento exclusivo: Cómo ganar entre $50K y $80K construyendo tu propia casa en Florida con $50K de entrada + financiamiento bancario.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark: #0A0E1A;
+      --bg-card: rgba(255,255,255,0.04);
+      --orange: #F27A30;
+      --orange-hover: #FF8C42;
+      --cyan: #00AEEF;
+      --white: #FFFFFF;
+      --gray-100: #F5F5F7;
+      --gray-300: #B0B3BE;
+      --gray-500: #6B7080;
+      --font: 'Outfit', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-dark);
+      color: var(--white);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    /* === BACKGROUND GRADIENT === */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(242,122,48,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 100%, rgba(0,174,239,0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #0A0E1A 0%, #0F1525 50%, #0A0E1A 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* === MAIN CONTAINER === */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      padding: 24px 20px;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    /* === BADGE === */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(242,122,48,0.12);
+      border: 1px solid rgba(242,122,48,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      width: fit-content;
+    }
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* === HEADING === */
+    .hero-heading {
+      font-size: clamp(28px, 7vw, 38px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+    }
+    .hero-heading .accent {
+      color: var(--orange);
+    }
+
+    /* === SUBTITLE === */
+    .hero-sub {
+      font-size: 15px;
+      color: var(--gray-300);
+      line-height: 1.55;
+      font-weight: 400;
+    }
+    .hero-sub strong {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    /* === STATS ROW === */
+    .stats-row {
+      display: flex;
+      gap: 2px;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 12px 4px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item:first-child { border-radius: 12px 0 0 12px; }
+    .stat-item:last-child { border-radius: 0 12px 12px 0; }
+    .stat-number {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+    .stat-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* === FORM === */
+    .form-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .form-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-300);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .form-title span {
+      color: var(--orange);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .input-field::placeholder {
+      color: var(--gray-500);
+      font-weight: 400;
+    }
+    .input-field:focus {
+      border-color: var(--orange);
+      background: rgba(242,122,48,0.06);
+    }
+
+    select.input-field {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%236B7080' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    select.input-field option {
+      background: #1a1f30;
+      color: var(--white);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-hover));
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(242,122,48,0.35);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(242,122,48,0.45);
+    }
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .form-disclaimer {
+      font-size: 11px;
+      color: var(--gray-500);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* === TRUST BAR === */
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 0 8px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    .trust-icon {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* === MOBILE TWEAKS === */
+    @media (max-width: 380px) {
+      .page { padding: 20px 16px; gap: 22px; }
+      .hero-heading { font-size: 26px; }
+      .stat-number { font-size: 18px; }
+      .stat-label { font-size: 8px; }
+    }
+
+    /* Large screens — center nicely */
+    @media (min-height: 820px) {
+      .page { justify-content: center; }
+    }
+
+    /* Short screens — scroll if needed */
+    @media (max-height: 680px) {
+      .page {
+        justify-content: flex-start;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+
+    /* === SUBTLE ANIMATIONS === */
+    .page > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .page > *:nth-child(1) { animation-delay: 0.05s; }
+    .page > *:nth-child(2) { animation-delay: 0.12s; }
+    .page > *:nth-child(3) { animation-delay: 0.19s; }
+    .page > *:nth-child(4) { animation-delay: 0.26s; }
+    .page > *:nth-child(5) { animation-delay: 0.33s; }
+    .page > *:nth-child(6) { animation-delay: 0.40s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- BADGE -->
+    <div class="badge">Entrenamiento exclusivo</div>
+
+    <!-- HEADLINE -->
+    <h1 class="hero-heading">
+      Cómo ganar entre <span class="accent">$50K y $80K</span> construyendo tu propia casa en Florida
+    </h1>
+
+    <!-- SUBTITLE -->
+    <p class="hero-sub">
+      Con <strong>$50K de entrada + financiamiento bancario</strong>. Sin ser ingeniero. Sin experiencia previa. Mínimo 20% de rendimiento + patrimonio real en Estados Unidos.
+    </p>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Zonas de Florida</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">20-30%</div>
+        <div class="stat-label">ROI por proyecto</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4-6</div>
+        <div class="stat-label">Meses de construcción</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="form-card" id="registro-form" action="#" method="POST">
+      <div class="form-title">Regístrate para ver el <span>entrenamiento gratuito</span></div>
+
+      <input class="input-field" type="text" name="full_name" placeholder="Tu nombre completo" required>
+      <input class="input-field" type="email" name="email" placeholder="Tu mejor correo electrónico" required>
+      <input class="input-field" type="tel" name="phone" placeholder="WhatsApp (con código de país)">
+
+      <select class="input-field" name="capital" required>
+        <option value="" disabled selected>¿Capital disponible para invertir?</option>
+        <option value="menos-30k">Menos de $30,000</option>
+        <option value="30k-50k">$30,000 — $50,000</option>
+        <option value="50k-100k">$50,000 — $100,000</option>
+        <option value="100k-plus">Más de $100,000</option>
+      </select>
+
+      <button type="submit" class="btn-submit">
+        Quiero ver el entrenamiento →
+      </button>
+
+      <p class="form-disclaimer">🔒 Tu información es 100% privada. No spam.</p>
+    </form>
+
+    <!-- TRUST -->
+    <div class="trust-bar">
+      <div class="trust-item"><span class="trust-icon">🏗️</span> Developer activo</div>
+      <div class="trust-item"><span class="trust-icon">🇺🇸</span> Florida, USA</div>
+      <div class="trust-item"><span class="trust-icon">👥</span> +100 clientes</div>
+    </div>
+
+  </main>
+
+  <script>
+    // Form submission handler — replace with GHL webhook
+    document.getElementById('registro-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(this));
+      console.log('Form data:', data);
+
+      // TODO: POST to GHL webhook
+      // fetch('https://services.leadconnectorhq.com/hooks/XXXXX', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data)
+      // }).then(() => {
+      //   window.location.href = 'vsl.html';
+      // });
+
+      // Temporary redirect
+      window.location.href = 'vsl.html';
+    });
+  </script>
+
+</body>
+</html>
