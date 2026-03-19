@@ -102,6 +102,7 @@
       line-height: 1.15;
       margin-bottom: 12px;
       letter-spacing: -0.5px;
+      text-align: center;
     }
     .video-hero-title .accent { color: var(--orange); }
 
@@ -110,8 +111,11 @@
       color: var(--gray-300);
       line-height: 1.6;
       max-width: 600px;
-      margin-bottom: 32px;
+      margin: 0 auto 32px;
+      text-align: center;
     }
+
+    .video-hero-badge { margin: 0 auto 16px; }
 
     /* Video wrapper */
     .video-wrapper {
@@ -179,6 +183,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 16px;
+      text-align: center;
     }
     .s-reframe .section-title {
       font-size: clamp(26px, 3.5vw, 38px);
@@ -186,6 +191,7 @@
       line-height: 1.15;
       color: var(--dark);
       margin-bottom: 12px;
+      text-align: center;
     }
     .s-reframe .section-title .accent { color: var(--orange); }
     .s-reframe .section-desc {
@@ -193,8 +199,10 @@
       color: var(--gray-700);
       line-height: 1.6;
       max-width: 620px;
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
+      text-align: center;
     }
+    .math-card { margin: 0 auto; }
 
     .math-card {
       max-width: 560px;
@@ -602,7 +610,73 @@
     .s-clarity .section-title .accent { color: var(--orange); }
 
     /* ==============================
-       SECTION 7: FINAL CTA (DARK)
+       SECTION 7: URGENCY (DARK - ORANGE GLOW)
+       ============================== */
+    .s-urgency {
+      background: linear-gradient(180deg, var(--bg-dark-2), var(--bg-dark));
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+    .s-urgency::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(242,122,48,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .s-urgency .container { position: relative; z-index: 1; }
+    .urgency-tag {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .urgency-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .urgency-title .accent { color: var(--orange); }
+    .urgency-desc {
+      font-size: 16px;
+      color: var(--gray-300);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .urgency-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .urgency-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 28px 20px;
+      transition: border-color 0.3s;
+    }
+    .urgency-card:hover { border-color: rgba(242,122,48,0.3); }
+    .urgency-icon { font-size: 28px; margin-bottom: 12px; }
+    .urgency-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .urgency-card-desc {
+      font-size: 13px;
+      color: var(--gray-300);
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       SECTION 8: FINAL CTA (DARK)
        ============================== */
     .s-cta-final {
       background: linear-gradient(180deg, var(--bg-dark), #060912);
@@ -715,12 +789,13 @@
       .authority-stats { max-width: 400px; margin: 0 auto; }
       .authority-photo-wrap { order: -1; }
       .clarity-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .urgency-cards { grid-template-columns: 1fr; max-width: 400px; }
     }
     @media (max-width: 640px) {
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .step-card:last-child { grid-column: span 2; max-width: 280px; margin: 0 auto; }
       .case-metrics { grid-template-columns: 1fr 1fr; }
-      .s-video-hero, .s-reframe, .s-steps, .s-cases, .s-authority, .s-clarity, .s-cta-final {
+      .s-video-hero, .s-reframe, .s-steps, .s-cases, .s-authority, .s-clarity, .s-urgency, .s-cta-final {
         padding: 56px 0;
       }
     }
@@ -1018,7 +1093,39 @@
   </section>
 
   <!-- ==============================
-       SECTION 7: FINAL CTA (DARK)
+       SECTION 7: URGENCY (DARK)
+       ============================== -->
+  <section class="s-urgency">
+    <div class="container">
+      <div class="reveal">
+        <div class="urgency-tag">¿Por qué ahora?</div>
+        <h2 class="urgency-title">La oportunidad <span class="accent">no espera</span></h2>
+        <p class="urgency-desc">
+          Los terrenos en Florida suben de precio cada trimestre. Cada mes que esperas, tu margen de ganancia se reduce.
+        </p>
+      </div>
+      <div class="urgency-cards reveal">
+        <div class="urgency-card">
+          <div class="urgency-icon">📈</div>
+          <div class="urgency-card-title">Precios subiendo</div>
+          <div class="urgency-card-desc">Los terrenos en zonas clave han subido 18% en el último año. Cada trimestre cuesta más empezar.</div>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-icon">🏗️</div>
+          <div class="urgency-card-title">Cupos limitados</div>
+          <div class="urgency-card-desc">Mi equipo solo puede gestionar un número limitado de proyectos simultáneos con supervisión directa.</div>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-icon">💰</div>
+          <div class="urgency-card-title">Financiamiento favorable</div>
+          <div class="urgency-card-desc">Las condiciones actuales de los construction loans permiten financiar hasta 85%. Esto puede cambiar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SECTION 8: FINAL CTA (DARK)
        ============================== -->
   <section class="s-cta-final">
     <div class="container">

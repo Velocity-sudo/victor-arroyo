@@ -1,383 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Método Nexus — Entrenamiento Exclusivo | Víctor Arroyo</title>
-  <meta name="description" content="Accede al entrenamiento exclusivo: Cómo ganar entre $50K y $80K construyendo tu propia casa en Florida con $50K de entrada + financiamiento bancario.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construye Tu Casa en Florida | Víctor Arroyo</title>
+<meta name="description" content="Aprende cómo ganar entre $50K y $80K construyendo tu propia casa en Florida. El banco financia el 80%. En menos de 6 meses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Outfit',sans-serif;background:#0a0f1a;color:#fff;display:flex;align-items:center;justify-content:center;position:relative}
 
-    :root {
-      --bg-dark: #0A0E1A;
-      --bg-card: rgba(255,255,255,0.04);
-      --orange: #F27A30;
-      --orange-hover: #FF8C42;
-      --cyan: #00AEEF;
-      --white: #FFFFFF;
-      --gray-100: #F5F5F7;
-      --gray-300: #B0B3BE;
-      --gray-500: #6B7080;
-      --font: 'Outfit', -apple-system, sans-serif;
-    }
+/* — Background glow — */
+body::before{content:'';position:fixed;top:-30%;left:-10%;width:60%;height:60%;background:radial-gradient(circle,rgba(242,122,48,.08) 0%,transparent 70%);pointer-events:none}
+body::after{content:'';position:fixed;bottom:-20%;right:-10%;width:50%;height:50%;background:radial-gradient(circle,rgba(0,174,239,.06) 0%,transparent 70%);pointer-events:none}
 
-    html { scroll-behavior: smooth; }
+/* — Main content — */
+.landing{text-align:center;max-width:580px;padding:2rem 1.5rem;position:relative;z-index:1}
 
-    body {
-      font-family: var(--font);
-      background: var(--bg-dark);
-      color: var(--white);
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-    }
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(242,122,48,.12);border:1px solid rgba(242,122,48,.25);padding:.5rem 1.2rem;border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#F27A30;margin-bottom:2rem}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:#F27A30;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-    /* === BACKGROUND GRADIENT === */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(242,122,48,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 100%, rgba(0,174,239,0.06) 0%, transparent 50%),
-        linear-gradient(180deg, #0A0E1A 0%, #0F1525 50%, #0A0E1A 100%);
-      z-index: 0;
-      pointer-events: none;
-    }
+/* Headline */
+.headline{font-size:2.6rem;font-weight:800;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.02em}
+.headline .accent{color:#F27A30}
+.headline .accent-blue{color:#00AEEF}
 
-    /* === MAIN CONTAINER === */
-    .page {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 480px;
-      padding: 24px 20px;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 28px;
-    }
+/* Subtext */
+.subtext{font-size:1.05rem;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:2.5rem;font-weight:300}
+.subtext strong{color:rgba(255,255,255,.85);font-weight:500}
 
-    /* === BADGE === */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(242,122,48,0.12);
-      border: 1px solid rgba(242,122,48,0.25);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--orange);
-      width: fit-content;
-    }
-    .badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--orange);
-      border-radius: 50%;
-      animation: pulse-dot 2s infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
-    }
+/* Stats row */
+.stats{display:flex;justify-content:center;gap:0;margin-bottom:2.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
+.stat{flex:1;padding:1rem .5rem;text-align:center}
+.stat+.stat{border-left:1px solid rgba(255,255,255,.08)}
+.stat-value{font-size:1.4rem;font-weight:700;color:#F27A30}
+.stat-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-top:.25rem}
 
-    /* === HEADING === */
-    .hero-heading {
-      font-size: clamp(28px, 7vw, 38px);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.5px;
-    }
-    .hero-heading .accent {
-      color: var(--orange);
-    }
+/* CTA Button */
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;max-width:420px;padding:1.1rem 2rem;background:linear-gradient(135deg,#F27A30,#e0621a);color:#fff;font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 32px rgba(242,122,48,.3);letter-spacing:.01em}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(242,122,48,.45)}
+.cta-btn:active{transform:translateY(0)}
 
-    /* === SUBTITLE === */
-    .hero-sub {
-      font-size: 15px;
-      color: var(--gray-300);
-      line-height: 1.55;
-      font-weight: 400;
-    }
-    .hero-sub strong {
-      color: var(--cyan);
-      font-weight: 600;
-    }
+.cta-sub{font-size:.8rem;color:rgba(255,255,255,.35);margin-top:.8rem}
 
-    /* === STATS ROW === */
-    .stats-row {
-      display: flex;
-      gap: 2px;
-    }
-    .stat-item {
-      flex: 1;
-      text-align: center;
-      padding: 12px 4px;
-      background: var(--bg-card);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .stat-item:first-child { border-radius: 12px 0 0 12px; }
-    .stat-item:last-child { border-radius: 0 12px 12px 0; }
-    .stat-number {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--orange);
-    }
-    .stat-label {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gray-500);
-      margin-top: 2px;
-      font-weight: 500;
-    }
+/* — Modal Overlay — */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all .35s ease}
+.modal-overlay.active{opacity:1;visibility:visible}
 
-    /* === FORM === */
-    .form-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .form-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gray-300);
-      text-align: center;
-      margin-bottom: 4px;
-    }
-    .form-title span {
-      color: var(--orange);
-    }
+.modal{background:#111827;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.5rem 2rem;max-width:440px;width:90%;position:relative;transform:translateY(20px) scale(.97);transition:all .35s ease}
+.modal-overlay.active .modal{transform:translateY(0) scale(1)}
 
-    .input-field {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      color: var(--white);
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 400;
-      outline: none;
-      transition: border-color 0.25s, background 0.25s;
-    }
-    .input-field::placeholder {
-      color: var(--gray-500);
-      font-weight: 400;
-    }
-    .input-field:focus {
-      border-color: var(--orange);
-      background: rgba(242,122,48,0.06);
-    }
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.5);width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:rgba(255,255,255,.15);color:#fff}
 
-    select.input-field {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%236B7080' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 40px;
-    }
-    select.input-field option {
-      background: #1a1f30;
-      color: var(--white);
-    }
+.modal-title{font-size:1.3rem;font-weight:700;margin-bottom:.4rem;text-align:center}
+.modal-title .accent{color:#F27A30}
+.modal-sub{font-size:.85rem;color:rgba(255,255,255,.45);text-align:center;margin-bottom:1.5rem}
 
-    .btn-submit {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-hover));
-      color: var(--white);
-      border: none;
-      border-radius: 12px;
-      font-family: var(--font);
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(242,122,48,0.35);
-      margin-top: 4px;
-      letter-spacing: 0.3px;
-    }
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(242,122,48,0.45);
-    }
-    .btn-submit:active {
-      transform: translateY(0);
-    }
+/* Form */
+.form-group{margin-bottom:.8rem}
+.form-group input,.form-group select{width:100%;padding:.9rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+.form-group input::placeholder{color:rgba(255,255,255,.3)}
+.form-group input:focus,.form-group select:focus{border-color:rgba(242,122,48,.5)}
+.form-group select{appearance:none;cursor:pointer;color:rgba(255,255,255,.5)}
+.form-group select option{background:#111827;color:#fff}
 
-    .form-disclaimer {
-      font-size: 11px;
-      color: var(--gray-500);
-      text-align: center;
-      line-height: 1.5;
-    }
+.submit-btn{width:100%;padding:1rem;background:linear-gradient(135deg,#F27A30,#e0621a);color:#fff;font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;border:none;border-radius:12px;cursor:pointer;margin-top:.5rem;transition:all .3s ease;box-shadow:0 6px 24px rgba(242,122,48,.3)}
+.submit-btn:hover{box-shadow:0 8px 32px rgba(242,122,48,.45);transform:translateY(-1px)}
 
-    /* === TRUST BAR === */
-    .trust-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 0 8px;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--gray-500);
-      font-weight: 500;
-    }
-    .trust-icon {
-      font-size: 14px;
-      opacity: 0.7;
-    }
+.form-note{text-align:center;font-size:.72rem;color:rgba(255,255,255,.25);margin-top:.8rem}
 
-    /* === MOBILE TWEAKS === */
-    @media (max-width: 380px) {
-      .page { padding: 20px 16px; gap: 22px; }
-      .hero-heading { font-size: 26px; }
-      .stat-number { font-size: 18px; }
-      .stat-label { font-size: 8px; }
-    }
-
-    /* Large screens — center nicely */
-    @media (min-height: 820px) {
-      .page { justify-content: center; }
-    }
-
-    /* Short screens — scroll if needed */
-    @media (max-height: 680px) {
-      .page {
-        justify-content: flex-start;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-    }
-
-    /* === SUBTLE ANIMATIONS === */
-    .page > * {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.5s ease forwards;
-    }
-    .page > *:nth-child(1) { animation-delay: 0.05s; }
-    .page > *:nth-child(2) { animation-delay: 0.12s; }
-    .page > *:nth-child(3) { animation-delay: 0.19s; }
-    .page > *:nth-child(4) { animation-delay: 0.26s; }
-    .page > *:nth-child(5) { animation-delay: 0.33s; }
-    .page > *:nth-child(6) { animation-delay: 0.40s; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* — Responsive — */
+@media(max-width:480px){
+  .headline{font-size:2rem}
+  .stat-value{font-size:1.15rem}
+  .modal{padding:2rem 1.5rem}
+}
+</style>
 </head>
 <body>
 
-  <main class="page">
+<div class="landing">
+  <div class="badge">
+    <span class="dot"></span>
+    Cupos limitados
+  </div>
 
-    <!-- BADGE -->
-    <div class="badge">Entrenamiento exclusivo</div>
+  <h1 class="headline">
+    Gana entre <span class="accent">$50K y $80K</span> construyendo tu casa en <span class="accent-blue">Florida</span>
+  </h1>
 
-    <!-- HEADLINE -->
-    <h1 class="hero-heading">
-      Cómo ganar entre <span class="accent">$50K y $80K</span> construyendo tu propia casa en Florida
-    </h1>
+  <p class="subtext">
+    Solo necesitas <strong>$50K para el terreno</strong> — el banco financia el resto.<br>
+    En menos de <strong>6 meses</strong>, tu casa estará construida.
+  </p>
 
-    <!-- SUBTITLE -->
-    <p class="hero-sub">
-      Con <strong>$50K de entrada + financiamiento bancario</strong>. Sin ser ingeniero. Sin experiencia previa. Mínimo 20% de rendimiento + patrimonio real en Estados Unidos.
-    </p>
-
-    <!-- STATS -->
-    <div class="stats-row">
-      <div class="stat-item">
-        <div class="stat-number">6+</div>
-        <div class="stat-label">Zonas de Florida</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">20-30%</div>
-        <div class="stat-label">ROI por proyecto</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4-6</div>
-        <div class="stat-label">Meses de construcción</div>
-      </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">$50K</div>
+      <div class="stat-label">Inversión inicial</div>
     </div>
+    <div class="stat">
+      <div class="stat-value">6 meses</div>
+      <div class="stat-label">Tiempo de obra</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">20-30%</div>
+      <div class="stat-label">ROI por proyecto</div>
+    </div>
+  </div>
 
-    <!-- FORM -->
-    <form class="form-card" id="registro-form" action="#" method="POST">
-      <div class="form-title">Regístrate para ver el <span>entrenamiento gratuito</span></div>
+  <button class="cta-btn" onclick="openModal()">
+    Quiero aprender cómo →
+  </button>
+  <p class="cta-sub">Acceso inmediato al entrenamiento</p>
+</div>
 
-      <input class="input-field" type="text" name="full_name" placeholder="Tu nombre completo" required>
-      <input class="input-field" type="email" name="email" placeholder="Tu mejor correo electrónico" required>
-      <input class="input-field" type="tel" name="phone" placeholder="WhatsApp (con código de país)">
+<!-- — Registration Modal — -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeIfOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
 
-      <select class="input-field" name="capital" required>
-        <option value="" disabled selected>¿Capital disponible para invertir?</option>
-        <option value="menos-30k">Menos de $30,000</option>
-        <option value="30k-50k">$30,000 — $50,000</option>
-        <option value="50k-100k">$50,000 — $100,000</option>
-        <option value="100k-plus">Más de $100,000</option>
-      </select>
+    <p class="modal-title">Accede al <span class="accent">entrenamiento</span></p>
+    <p class="modal-sub">Completa tus datos para ver el video ahora</p>
 
-      <button type="submit" class="btn-submit">
-        Quiero ver el entrenamiento →
-      </button>
-
-      <p class="form-disclaimer">🔒 Tu información es 100% privada. No spam.</p>
+    <form id="registroForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Tu nombre completo" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Tu mejor correo electrónico" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="WhatsApp (con código de país)" required>
+      </div>
+      <div class="form-group">
+        <select name="capital" required>
+          <option value="" disabled selected>¿Capital disponible para invertir?</option>
+          <option value="menos-50k">Menos de $50,000</option>
+          <option value="50k-100k">$50,000 – $100,000</option>
+          <option value="100k-200k">$100,000 – $200,000</option>
+          <option value="mas-200k">Más de $200,000</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Ver entrenamiento ahora →</button>
     </form>
+    <p class="form-note">🔒 Tu información está segura. No compartimos tus datos.</p>
+  </div>
+</div>
 
-    <!-- TRUST -->
-    <div class="trust-bar">
-      <div class="trust-item"><span class="trust-icon">🏗️</span> Developer activo</div>
-      <div class="trust-item"><span class="trust-icon">🇺🇸</span> Florida, USA</div>
-      <div class="trust-item"><span class="trust-icon">👥</span> +100 clientes</div>
-    </div>
-
-  </main>
-
-  <script>
-    // Form submission handler — replace with GHL webhook
-    document.getElementById('registro-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(this));
-      console.log('Form data:', data);
-
-      // TODO: POST to GHL webhook
-      // fetch('https://services.leadconnectorhq.com/hooks/XXXXX', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(data)
-      // }).then(() => {
-      //   window.location.href = 'vsl.html';
-      // });
-
-      // Temporary redirect
-      window.location.href = 'vsl.html';
-    });
-  </script>
+<script>
+function openModal(){
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+function closeIfOutside(e){
+  if(e.target===document.getElementById('modalOverlay')) closeModal();
+}
+function handleSubmit(e){
+  e.preventDefault();
+  // TODO: Send to GHL webhook
+  window.location.href='vsl.html';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeModal();});
+</script>
 
 </body>
 </html>
